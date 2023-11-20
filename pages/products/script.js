@@ -162,17 +162,15 @@ function subCount(cart, id) {
 }
 
 function addCount(cart, id) {
-    let product = cart.find(cart, id);
-    product.count++;
+    setProductCartButtonText(id, cart.find(id).add());
     setCart(cart);
-    setProductCartButtonText(id, product.count);
 }
 
 function setProductsButtonsOnClick() {
     for (let button of document.querySelectorAll(".product_buy_button")) {
         button.onclick = function () {
             let id = button.id.split("+")[0];
-            cart.products.push({id: id, category: category, count: 1});
+            cart.products.push(new CartProduct(id, category));
             setCart(cart);
             setProductBuyButtonsState(id, true);
             setProductCartButtonText(id, 1);
@@ -246,7 +244,7 @@ function setSumText(cart) {
 
 function setCart(cart) {
     document.getElementById("cart_div").innerHTML = "";
-    for (let element of cart) {
+    for (let element of cart.products) {
         createCartElement(element, getProduct(element.category, element.id));
     }
     setCartElementButtonsOnClick();
@@ -299,10 +297,11 @@ function Cart(str = null) {
     }
 }
 
+// localStorage.removeItem("cart");
 import data from '../../products/products.json' assert {type: 'json'};
 
 let cart = new Cart(localStorage.getItem("cart"));
-alert(cart.toString())
+setCart(cart);
 let category = getCategory();
 addCategory(category);
 
