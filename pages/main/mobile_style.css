@@ -1,0 +1,133 @@
+main {
+    grid: repeat(4, fit-content(100%)) / 1fr;
+    grid-auto-flow: row dense;
+}
+
+#parts, #shop_info, #order {
+    grid-column: 1;
+    grid-column-start: auto;
+    grid-column-end: auto;
+    grid-row-start: auto;
+    grid-row-end: auto;
+    /*height: fit-content;*/
+}
+
+#up_nav {
+    flex-direction: row-reverse;
+    outline: none;
+    flex-grow: 1;
+
+    > label {
+        display: block;
+        margin-right: 20px;
+        right: 20px;
+        font-size: 50px;
+        transition: transform 400ms;
+    }
+
+    > label::before {
+        content: '☰';
+    }
+}
+
+#header_head {
+    font-size: 1rem;
+}
+
+#nav_menu_button:checked {
+    + label {
+        transform: rotate(90deg);
+
+    }
+    + label + ul.nav_list {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+ul.nav_list {
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    flex-flow: column;
+
+    width: 100%;
+    height: fit-content;
+    position: absolute;
+    top: 80px;
+    right: 0;
+    left: 0;
+    transition: opacity 400ms, visibility 0s;
+
+    border-radius: 45px;
+
+    > li {
+        display: block;
+        opacity: 0.95;
+        height: fit-content;
+
+        & a {
+            height: 10vh;
+            box-shadow: 5px 5px 8px grey;
+        }
+
+    }
+
+    :first-child > a {
+        border-top-right-radius: 45px;
+        border-top-left-radius: 45px;
+        border-bottom-left-radius: 0;
+    }
+
+    :last-child > a {
+        border-bottom-right-radius: 45px;
+        border-bottom-left-radius: 45px;
+        border-top-right-radius: 0;
+    }
+}
+
+#shop_info {
+    > div > div {
+        & iframe {
+            width: 75vw;
+            height: 30vw;
+        }
+    }
+}
+
+#order_form {
+    grid: repeat(10, fit-content(100%)) / 1fr;
+    > :last-child {
+        grid-column: span 1;
+    }
+
+    > :nth-child(6) {
+        grid-column: span 1;
+        width: 95%;
+    }
+}
+
+#pic_div {
+    grid: repeat(8, calc((100vw - 160px) / 2)) / calc((100vw - 160px));
+    grid-auto-flow: row;
+
+    > :nth-child(1) {
+        grid-row: span 1;
+    }
+
+    > :nth-child(3) {
+        grid-column: span 1;
+    }
+
+    > :nth-child(5) {
+        grid-row: span 1;
+    }
+
+    > :nth-child(7) {
+        grid-column: span 1;
+    }
+}
+
+footer {
+    grid: repeat(4, fit-content(100%)) / 1fr;
+}

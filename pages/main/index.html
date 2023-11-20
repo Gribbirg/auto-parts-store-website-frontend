@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Магазин автозапчастей</title>
+    <!--Фавиконка-->
+    <link rel="icon" type="image/png" href="../../images/logo/logo_small.png">
+    <!--    Подключение стилей-->
+    <link rel="stylesheet" href="../global_style.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="tablet_style.css" media="(max-width: 1024px) and (min-width: 768px)">
+    <link rel="stylesheet" href="mobile_style.css" media="(max-width: 768px)">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script defer src="script.js"></script>
+</head>
+<body>
+
+<!--Шапка-->
+<header id="header">
+    <img id="left_logo" src="../../images/logo/logo_left.png" alt="Лучшая машина">
+    <h1 id="header_head">Магазин автозапчастей</h1>
+    <!--    <img id="right_logo" src="images/logo_right.png" alt="Лучшая машина">-->
+
+    <!--Навигация-->
+    <nav id="up_nav">
+        <input type="checkbox" id="nav_menu_button"><label for="nav_menu_button"></label>
+        <ul class="nav_list">
+            <li><a href="#catalog_position"><p>Каталог</p></a></li>
+            <li><a href="#DVS_position"><p>О ДВС</p></a></li>
+            <li><a href="#descriptions_position"><p>Что такое...?</p></a></li>
+            <li><a href="#pictures_position"><p>Галерея</p></a></li>
+            <li><a href="#order_position"><p>Заказать</p></a></li>
+            <li><a href="#shop_info_position"><p>О нас</p></a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section id="catalog" class="part">
+        <!--Списки-->
+        <p id="catalog_position" class="positions"></p>
+        <h2 class="part_name">Каталог</h2>
+        <ul id="catalog_list">
+            <li>
+                <a href="../products/index.html?category=chemistry"></a>
+                <h4>Масло и автохимия</h4>
+                <ul>
+                    <li>Масла</li>
+                    <li>Жидкости для охлаждения</li>
+                    <li>Жидкости для омывателя</li>
+                </ul>
+            </li>
+            <li>
+                <a href="../products/index.html?category=tiers"></a>
+                <h4>Шины, диски</h4>
+                <ul>
+                    <li>Шины</li>
+                    <li>Диски</li>
+                    <li>Колпачки</li>
+                </ul>
+            </li>
+            <li>
+                <a href="../products/index.html?category=electronics"></a>
+                <h4>Автоэлектроника</h4>
+                <ul>
+                    <li>Лампы</li>
+                    <li>Аккумуляторы</li>
+                    <li>Предохранители</li>
+                </ul>
+            </li>
+            <li>
+                <a href="../products/index.html?category=other"></a>
+                <h4>Остальное</h4>
+                <ul>
+                    <li>Инструменты</li>
+                    <li>Автоаксессуары</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <section id="lk">
+        <p id="lk_position" class="positions"></p>
+        <h2 class="part_name">Личный кабинет</h2>
+        <div>
+            <form method="dialog" id="captcha" class="enter_form">
+                <h4>Для работы с ЛК пройдите тестирование</h4>
+                <p>Введите текст ниже:</p>
+                <div>
+                    <label for="captcha_input"></label>
+                    <input type="text" id="captcha_input" name="captcha_input" class="field">
+                </div>
+            </form>
+            <form method="post" id="enter_form" class="enter_form">
+                <h4>Войти</h4>
+                <label for="enter_email">Электронная почта</label>
+                <input type="email" name="enter_email" id="enter_email" class="field"><br>
+                <label for="password">Пароль</label><input type="password" name="password" id="password"
+                                                           class="field"><br>
+                <div>
+                    <button type="submit">Войти</button>
+                </div>
+            </form>
+            <form method="dialog" id="reg_form" class="enter_form">
+                <h4>Регистрация</h4>
+                <label id="reg_ans_label" for="reg_ans">Желаете пройти регистрацию?</label>
+                <input type="text" name="reg_email" id="reg_ans" class="field"><br>
+            </form>
+        </div>
+    </section>
+
+    <!--О двигателе-->
+    <section id="DVS">
+        <p id="DVS_position" class="positions"></p>
+        <h2 class="part_name">О ДВС</h2>
+        <p><b>Дви́гатель вну́треннего сгора́ния </b>
+            <abbr title="Двигатель внутреннего сгорания">(ДВС)</abbr>
+            <a> — разновидность </a>
+            <strong>теплового</strong>
+            <a>двигателя в котором топливная смесь</a>
+            <i>сгорает</i>
+            <em>непосредственно в рабочей камере (внутри) двигателя.</em>
+            <a>Продукты сгорания образуют </a>
+            <u>рабочее</u>
+            <a> тело. Такой двигатель является </a>
+            <sub>первичным,</sub>
+            <sup>химическим,</sup>
+            <a> и преобразует энергию сгорания топлива в механическую работу.</a>
+        </p>
+        <article>
+            <!--Цитата-->
+            <p><cite>Андрей Гарольдович Кнышев:</cite></p>
+            <q>Для колеса истории Россия — несомненно, двигатель, причем внутреннего сгорания.</q>
+        </article>
+        <p>
+            Каждому типу ДВС соответствует топливо, которое для него может быть использовано. Так, для двигателей с
+            воспламенением от сжатия требуется солярка с достаточно высоким цетановым числом, определяющим воспламенение
+            без значительной задержки. Чем дизель быстроходнее, тем выше требования к цетановому числу. С другой
+            стороны, снижение цетанового числа можно частично скомпенсировать изменениями в конструкции двигателя:
+            повышением степени сжатия, подогревом воздуха на впуске. Такое необходимо в конструкции многотопливных
+            дизелей, устанавливаемых на танки и БМП, поскольку при нарушении снабжения подразделений, ведущих
+            наступление, приходится использовать любое доступное топливо (керосин, бензин, лигроин). Дизельное
+            топливо не должно иметь значительное содержание серы, поскольку кроме экологического урона, образующийся в
+            цилиндрах диоксид серы вызывает коррозию цилиндро-поршневой группы и износ подшипников. Фракционный состав
+            дизельного топлива должен обеспечивать его незамерзаемость до нужных температур.
+            Существует большое число разнообразных двигателей с внутренним сгоранием, отличающихся назначением, способом
+            отдачи мощности и другими параметрами.
+
+        </p>
+    </section>
+
+
+    <section id="descriptions">
+        <!--Список описаний-->
+        <p id="descriptions_position" class="positions"></p>
+        <h3 class="part_name">Что такое...?</h3>
+        <dl>
+            <dt>Моторное масло</dt>
+            <dd>— это масла, применяемые главным образом для охлаждения и снижения трения между движущимися деталями
+                поршневых и
+                роторных двигателей внутреннего сгорания.
+            </dd>
+            <dd>— это смесь двух компонентов – базового масла и пакета присадок.</dd>
+
+            <dt>Масла трансмиссионные</dt>
+            <dd>— это смазочные масла, применяемые для смазки коробок передач, раздаточных коробок, главных передач
+                ведущих
+                мостов,
+                рулевых механизмов,[1] а также зубчатых и цепных передач (редукторов) всех видов.
+            </dd>
+            <dd>— это специальный состав, использующийся для защиты деталей коробки перемены передач, коробки основных
+                передач
+                ведущих мостов, раздаточной коробки, рулевых механизмов, а также различных видов цепных и зубчатых
+                передач
+                (редукторов).
+            </dd>
+
+            <dt>Жидкости для омывателя стекла</dt>
+            <dd>— это вода, в которую в определенной концентрации добавлен спирт, поверхностно-активные вещества (моющие
+                средства), ароматизаторы или отдушки, которые нейтрализуют резкий запах растворителей, и красители.
+            </dd>
+
+            <dt>Жидкости тормозные</dt>
+            <dd>— это специальная жидкость, предназначенная для заполнения гидравлической тормозной системы автомобиля и
+                обеспечивающая её работоспособность при любых условиях эксплуатации.
+            </dd>
+
+            <dt>Жидкости охлаждающие</dt>
+            <dd>— это жидкость, играющая роль теплоносителя в системе охлаждения двигателя внутреннего сгорания и других
+                машин.
+            </dd>
+        </dl>
+    </section>
+
+    <section id="parts">
+        <p id="parts_position" class="positions"></p>
+        <h2 class="part_name">Информация</h2>
+        <div id="blur_card_div">
+            <div>
+                <p>Как выбрать двигатель автомобиля, какой выбрать двигатель, какие бывают двигатели, чем они отличаются
+                    и чем одни из них лучше других?</p>
+                <button class="arrow_button"><span>Подробнее</span></button>
+            </div>
+            <div>
+                <p>От того, какое моторное масло вы выбираете, во многом зависит стабильная работа двигателя
+                    автомобиля.</p>
+                <button class="arrow_button"><span>Подробнее</span></button>
+            </div>
+            <div>
+                <p>От того, какая резина установлена на автомобиле, во многом зависит безопасность водителя и пешеходов.
+                </p>
+                <button class="arrow_button"><span>Подробнее</span></button>
+            </div>
+        </div>
+        <div id="anim_line_div">
+            <div>
+                <div>
+                    <h3>Кто покупает Москвич?</h3>
+                    <p>Проблем со сбытом кроссовера Москвич 3 не будет, поскольку эта машина станет востребована в
+                        корпоративных и ведомственных автопарках, таким мнением поделился вице-мэр столицы Максим
+                        Ликсутов.</p>
+                    <button class="arrow_button"><span>Подробнее</span></button>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <h3>Где покупают автозапчасти на Москвич?</h3>
+                    <p>Разумеется, в нашем магазине! Только у нас вы можете купить самые надёжные и выгодные
+                        автозапчасти.</p>
+                    <button class="arrow_button"><span>Подробнее</span></button>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <h3>Зачем необходимо менять масло в двигателе?</h3>
+                    <p>Замена масла в двигателе необходима для долговечной, исправной работы силового агрегата. Масло
+                        выполняет функцию смазки трущихся деталей и механизмов.</p>
+                    <button class="arrow_button"><span>Подробнее</span></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="order">
+        <p id="order_position" class="positions"></p>
+        <h2 class="part_name">Заказать запчасть</h2>
+
+        <div>
+            <form method="post" id="order_form">
+                <div><label for="name">Ваше имя:</label><br><input type="text" name="name" id="name" class="field"
+                                                                   required placeholder="">
+                </div>
+                <div class="text_div"><label for="tel">Телефон:</label><input type="tel" name="tel" id="tel"
+                                                                              class="field" required
+                                                                              pattern="[+][7][0-9]{10}"
+                                                                              placeholder="+7XXXXXXXXXX">
+                </div>
+                <div class="text_div"><label for="email">Электронная почта:</label><input type="email" name="email"
+                                                                                          id="email"
+                                                                                          class="field" required
+                                                                                          placeholder="">
+                </div>
+                <fieldset class="field">
+                    <legend>Пол</legend>
+                    <div><input type="radio" name="sex" id="man" checked><label for="man">Мужчина</label></div>
+                    <div><input type="radio" name="sex" id="woman"><label for="woman">Женщина</label></div>
+                </fieldset>
+                <fieldset class="field">
+                    <legend>Какой товар желаете?</legend>
+                    <div><input type="checkbox" name="oil" id="oil"><label for="oil">Масло и автохимия</label></div>
+                    <div><input type="checkbox" name="tiers" id="tiers"><label for="tiers">Шины, диски</label></div>
+                    <div><input type="checkbox" name="elec" id="elec"><label for="elec">Автоэлектроника</label></div>
+                    <div><input type="checkbox" name="other" id="other"><label for="other">Остальное</label></div>
+                </fieldset>
+
+                <div>
+                    <label for="problem_desc">Опишите вашу проблему:</label><br>
+                    <textarea name="problem_desc" id="problem_desc"
+                              cols="1" rows="2" maxlength="1000000"
+                              minlength="10" required
+                              placeholder="Опишите, как ведёт себя ваш автомобиль, историю неисправности"
+                              class="field"></textarea>
+                </div>
+                <div>
+                    <label for="file">Файл о вашей проблеме:</label><br><input type="file" name="file" id="file"
+                                                                               class="field">
+                </div>
+                <div>
+                    <label for="com_type">Как с вами лучше связаться?</label><br>
+                    <select name="com_type" id="com_type" multiple required size="4" class="field">
+                        <option value="phone">По телефону</option>
+                        <option value="email">По электронной почте</option>
+                        <option value="whatsapp">По WhatsApp</option>
+                        <option value="telegram">По Telegram</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="time-local">Когда с вами лучше связаться?</label><br>
+                    <input type="datetime-local"
+                           name="time-local"
+                           id="time-local" required
+                           class="field"
+                           placeholder="">
+                </div>
+                <div>
+                    <button type="submit" name="sub" id="sub" class="arrow_button"><span>Отправить</span></button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+
+    <section id="shop_info">
+        <p id="shop_info_position" class="positions"></p>
+        <h2 class="part_name">О нашем автомагазине</h2>
+
+        <div>
+
+            <h4>Наш магазин расположен по адресу:</h4>
+            <div id="shop_place_div">
+                <iframe src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Ulitsa%20Lobachevskogo,%20%D0%B4.%2048/87,%20Moscow,%20119415+(%D0%9C%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD%20%D0%B0%D0%B2%D1%82%D0%BE%D0%B7%D0%B0%D0%BF%D1%81%D0%B0%D1%87%D1%82%D0%B5%D0%B9)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                        width="80%" height="45%" title="Улица Лобачевского, д. 2. 119415, г. Москва, 48/87"
+                        frameborder="0"
+                        class="content"></iframe>
+            </div>
+
+
+            <!--                    <h4>Видео о нас:</h4>-->
+            <!--                    <div id="video_div">-->
+            <!--                        <iframe width="80%" height="45%" src="https://www.youtube.com/embed/U5sBtvZ-BPI?si=3YFj2bY2asdChys_"-->
+            <!--                                title="YouTube video player" frameborder="0"-->
+            <!--                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"-->
+            <!--                                allowfullscreen-->
+            <!--                                class="content"></iframe>-->
+            <!--                    </div>-->
+        </div>
+    </section>
+
+</main>
+
+
+<section id="pictures">
+    <p class="positions" id="pictures_position"></p>
+    <h2 class="part_name">Галерея</h2>
+    <div id="pic_div">
+        <div class="content map_div shadow_inside">
+            <img src="../../images/photo/photo_1.jpeg" alt="Фотография автозапчасти">
+            <button>❤</button>
+        </div>
+        <div class="content map_div shadow_inside">
+            <img src="../../images/photo/photo_2.jpg" alt="Фотография автозапчасти">
+            <button>❤</button>
+        </div>
+        <div class="content map_div shadow_inside">
+            <img src="../../images/photo/photo_3.png" alt="Фотография автозапчасти">
+            <button>❤</button>
+        </div>
+        <div class="content map_div shadow_inside">
+            <img src="../../images/photo/photo_4.jpg" alt="Фотография автозапчасти">
+            <button>❤</button>
+        </div>
+        <div class="content map_div shadow_inside">
+            <img src="../../images/photo/photo_5.png" alt="Фотография автозапчасти">
+            <button>❤</button>
+        </div>
+        <div class="content map_div shadow_inside">
+            <img src="../../images/photo/photo_6.jpg" alt="Фотография автозапчасти">
+            <button>❤</button>
+        </div>
+        <div class="content map_div shadow_inside">
+            <img src="../../images/photo/photo_7.jpg" alt="Фотография автозапчасти">
+            <button>❤</button>
+        </div>
+        <div class="content map_div shadow_inside">
+            <img src="../../images/photo/photo_8.jpg" alt="Фотография автозапчасти">
+            <button>❤</button>
+        </div>
+    </div>
+</section>
+
+
+<div id="notification_div">
+    <ol>
+        <li><a>Масло заканчивается</a></li>
+        <li><a>Пора заменить шины</a></li>
+        <li><a>Новые детали на Москвич 3 доступны!</a></li>
+        <li><a>Пора купить новый Москвич!</a></li>
+    </ol>
+    <a id="notification_menu_sym"></a>
+</div>
+
+
+<footer>
+    <address>
+        Контакты разработчика:
+        <p class="footer_buttons"><a href="tel:+79779456492">Телефон: +7 (977) 945-64-92</a></p>
+        <p class="footer_buttons">
+            <a href="mailto:gribkovalexander@gmail.com?subject=Твои характеристики&body=Ты лучший!!! И я куплю тебе Москвич 3!!!">Написать
+                разработчику на почту</a>
+        </p>
+        <p><small>copyright 2088 Gribbirg</small></p>
+    </address>
+    <address>
+        Наши социальные сети:
+        <div>
+            <div>
+                <a href="#" class="fa fa-vk"></a>
+            </div>
+            <div>
+                <a href="#" class="fa fa-youtube"></a>
+            </div>
+            <div>
+                <a href="#" class="fa fa-telegram"></a>
+            </div>
+        </div>
+    </address>
+    <nav>
+        Навигация:
+        <ul>
+            <li class="footer_buttons"><a href="#catalog_position"><p>Каталог</p></a></li>
+            <li class="footer_buttons"><a href="#DVS_position"><p>О ДВС</p></a></li>
+            <li class="footer_buttons"><a href="#descriptions_position"><p>Что такое...?</p></a></li>
+            <li class="footer_buttons"><a href="#pictures_position"><p>Галерея</p></a></li>
+            <li class="footer_buttons"><a href="#order_position"><p>Заказать</p></a></li>
+            <li class="footer_buttons"><a href="#shop_info_position"><p>О нас</p></a></li>
+            <li class="footer_buttons"><a href="#lk_position"><p>ЛК</p></a></li>
+            <li class="footer_buttons"><a href="#parts_position"><p>Инфо</p></a></li>
+        </ul>
+    </nav>
+    <div id="trash_div">
+        Корзина:
+        <p>Сейчас в корзине: 8</p>
+        <button class="footer_buttons">Добавить</button>
+    </div>
+</footer>
+</body>
+</html>

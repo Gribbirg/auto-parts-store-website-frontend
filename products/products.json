@@ -1,0 +1,132 @@
+[
+  {
+    "id": "chemistry",
+    "name": "Масло и автохимия",
+    "products": [
+      {
+        "id": "Lukoil_3148675",
+        "name": "Lukoil 3148675",
+        "description": "Масло моторное синтетическое \"Genesis Armortech 5W-40\", 4л",
+        "cost": 2955,
+        "img": "Lukoil_3148675.png",
+        "compound": "синтетическое",
+        "viscosity": "5W-40",
+        "volume": 4
+      },
+      {
+        "id": "Hyundai_Kia_05100-00441",
+        "name": "Hyundai Kia 05100-00441",
+        "description": "Масло моторное синтетическое \"Turbo SYN Gasoline 5W-30\", 4л",
+        "cost": 5809,
+        "img": "Hyundai_Kia_05100-00441.png",
+        "compound": "синтетическое",
+        "viscosity": "5W-30",
+        "volume": 4
+      },
+      {
+        "id": "Mobil_150548",
+        "name": "Mobil 150548",
+        "description": "Масло моторное полусинтетическое \"Super 2000 X1 10W-40\", 4л\n",
+        "cost": 2406,
+        "img": "Mobil_150548.png",
+        "compound": "полусинтетическое",
+        "viscosity": "10W-40",
+        "volume": 4
+      },
+      {
+        "id": "VolgaOil_800823",
+        "name": "Волга-Ойл 800823",
+        "description": "Масло моторное минеральное \"Супер 15W-40\", 5л",
+        "cost": 774,
+        "img": "VolgaOil_800823.png",
+        "compound": "минеральное",
+        "viscosity": "15W-40",
+        "volume": 5
+      }
+    ]
+  },
+  {
+    "id": "tiers",
+    "name": "Шины и диски",
+    "products": [
+      {
+        "id": "Kama_1110004",
+        "name": "Кама 1110004",
+        "description": "Шина летняя \"Breeze-132 185/60R14 82H\"",
+        "cost": 3516,
+        "img": "Kama_1110004.png",
+        "season": "летняя",
+        "size": "185/60",
+        "diameter": 14,
+        "thorns": false
+      },
+      {
+        "id": "Bars_9363924",
+        "name": "Bars 9363924",
+        "description": "Шина летняя \"UZ200 195/65R15 91H\"",
+        "cost": 4814,
+        "img": "Bars_9363924.png",
+        "season": "летняя",
+        "size": "195/50",
+        "diameter": 15,
+        "thorns": false
+      },
+      {
+        "id": "Cordiant_686208534",
+        "name": "Cordiant 686208534",
+        "description": "Шина зимняя шип. \"Snow Cross 2 205/55R16 94T\"",
+        "cost": 6961,
+        "img": "Cordiant_686208534.png",
+        "season": "зимняя",
+        "size": "205/65",
+        "diameter": 16,
+        "thorns": true
+      },
+      {
+        "id": "Matador_0424107",
+        "name": "Matador 0424107",
+        "description": "Шина всесезонная \"Variant ALL WEATHER MPS125 mps125 195R14 102/100R\"",
+        "cost": 8503,
+        "img": "Matador_0424107.png",
+        "season": "всесезонная",
+        "size": "235/70",
+        "diameter": 16,
+        "thorns": false
+      }
+    ]
+  },
+  {
+    "id": "electronics",
+    "name": "Автоэлектроника",
+    "products": [
+      {
+        "id": "Matador_0424107",
+        "name": "Matador 0424107",
+        "description": "Шина всесезонная \"Variant ALL WEATHER MPS125 mps125 195R14 102/100R\"",
+        "cost": 8503,
+        "img": "Matador_0424107.png",
+        "season": "всесезонная",
+        "size": "235/70",
+        "diameter": 16,
+        "thorns": false
+      }
+    ]
+  },
+  {
+    "id": "other",
+    "name": "Остальное",
+    "products": [
+      {
+        "id": "Matador_0424107",
+        "name": "Matador 0424107",
+        "description": "Шина всесезонная \"Variant ALL WEATHER MPS125 mps125 195R14 102/100R\"",
+        "cost": 8503,
+        "img": "Matador_0424107.png",
+        "season": "всесезонная",
+        "size": "235/70",
+        "diameter": 16,
+        "thorns": false
+      }
+    ]
+  }
+]

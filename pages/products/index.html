@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Товары</title>
+
+    <link rel="icon" type="image/png" href="../../images/logo/logo_small.png">
+
+    <link rel="stylesheet" href="../global_style.css">
+    <link rel="stylesheet" href="style.css">
+
+    <script type="module" src="script.js"></script>
+</head>
+<body>
+<main>
+    <section id="catalog" class="part">
+        <p id="catalog_position" class="positions"></p>
+        <h2 class="part_name">Каталог</h2>
+        <ul id="catalog_list">
+            <li>
+                <a href="index.html?category=chemistry"></a>
+                <h4>Масло и автохимия</h4>
+                <ul>
+                    <li>Масла</li>
+                    <li>Жидкости для охлаждения</li>
+                    <li>Жидкости для омывателя</li>
+                </ul>
+            </li>
+            <li>
+                <a href="index.html?category=tiers"></a>
+                <h4>Шины, диски</h4>
+                <ul>
+                    <li>Шины</li>
+                    <li>Диски</li>
+                    <li>Колпачки</li>
+                </ul>
+            </li>
+            <li>
+                <a href="index.html?category=electronics"></a>
+                <h4>Автоэлектроника</h4>
+                <ul>
+                    <li>Лампы</li>
+                    <li>Аккумуляторы</li>
+                    <li>Предохранители</li>
+                </ul>
+            </li>
+            <li>
+                <a href="index.html?category=other"></a>
+                <h4>Остальное</h4>
+                <ul>
+                    <li>Инструменты</li>
+                    <li>Автоаксессуары</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+    <section id="cart_section">
+        <p id="cart_position" class="positions"></p>
+        <h2 class="part_name">Корзина</h2>
+        <button id="clear_button" class="arrow_button">Отчистить<span></span></button>
+        <div id="cart_div"></div>
+        <p id="sum_p">Всего: 0 ₽</p>
+        <button class="arrow_button" id="buy_button">Купить<span></span></button>
+    </section>
+    <section id="sort_section">
+        <h2 class="part_name">Сортировать</h2>
+        <div id="sort_div" class="sort_filters_div">
+            <div id="cost_sort" class="sort_divs">
+                <p>По цене</p>
+                <div>
+                    <input type="radio" name="dir_sort" id="cost_sort_up" class="sort_type_input">
+                    <label for="cost_sort_up">↓</label>
+                    <input type="radio" name="dir_sort" id="cost_sort_down" class="sort_type_input">
+                    <label for="cost_sort_down">↑</label>
+                </div>
+            </div>
+            <div id="name_sort" class="sort_divs">
+                <p>По названию</p>
+                <div>
+                    <input type="radio" name="dir_sort" id="name_sort_up" class="sort_type_input">
+                    <label for="name_sort_up">↓</label>
+                    <input type="radio" name="dir_sort" id="name_sort_down" class="sort_type_input">
+                    <label for="name_sort_down">↑</label>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="filters_section">
+        <h2 class="part_name">Фильтры</h2>
+        <div id="filters_div" class="sort_filters_div">
+            <fieldset class="field" id="cost_filter">
+                <legend class="legend">Цена:</legend>
+                <div>
+                    <label for="from_cost_filter">От:</label>
+                    <input type="number" id="from_cost_filter" class="field">
+                    <span>₽</span>
+                </div>
+                <div>
+                    <label for="to_cost_filter">До:</label>
+                    <input type="number" id="to_cost_filter" class="field">
+                    <span>₽</span>
+                </div>
+            </fieldset>
+            <button id="confirm_filter_button" class="arrow_button">
+                Применить
+                <span></span>
+            </button>
+        </div>
+    </section>
+    <section id="products_section">
+        <h2 class="part_name">Товары</h2>
+        <div id="products_div"></div>
+    </section>
+</main>
+</body>
+</html>
