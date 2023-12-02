@@ -279,37 +279,13 @@ function removeFromCart(cart, id) {
     cart.splice(pos, 1);
 }
 
-function createCartElement(cartElement, product) {
-    document.getElementById("cart_div").innerHTML +=
-        `<div class="cart_element">
-            <h3 class="product_head">${product.name}</h3>
-            <p class="product_desc">${product.description}</p>
-            <p class="product_cost">${(product["cost"] * cartElement["count"]).toLocaleString() + " ₽"}</p>
-            <p class="cart_element_count">${cartElement.count} шт</p> 
-            <div class="cart_element_div_button">
-                <button class="cart_buy_button arrow_button cart_el_del_button" id="${product.id}+cart_el_del_button">Удалить<span></span></button>
-                <button class="cart_basket_button arrow_button cart_el_sub_button" id="${product.id}+cart_el_sub_button">-</button>
-                <button class="cart_basket_button arrow_button cart_el_add_button" id="${product.id}+cart_el_add_button">+</button>
-            </div>
-        </div>`
-    ;
-}
-
-function setSumText(cart) {
-    let sum = 0;
-    cart.forEach(function (item) {
-        sum += (getProduct(item["category"], item.id)["cost"] * item.count);
-    });
-    document.getElementById("sum_p").innerHTML = `Всего: ${sum.toLocaleString()} ₽`
-}
-
 function setCart(cart) {
-    document.getElementById("cart_div").innerHTML = "";
-    for (let element of cart) {
-        createCartElement(element, getProduct(element.category, element.id));
-    }
-    setCartElementButtonsOnClick();
-    setSumText(cart);
+    // document.getElementById("cart_div").innerHTML = "";
+    // for (let element of cart) {
+    //     createCartElement(element, getProduct(element.category, element.id));
+    // }
+    // setCartElementButtonsOnClick();
+    // setSumText(cart);
 }
 
 window.addEventListener("scroll", function (event) {
