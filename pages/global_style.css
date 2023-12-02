@@ -11,18 +11,18 @@ main {
 }
 
 section {
-    background-color: var(--md-sys-color-surface-light);
+    background-color: var(--md-sys-color-surface);
     padding: 0 20px;
     margin: 15px 10px;
     border-radius: 30px;
-    border: grey 1px solid;
-    box-shadow: 5px 5px 7px grey;
+    border: var(--md-sys-color-on-surface) 1px solid;
+    box-shadow: 2px 2px 4px black;
     height: 100%;
     /*backdrop-filter: blur(100px);*/
     /*width: fit-content;*/
 
-    & * {
-        color: #1a1c18;
+    > .part_name {
+        color: var(--md-sys-color-on-primary-container);
     }
 }
 
@@ -40,22 +40,22 @@ section {
 }
 
 .arrow_button {
-    border: #00444f 1px solid;
+    border: var(--md-sys-color-primary) 1px solid;
     border-radius: 30px;
     box-shadow: 2px 2px 4px black;
-    background: #006877;
-    color: white;
+    background: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-primary-container);
     transition: all 400ms;
     cursor: pointer;
 
     > span {
-        color: white;
+        color: var(--md-sys-color-on-tertiary-container);
         transition: all 400ms;
         position: relative;
     }
 
     > span::after {
-        color: white;
+        color: var(--md-sys-color-on-tertiary-container);
         content: '\00bb';
         position: absolute;
         transition: all 400ms;
@@ -66,7 +66,9 @@ section {
 }
 
 .arrow_button:hover {
-    background: #026e00;
+    background: var(--md-sys-color-tertiary-container);
+    color: var(--md-sys-color-on-tertiary-container);
+    border-color: var(--md-sys-color-tertiary);;
 
     > span {
         padding-right: 25px;
@@ -79,9 +81,9 @@ section {
 }
 
 .field {
-    border: #002200 1px solid;
+    border: var(--md-sys-color-secondary) 1px solid;
     border-radius: 10px;
-    background: #fcfdf6;
+    background: var(--md-sys-color-secondary-container);
     padding: 5px 10px;
     display: inline-flex;
     flex-flow: row wrap;
@@ -91,9 +93,9 @@ section {
     > legend {
         border: #002200 1px solid;
         border-radius: 10px;
-        background: #006877;
+        background: var(--md-sys-color-primary);
         padding: 0.1rem 0.5rem;
-        color: #ffffff;
+        color: var(--md-sys-color-on-primary);
         width: max-content;
         font-weight: 700;
     }
@@ -107,15 +109,24 @@ section {
         height: fit-content;
 
         & * {
-            color: #001f25;
+            color: var(--md-sys-color-on-secondary-container);
             font-family: "Roboto Thin", sans-serif;
         }
 
     }
 }
 
+fieldset.field {
+    border-color: var(--md-sys-color-primary);
+    background-color: var(--md-sys-color-secondary-container);
+}
+
 .field:focus {
-    outline: #006877 2px solid;
+    outline: var(--md-sys-color-tertiary) 2px solid;
+
+    & * {
+        color: var(--md-sys-color-on-tertiary-container);
+    }
 }
 
 .legend {

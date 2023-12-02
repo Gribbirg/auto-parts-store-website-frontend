@@ -94,7 +94,12 @@ function getFilterList(list, a, b) {
 
 function offSortDivs(onDiv) {
     for (let div of document.querySelectorAll(".sort_divs")) {
-        div.style.background = "#006877";
+        div.style.background = "var(--md-sys-color-primary-container)";
+        div.style.borderColor = "var(--md-sys-color-primary)";
+        div.firstElementChild.style.color = "var(--md-sys-color-on-primary-container)";
+        document.querySelectorAll(`#${div.id} > div > label`).forEach(function (item) {
+            item.style.color = "var(--md-sys-color-on-primary-container)";
+        });
         if (div.id !== onDiv.id) {
             for (let input of document.querySelectorAll(`#${div.id} > div > input`)) {
                 input.checked = false;
@@ -128,7 +133,12 @@ function sortContent(content, sortType, dir) {
 function onSortDivClickListener(div) {
     offSortDivs(div);
     onIfOffDirInputs(div);
-    div.style.background = "#026e00";
+    div.style.background = "var(--md-sys-color-tertiary-container)";
+    div.style.borderColor = "var(--md-sys-color-tertiary)";
+    div.firstElementChild.style.color = "var(--md-sys-color-on-tertiary-container)";
+    document.querySelectorAll(`#${div.id} > div > label`).forEach(function (item) {
+        item.style.color = "var(--md-sys-color-on-tertiary-container)";
+    });
     for (let input of document.querySelectorAll(`#${div.id} > div > input`)) {
         if (input.checked) {
             sortContent(content, input.id.split("_")[0], input.id.split("_")[2]);
@@ -153,7 +163,6 @@ addCategory(category);
 
 let content = findCategory(category)["products"];
 onSortDivClickListener(document.getElementById("cost_sort"));
-setContent(content);
 
 document.getElementById("confirm_filter_button").onclick = function () {
     content = findCategory(category)["products"];
@@ -168,9 +177,9 @@ document.getElementById("confirm_filter_button").onclick = function () {
 }
 
 for (let div of document.querySelectorAll(".sort_divs")) {
-    div.onclick = function () {
+    div.addEventListener("click", function () {
         onSortDivClickListener(div);
-    };
+    })
 }
 
 function findInCart(cart, id) {
