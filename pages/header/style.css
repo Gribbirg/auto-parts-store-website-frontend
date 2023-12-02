@@ -1,10 +1,9 @@
 /*Шапка*/
 #header {
-    border: #002200 3px solid;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
     margin: 0;
-    background: var(--md-sys-color-primary);
+    background: var(--md-sys-color-primary-container);
     height: 70px;
     /*width: 100%;*/
     display: flex;
@@ -37,7 +36,7 @@
     font-weight: 900;
     text-align: center;
     align-self: center;
-    color: var(--md-sys-color-on-primary);
+    color: var(--md-sys-color-on-primary-container);
 }
 
 /*панель навигации*/
@@ -81,10 +80,10 @@ ul.nav_list {
             justify-content: space-around;
             text-decoration: none;
             margin: 0 3px;
-            color: #ffffff;
+            color: var(--md-sys-color-on-primary);
             height: 50px;
-            background: #001f25;
-            box-shadow: 2px 2px 3px black;
+            background: var(--md-sys-color-on-primary-container);
+            /*box-shadow: 2px 2px 3px black;*/
             transition: all 400ms;
 
             > p {
@@ -95,23 +94,21 @@ ul.nav_list {
         }
 
         & a:link {
-            background: #026e00;
-            transform: scale(1);
-        }
-
-        & a:visited {
-            background: #73796e;
+            background: var(--md-sys-color-on-primary-container);
+            color: var(--md-sys-color-on-primary);
             transform: scale(1);
         }
 
         & a:hover {
-            background: #006877;
+            background: var(--md-sys-color-on-secondary-container);
+            color: var(--md-sys-color-on-secondary);
             transform: scale(105%);
-
+            box-shadow: 1px 1px 2px 1px black;
         }
 
         & a:active {
             transform: scale(1);
+            box-shadow: 0 0;
         }
     }
 
