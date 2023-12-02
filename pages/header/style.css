@@ -1,5 +1,5 @@
-/*Шапка*/
 #header {
+    outline: var(--md-sys-color-primary) 1px solid;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
     margin: 0;
