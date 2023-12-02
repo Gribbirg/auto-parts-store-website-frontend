@@ -6,6 +6,10 @@ body {
     background: var(--md-sys-color-background);
 }
 
+main {
+    margin-top: 80px;
+}
+
 section {
     background-color: var(--md-sys-color-surface-light);
     padding: 0 20px;

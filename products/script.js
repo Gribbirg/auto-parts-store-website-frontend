@@ -1,7 +1,7 @@
 "use strict"
 
 function getCategory() {
-    return (new URLSearchParams(window.location.search)).get("category");
+    return (new URLSearchParams(window.location.search)).get("category") ?? "tiers";
 }
 
 function setCategoryName(name) {
@@ -42,7 +42,7 @@ function getCurrentProductsDisplayCount() {
 function setContent(content) {
     document.getElementById("products_div").innerHTML = "";
     if (content.length !== 0) {
-        for (let i = 0; i < Math.min(4, content.length); i++) {
+        for (let i = 0; i < Math.min(6, content.length); i++) {
             createProductDiv(content[i]);
             let cartEl = findInCart(cart, content[i].id);
             if (cartEl !== undefined) {
@@ -301,12 +301,6 @@ function setCart(cart) {
     }
     setCartElementButtonsOnClick();
     setSumText(cart);
-}
-
-document.getElementById("clear_button").onclick = function () {
-    cart = [];
-    setCart(cart);
-    setContent(content);
 }
 
 window.addEventListener("scroll", function (event) {

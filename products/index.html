@@ -11,59 +11,11 @@
     <link rel="stylesheet" href="../pages/global_style.css">
     <link rel="stylesheet" href="style.css">
 
-    <script type="module" src="script.js"></script>
+    <script type="module" src="script.js" defer></script>
+    <script src="../pages/header/add_script.js" defer></script>
 </head>
 <body>
 <main>
-    <section id="catalog" class="part">
-        <p id="catalog_position" class="positions"></p>
-        <h2 class="part_name">Каталог</h2>
-        <ul id="catalog_list">
-            <li>
-                <a href="index.html?category=chemistry"></a>
-                <h4>Масло и автохимия</h4>
-                <ul>
-                    <li>Масла</li>
-                    <li>Жидкости для охлаждения</li>
-                    <li>Жидкости для омывателя</li>
-                </ul>
-            </li>
-            <li>
-                <a href="index.html?category=tiers"></a>
-                <h4>Шины, диски</h4>
-                <ul>
-                    <li>Шины</li>
-                    <li>Диски</li>
-                    <li>Колпачки</li>
-                </ul>
-            </li>
-            <li>
-                <a href="index.html?category=electronics"></a>
-                <h4>Автоэлектроника</h4>
-                <ul>
-                    <li>Лампы</li>
-                    <li>Аккумуляторы</li>
-                    <li>Предохранители</li>
-                </ul>
-            </li>
-            <li>
-                <a href="index.html?category=other"></a>
-                <h4>Остальное</h4>
-                <ul>
-                    <li>Инструменты</li>
-                    <li>Автоаксессуары</li>
-                </ul>
-            </li>
-        </ul>
-    </section>
-    <section id="cart_section">
-        <p id="cart_position" class="positions"></p>
-        <h2 class="part_name">Корзина</h2>
-        <button id="clear_button" class="arrow_button">Отчистить<span></span></button>
-        <div id="cart_div"></div>
-        <p id="sum_p">Всего: 0 ₽</p>
-        <button class="arrow_button" id="buy_button">Купить<span></span></button>
-    </section>
     <div id="sort_filter_section">
         <section id="sort_section">
             <h2 class="part_name">Сортировать</h2>
