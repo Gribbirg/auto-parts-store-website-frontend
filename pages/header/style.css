@@ -1,0 +1,123 @@
+/*Шапка*/
+#header {
+    border: #002200 3px solid;
+    border-radius: 45px;
+    margin: 1px 5px 10px;
+    background: #77ff61;
+    height: 70px;
+    display: flex;
+    flex-flow: row;
+    align-content: stretch;
+    align-items: stretch;
+
+    position: sticky;
+    top: 2px;
+    z-index: 8;
+
+    & img {
+        width: 120px;
+        margin: 2px;
+        text-align: center;
+    }
+
+    & h1 {
+        width: fit-content;
+        flex-grow: 1;
+    }
+}
+
+/*Название сайта*/
+#header_head {
+    font-family: 'Roboto Thin', sans-serif;
+    font-size: 25px;
+    font-weight: 900;
+    text-align: center;
+    align-self: center;
+    color: #002200;
+}
+
+/*панель навигации*/
+#up_nav {
+    flex-grow: 4;
+    height: 100%;
+    margin-right: 10px;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    align-content: stretch;
+    /*outline: #002200 2px solid;*/
+    /*border-radius: 42px;*/
+
+    > input {
+        display: none;
+    }
+}
+
+/*список кнопок навигации*/
+ul.nav_list {
+    padding: 0;
+    margin: auto;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: stretch;
+
+
+    & li {
+        font-size: 18px;
+        text-align: center;
+        list-style: none;
+        width: 100%;
+        height: 50px;
+
+
+        & a {
+            display: flex;
+            padding: 0 5px;
+            justify-content: space-around;
+            text-decoration: none;
+            margin: 0 3px;
+            color: #ffffff;
+            height: 50px;
+            background: #001f25;
+            box-shadow: 2px 2px 3px black;
+            transition: all 400ms;
+
+            > p {
+                margin: auto;
+                padding: 0;
+                font-size: 20px;
+            }
+        }
+
+        & a:link {
+            background: #026e00;
+            transform: scale(1);
+        }
+
+        & a:visited {
+            background: #73796e;
+            transform: scale(1);
+        }
+
+        & a:hover {
+            background: #006877;
+            transform: scale(105%);
+
+        }
+
+        & a:active {
+            transform: scale(1);
+        }
+    }
+
+    :first-child > a {
+        border-bottom-left-radius: 45px;
+        border-top-left-radius: 45px;
+    }
+
+    :last-child > a {
+        border-bottom-right-radius: 45px;
+        border-top-right-radius: 45px;
+    }
+}
