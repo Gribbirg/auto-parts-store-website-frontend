@@ -92,6 +92,94 @@
         "size": "235/70",
         "diameter": 16,
         "thorns": false
+      },
+      {
+        "id": "Matador_1581114",
+        "name": "Matador 1581114",
+        "description": "Шина летняя \"Hectorra 3 MP-47 205/55R16 91H\"\n",
+        "cost": 6040,
+        "img": "Matador_1581114.png",
+        "season": "летняя",
+        "size": "205/55",
+        "diameter": 16,
+        "thorns": false
+      },
+      {
+        "id": "Viatti_3110007",
+        "name": "Viatti 3110007",
+        "description": "Шина летняя \"Strada Asimmetrico V-130 185/55R15 82H\"",
+        "cost": 4256,
+        "img": "Viatti_3110007.png",
+        "season": "летняя",
+        "size": "185/55",
+        "diameter": 15,
+        "thorns": false
+      },
+      {
+        "id": "Cordiant_650852099",
+        "name": "Cordiant 650852099",
+        "description": "Шина летняя \"Comfort 2 175/70R13 86H\"",
+        "cost": 4354,
+        "img": "Cordiant_650852099.png",
+        "season": "летняя",
+        "size": "175/75",
+        "diameter": 13,
+        "thorns": false
+      },
+      {
+        "id": "Formula_2139400",
+        "name": "Formula 2139400",
+        "description": "Шина летняя \"Formula Energy 195/50R15 82V\"",
+        "cost": 4906,
+        "img": "Formula_2139400.png",
+        "season": "летняя",
+        "size": "195/50",
+        "diameter": 15,
+        "thorns": false
+      },
+      {
+        "id": "Cordiant_293517627",
+        "name": "Cordiant 293517627",
+        "description": "Шина всесезонная \"All Terrain б/к 215/70R16 100H\"",
+        "cost": 9635,
+        "img": "Cordiant_293517627.png",
+        "season": "всесезонная",
+        "size": "215/70",
+        "diameter": 16,
+        "thorns": false
+      },
+      {
+        "id": "Kumho_2144093",
+        "name": "Kumho 2144093",
+        "description": "Шина всесезонная \"PorTran KC53 215/75R16 116/114R\"\n",
+        "cost": 13193,
+        "img": "Kumho_2144093.png",
+        "season": "всесезонная",
+        "size": "215/75",
+        "diameter": 16,
+        "thorns": false
+      },
+      {
+        "id": "Kumho_2168633",
+        "name": "Kumho 2168633",
+        "description": "Шина всесезонная \"Road Venture MT51 245/70R16 117/114Q\"\n",
+        "cost": 19311,
+        "img": "Kumho_2168633.png",
+        "season": "всесезонная",
+        "size": "245/70",
+        "diameter": 16,
+        "thorns": false
+      },
+      {
+        "id": "Michelin_462289",
+        "name": "Michelin 462289",
+        "description": "Шина всесезонная \"CrossClimate+ XL 215/50R17 95W\"",
+        "cost": 19511,
+        "img": "Michelin_462289.png",
+        "season": "всесезонная",
+        "size": "215/50",
+        "diameter": 17,
+        "thorns": false
       }
     ]
   },

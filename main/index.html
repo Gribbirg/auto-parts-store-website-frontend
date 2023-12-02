@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Магазин автозапчастей</title>
     <!--Фавиконка-->
-    <link rel="icon" type="image/png" href="../../images/logo/logo_small.png">
+    <link rel="icon" type="image/png" href="../images/logo/logo_small.png">
     <!--    Подключение стилей-->
-    <link rel="stylesheet" href="../global_style.css">
+    <link rel="stylesheet" href="../pages/global_style.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="tablet_style.css" media="(max-width: 1024px) and (min-width: 768px)">
     <link rel="stylesheet" href="mobile_style.css" media="(max-width: 768px)">
@@ -18,9 +18,11 @@
 </head>
 <body>
 
+<div id="background"></div>
+
 <!--Шапка-->
 <header id="header">
-    <img id="left_logo" src="../../images/logo/logo_left.png" alt="Лучшая машина">
+    <img id="left_logo" src="../images/logo/logo_left.png" alt="Лучшая машина">
     <h1 id="header_head">Магазин автозапчастей</h1>
     <!--    <img id="right_logo" src="images/logo_right.png" alt="Лучшая машина">-->
 
@@ -30,7 +32,7 @@
         <ul class="nav_list">
             <li><a href="#catalog_position"><p>Каталог</p></a></li>
             <li><a href="#DVS_position"><p>О ДВС</p></a></li>
-            <li><a href="#descriptions_position"><p>Что такое...?</p></a></li>
+            <li><a href="#wish_position"><p>Желания</p></a></li>
             <li><a href="#pictures_position"><p>Галерея</p></a></li>
             <li><a href="#order_position"><p>Заказать</p></a></li>
             <li><a href="#shop_info_position"><p>О нас</p></a></li>
@@ -153,46 +155,14 @@
     </section>
 
 
-    <section id="descriptions">
+    <section id="wish_section">
         <!--Список описаний-->
-        <p id="descriptions_position" class="positions"></p>
-        <h3 class="part_name">Что такое...?</h3>
-        <dl>
-            <dt>Моторное масло</dt>
-            <dd>— это масла, применяемые главным образом для охлаждения и снижения трения между движущимися деталями
-                поршневых и
-                роторных двигателей внутреннего сгорания.
-            </dd>
-            <dd>— это смесь двух компонентов – базового масла и пакета присадок.</dd>
+        <p id="wish_position" class="positions"></p>
+        <h3 class="part_name">Список желаемых товаров</h3>
+        <ul>
 
-            <dt>Масла трансмиссионные</dt>
-            <dd>— это смазочные масла, применяемые для смазки коробок передач, раздаточных коробок, главных передач
-                ведущих
-                мостов,
-                рулевых механизмов,[1] а также зубчатых и цепных передач (редукторов) всех видов.
-            </dd>
-            <dd>— это специальный состав, использующийся для защиты деталей коробки перемены передач, коробки основных
-                передач
-                ведущих мостов, раздаточной коробки, рулевых механизмов, а также различных видов цепных и зубчатых
-                передач
-                (редукторов).
-            </dd>
-
-            <dt>Жидкости для омывателя стекла</dt>
-            <dd>— это вода, в которую в определенной концентрации добавлен спирт, поверхностно-активные вещества (моющие
-                средства), ароматизаторы или отдушки, которые нейтрализуют резкий запах растворителей, и красители.
-            </dd>
-
-            <dt>Жидкости тормозные</dt>
-            <dd>— это специальная жидкость, предназначенная для заполнения гидравлической тормозной системы автомобиля и
-                обеспечивающая её работоспособность при любых условиях эксплуатации.
-            </dd>
-
-            <dt>Жидкости охлаждающие</dt>
-            <dd>— это жидкость, играющая роль теплоносителя в системе охлаждения двигателя внутреннего сгорания и других
-                машин.
-            </dd>
-        </dl>
+        </ul>
+        <button id="wish_add_button" class="arrow_button">Создать<span></span></button>
     </section>
 
     <section id="parts">
@@ -347,35 +317,35 @@
     <h2 class="part_name">Галерея</h2>
     <div id="pic_div">
         <div class="content map_div shadow_inside">
-            <img src="../../images/photo/photo_1.jpeg" alt="Фотография автозапчасти">
+            <img src="../images/photo/photo_1.jpeg" alt="Фотография автозапчасти">
             <button>❤</button>
         </div>
         <div class="content map_div shadow_inside">
-            <img src="../../images/photo/photo_2.jpg" alt="Фотография автозапчасти">
+            <img src="../images/photo/photo_2.jpg" alt="Фотография автозапчасти">
             <button>❤</button>
         </div>
         <div class="content map_div shadow_inside">
-            <img src="../../images/photo/photo_3.png" alt="Фотография автозапчасти">
+            <img src="../images/photo/photo_3.png" alt="Фотография автозапчасти">
             <button>❤</button>
         </div>
         <div class="content map_div shadow_inside">
-            <img src="../../images/photo/photo_4.jpg" alt="Фотография автозапчасти">
+            <img src="../images/photo/photo_4.jpg" alt="Фотография автозапчасти">
             <button>❤</button>
         </div>
         <div class="content map_div shadow_inside">
-            <img src="../../images/photo/photo_5.png" alt="Фотография автозапчасти">
+            <img src="../images/photo/photo_5.png" alt="Фотография автозапчасти">
             <button>❤</button>
         </div>
         <div class="content map_div shadow_inside">
-            <img src="../../images/photo/photo_6.jpg" alt="Фотография автозапчасти">
+            <img src="../images/photo/photo_6.jpg" alt="Фотография автозапчасти">
             <button>❤</button>
         </div>
         <div class="content map_div shadow_inside">
-            <img src="../../images/photo/photo_7.jpg" alt="Фотография автозапчасти">
+            <img src="../images/photo/photo_7.jpg" alt="Фотография автозапчасти">
             <button>❤</button>
         </div>
         <div class="content map_div shadow_inside">
-            <img src="../../images/photo/photo_8.jpg" alt="Фотография автозапчасти">
+            <img src="../images/photo/photo_8.jpg" alt="Фотография автозапчасти">
             <button>❤</button>
         </div>
     </div>
@@ -383,11 +353,11 @@
 
 
 <div id="notification_div">
-    <ol>
-        <li><a>Масло заканчивается</a></li>
-        <li><a>Пора заменить шины</a></li>
-        <li><a>Новые детали на Москвич 3 доступны!</a></li>
-        <li><a>Пора купить новый Москвич!</a></li>
+    <ol id="notification_list">
+        <li><a>Масло заканчивается</a><button>✖</button></li>
+        <li><a>Пора заменить шины</a><button>✖</button></li>
+        <li><a>Новые детали на Москвич 3 доступны!</a><button>✖</button></li>
+        <li><a>Пора купить новый Москвич!</a><button>✖</button></li>
     </ol>
     <a id="notification_menu_sym"></a>
 </div>
@@ -422,7 +392,7 @@
         <ul>
             <li class="footer_buttons"><a href="#catalog_position"><p>Каталог</p></a></li>
             <li class="footer_buttons"><a href="#DVS_position"><p>О ДВС</p></a></li>
-            <li class="footer_buttons"><a href="#descriptions_position"><p>Что такое...?</p></a></li>
+            <li class="footer_buttons"><a href="#wish_position"><p>Что такое...?</p></a></li>
             <li class="footer_buttons"><a href="#pictures_position"><p>Галерея</p></a></li>
             <li class="footer_buttons"><a href="#order_position"><p>Заказать</p></a></li>
             <li class="footer_buttons"><a href="#shop_info_position"><p>О нас</p></a></li>

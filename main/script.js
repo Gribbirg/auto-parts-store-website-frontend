@@ -214,3 +214,117 @@ function truncate(str, maxlength) {
 for (let p of document.querySelectorAll("#blur_card_div > div > p, #anim_line_div > div > div > p")) {
     p.innerHTML = truncate(p.innerHTML, 170);
 }
+
+
+function createNotification() {
+    document.getElementById("notification_list").innerHTML += `<li><a>Пора купить новый Москвич!</a><button>✖</button></li>`
+}
+
+let notificationSpawnId;
+
+function startNotificationSpawn() {
+    createNotification();
+    notificationSpawnId = setInterval(createNotification, 3000);
+}
+
+startNotificationSpawn();
+
+
+function delay(fun, time) {
+    return function () {
+        setTimeout(() => fun(), time);
+    };
+}
+
+let notificationSpawnDelay = delay(startNotificationSpawn, 10000);
+
+function delayNotificationSpawn() {
+    if (notificationSpawnId !== null) {
+        clearInterval(notificationSpawnId);
+        notificationSpawnDelay();
+        notificationSpawnId = null;
+    }
+}
+
+function createWish(text) {
+    let li = document.createElement("li");
+    li.textContent = text;
+    document.querySelector("#wish_section > ul").appendChild(li);
+}
+
+document.getElementById("notification_menu_sym").onclick = delayNotificationSpawn;
+
+
+document.getElementById("wish_add_button").onclick = function () {
+    document.querySelector("#wish_section > ul").innerHTML = "";
+    let text = prompt("Введите свой желаемый товар:");
+    while (text) {
+        createWish(text);
+        text = prompt("Введите свой желаемый товар:");
+    }
+    showNotification()
+}
+
+// `<p>Добавлено!</p><img height="50px" src="../../images/logo/logo_big.png" alt="Логотип">`
+
+function setMousePositionText(event) {
+    let mousePositionText = document.getElementById("mouse_position_text")
+    mousePositionText.textContent = `Клик мышки по координатам: ${event.clientX}:${event.clientY}`;
+    mousePositionText.style.left = (mousePositionText.parentElement.clientWidth / 2 - mousePositionText.offsetWidth / 2) + "px";
+}
+
+function showNotification() {
+    let notification = document.createElement("div");
+
+    notification.className = "notification";
+    notification.style.width = "1000px";
+    notification.style.height = "600px";
+
+
+    let image = document.createElement("img");
+
+    image.height = 400;
+    image.width = 630;
+    image.src = "../../images/logo/logo_big.png";
+    image.alt = "Логотип";
+    image.style.position = "absolute";
+
+    let buttonClose = document.createElement("button");
+    buttonClose.textContent = "✖";
+    buttonClose.onclick = function () {
+        notification.remove();
+        window.removeEventListener("click", setMousePositionText);
+    }
+
+    let mousePositionText = document.createElement("p");
+    mousePositionText.id = "mouse_position_text";
+    mousePositionText.style.position = "absolute";
+    window.addEventListener("click", setMousePositionText);
+
+
+    notification.appendChild(image);
+    notification.appendChild(buttonClose);
+    notification.appendChild(mousePositionText);
+    document.body.appendChild(notification);
+
+    notification.style.top = (document.documentElement.clientHeight / 2 - notification.offsetHeight / 2) + "px";
+    notification.style.left = (document.documentElement.clientWidth / 2 - notification.offsetWidth / 2) + "px";
+    image.style.top = (notification.clientHeight / 2 - image.offsetHeight / 2) + "px";
+    image.style.left = (notification.clientWidth / 2 - image.offsetWidth / 2) + "px";
+    buttonClose.style.right = "15px";
+    buttonClose.style.top = "10px";
+    mousePositionText.style.bottom = "15px";
+    mousePositionText.style.left = (notification.clientWidth / 2 - mousePositionText.offsetWidth / 2) + "px";
+}
+
+document.getElementById("notification_list").onclick = function (event) {
+    let target = event.target;
+
+    if (target.tagName !== "BUTTON") return;
+
+    target.parentElement.remove();
+}
+
+window.addEventListener("scroll", function () {
+    document.body.style.backgroundPosition = "center " + (window.scrollY * 0.3) + "px";
+});

@@ -26,7 +26,7 @@ main {
     /*height: fit-content;*/
 }
 
-#descriptions {
+#wish_section {
     grid-column: span 1;
 }
 
@@ -1084,7 +1084,7 @@ footer {
                 justify-content: center;
                 align-items: center;
                 box-shadow: 1px 1px 2px black;
-                cursor: url("../../images/logo/logo_small.png"), pointer;
+                cursor: url("../images/logo/logo_small.png"), pointer;
 
                 > a {
                     position: relative;
@@ -1092,7 +1092,7 @@ footer {
                     text-decoration: none;
                     text-align: center;
                     color: white;
-                    cursor: url("../../images/logo/logo_small.png"), pointer;
+                    cursor: url("../images/logo/logo_small.png"), pointer;
                 }
 
                 > a:hover {
@@ -1566,11 +1566,13 @@ footer {
         list-style: none;
         padding: 0;
         counter-reset: notifications_count;
+        height: 300px;
+        overflow: auto;
 
         > li {
             counter-increment: notifications_count;
-            margin-top: 10px;
-            margin-bottom: 10px;
+            position: relative;
+            margin: 10px 5px;
             padding: 10px;
             border-radius: 20px;
             background: #77ff61;
@@ -1608,6 +1610,19 @@ footer {
                 box-shadow: 2px 2px 4px black;
                 padding: 2px;
             }
+
+            > button {
+                cursor: pointer;
+                background-color: rgba(255, 255, 255, 0);
+                color: #77ff61;
+                outline: none;
+                border: none;
+                position: absolute;
+                right: 2px;
+                top: 2px;
+                font-size: 1.1rem;
+                display: none;
+            }
         }
 
         > li:hover {
@@ -1615,11 +1630,14 @@ footer {
             color: white;
             /*border: #002200 1px solid;*/
             box-shadow: 3px 3px 5px black;
-            transform: scale(1.1);
 
             ::before {
                 background: #77ff61;
                 color: black;
+            }
+
+            > button {
+                display: block;
             }
         }
     }
@@ -1637,6 +1655,7 @@ footer {
 #notification_menu_sym::before {
     content: "\1F514";
     color: white;
+    cursor: pointer;
 }
 
 #notification_menu_sym::after {
@@ -1651,4 +1670,59 @@ footer {
     border-radius: 50%;
     border: #002200 2px solid;
     background: red;
+}
+
+#wish_section {
+    > ul {
+        width: calc(100% - 40px);
+        height: calc(100% - 140px);
+        /*background: black;*/
+        overflow: auto;
+    }
+
+    > button {
+        float: right;
+        height: 30px;
+        width: 150px;
+    }
+}
+
+.notification {
+    padding: 10px 20px;
+    background: #002200;
+    box-shadow: 2px 2px 4px 3px black;
+    width: fit-content;
+    border-radius: 20px;
+    z-index: 10;
+    position: fixed;
+    top: 90px;
+    right: 10px;
+
+    & * {
+        color: white;
+    }
+
+    > button {
+        background-color: rgba(255, 255, 255, 0);
+        border: none;
+        outline: none;
+        font-size: 2rem;
+        cursor: pointer;
+        position: absolute;
+    }
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url("../images/background/car.png");
 }
