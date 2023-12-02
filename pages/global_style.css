@@ -2,6 +2,10 @@
 @import "colors/theme.css";
 @import "header/style.css";
 
+body {
+    background: var(--md-sys-color-background);
+}
+
 section {
     background-color: var(--md-sys-color-surface-light);
     padding: 0 20px;

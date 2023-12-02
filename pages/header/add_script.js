@@ -7,7 +7,7 @@ document.body.innerHTML +=
             <nav id="up_nav">
                 <input type="checkbox" id="nav_menu_button"><label for="nav_menu_button"></label>
                     <ul class="nav_list">
-                        <li><a href="#catalog_position"><p>Каталог</p></a></li>
+                        <li><a href="../products/"><p>Каталог</p></a></li>
                         <li><a href="#DVS_position"><p>О ДВС</p></a></li>
                         <li><a href="#wish_position"><p>Желания</p></a></li>
                         <li><a href="#pictures_position"><p>Галерея</p></a></li>
