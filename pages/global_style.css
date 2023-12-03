@@ -21,7 +21,7 @@ section {
     /*backdrop-filter: blur(100px);*/
     /*width: fit-content;*/
 
-    > .part_name {
+    > .part_name, p {
         color: var(--md-sys-color-on-surface);
     }
 }

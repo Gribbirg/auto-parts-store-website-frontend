@@ -1,0 +1,126 @@
+/*Нижняя часть*/
+footer {
+    background: var(--md-sys-color-surface-variant);
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
+    padding: 10px 0;
+    margin: 20px -8px -10px;
+    display: grid;
+    grid: fit-content(100%) / repeat(3, 1fr);
+    row-gap: 20px;
+    column-gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    /*left: -15px;*/
+
+    > * {
+        color: var(--md-sys-color-on-surface-variant);
+    }
+
+
+    > :nth-child(1) {
+        text-align: center;
+
+        & * {
+            color: var(--md-sys-color-on-surface-variant);
+            text-decoration: none;
+            font-style: initial;
+        }
+
+        & small {
+            color: var(--md-sys-color-secondary);
+        }
+    }
+
+    > :nth-child(2) {
+        text-align: center;
+        display: flex;
+        height: 100%;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+        flex-grow: 1;
+
+        > div {
+            margin-top: 10px;
+            flex-grow: 10;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-around;
+            align-items: center;
+
+            > div {
+                position: relative;
+                padding: 20px;
+                width: 30px;
+                border-radius: 50%;
+                background: var(--md-sys-color-secondary);
+                transition: all 400ms;
+                overflow: hidden;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                box-shadow: 1px 1px 2px black;
+                cursor: url("../../images/logo/logo_small.png"), pointer;
+
+                > a {
+                    position: relative;
+                    font-size: 30px;
+                    text-decoration: none;
+                    text-align: center;
+                    color: var(--md-sys-color-on-secondary);
+                    cursor: url("../../images/logo/logo_small.png"), pointer;
+                }
+
+                > a:hover {
+
+                }
+
+            }
+
+            > div::before {
+                content: '';
+                display: block;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                bottom: 100%;
+                background: linear-gradient(var(--md-sys-color-primary), var(--md-sys-color-tertiary));
+                transition: all 400ms;
+            }
+
+            > div:hover {
+                transform: scale(1.2);
+                box-shadow: 3px 3px 3px black;
+            }
+
+            > div:hover::before {
+                bottom: 0;
+            }
+        }
+    }
+    :nth-child(3) {
+        text-align: center;
+        font-style: italic;
+
+        > * {
+            font-style: initial;
+        }
+    }
+}
+
+
+.footer_buttons {
+    display: block;
+    transition: transform 400ms, box-shadow 400ms;
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+}
+
+.footer_buttons:hover {
+    background: #ffddb2;
+    backdrop-filter: blur(10px);
+    transform: scale(1.05);
+    box-shadow: 2px 2px 5px 2px grey;
+}

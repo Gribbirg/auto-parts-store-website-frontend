@@ -133,9 +133,9 @@ function sortContent(content, sortType, dir) {
 function onSortDivClickListener(div) {
     offSortDivs(div);
     onIfOffDirInputs(div);
-    div.style.background = "var(--md-sys-color-tertiary-container)";
-    div.style.borderColor = "var(--md-sys-color-tertiary)";
-    div.firstElementChild.style.color = "var(--md-sys-color-on-tertiary-container)";
+    div.style.background = "var(--md-sys-color-secondary-container)";
+    div.style.borderColor = "var(--md-sys-color-secondary)";
+    div.firstElementChild.style.color = "var(--md-sys-color-on-secondary-container)";
     document.querySelectorAll(`#${div.id} > div > label`).forEach(function (item) {
         item.style.color = "var(--md-sys-color-on-tertiary-container)";
     });
