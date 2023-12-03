@@ -86,6 +86,7 @@ function findCategory(category) {
 }
 
 function addCategory(category) {
+    document.getElementById(`${category}_input`).checked = true;
     let content = findCategory(category);
     setCategoryName(content.name);
     for (let product of content["products"]) {
@@ -167,7 +168,7 @@ import data from '../data/products.json' assert {type: 'json'};
 
 let cart = [];
 let category = getCategory();
-document.getElementById(`${category}_input`).checked = true;
+addCategory(category);
 
 
 let content = findCategory(category)["products"];
