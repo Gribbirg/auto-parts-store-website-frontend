@@ -265,12 +265,19 @@ section {
         }
 
         > label {
+            margin: 2px 2px;
             cursor: pointer;
             padding: 5px 10px;
             border-radius: 20px;
+            transition: all 400ms;
         }
 
         > input:checked + label {
+            color: var(--md-sys-color-on-secondary-container);
+            background: var(--md-sys-color-secondary-container);
+        }
+
+        > label:hover {
             color: var(--md-sys-color-on-tertiary-container);
             background: var(--md-sys-color-tertiary-container);
         }

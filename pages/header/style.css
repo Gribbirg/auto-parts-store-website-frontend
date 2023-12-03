@@ -82,7 +82,7 @@ ul.nav_list {
             margin: 0 3px;
             color: var(--md-sys-color-on-primary);
             height: 50px;
-            background: var(--md-sys-color-on-primary-container);
+            background: var(--md-sys-color-primary);
             /*box-shadow: 2px 2px 3px black;*/
             transition: all 400ms;
 
@@ -94,13 +94,13 @@ ul.nav_list {
         }
 
         & a:link {
-            background: var(--md-sys-color-on-primary-container);
+            background: var(--md-sys-color-primary);
             color: var(--md-sys-color-on-primary);
             transform: scale(1);
         }
 
         & a:hover {
-            background: var(--md-sys-color-on-tertiary-container);
+            background: var(--md-sys-color-tertiary);
             color: var(--md-sys-color-on-tertiary);
             transform: scale(105%);
             box-shadow: 1px 1px 2px 1px black;
