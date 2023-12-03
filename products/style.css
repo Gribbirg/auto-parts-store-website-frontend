@@ -124,7 +124,7 @@ section {
 
 @media (max-width: 900px) {
     #products_section {
-        width: calc(100% - 40px);
+        width: calc(100% - 100px);
     }
     .product_div {
         width: 100%;
