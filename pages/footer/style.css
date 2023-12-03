@@ -124,3 +124,9 @@ footer {
     transform: scale(1.05);
     box-shadow: 2px 2px 5px 2px grey;
 }
+
+@media (max-width: 900px) {
+    footer {
+        grid: repeat(3, fit-content(100%)) / 1fr;
+    }
+}

@@ -288,14 +288,18 @@ function setCart(cart) {
     // setSumText(cart);
 }
 
+while (document.documentElement.getBoundingClientRect().bottom <= document.documentElement.clientHeight + 100 + document.querySelector("footer").offsetHeight) {
+    addProducts(content);
+}
+
 window.addEventListener("scroll", function () {
-    if (document.documentElement.getBoundingClientRect().bottom <= document.documentElement.clientHeight + 50) {
+    if (document.documentElement.getBoundingClientRect().bottom <= document.documentElement.clientHeight + 100 + document.querySelector("footer").offsetHeight) {
         addProducts(content);
     }
 });
 
 window.addEventListener("touchmove", function () {
-    if (document.documentElement.getBoundingClientRect().bottom <= document.documentElement.clientHeight + 50) {
+    if (document.documentElement.getBoundingClientRect().bottom <= document.documentElement.clientHeight + 100 + document.querySelector("footer").offsetHeight) {
         addProducts(content)
     }
 });
