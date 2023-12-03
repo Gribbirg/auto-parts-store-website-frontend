@@ -5,7 +5,7 @@ function getCategory() {
     if (!category) {
         goToCategory("tiers");
     }
-    return category;
+    return category ?? "tiers";
 }
 
 function goToCategory(category) {
