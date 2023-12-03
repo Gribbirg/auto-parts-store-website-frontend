@@ -164,7 +164,9 @@ function getProduct(category, id) {
     });
 }
 
-import data from '../data/products.json' assert {type: 'json'};
+// import data from '../data/products.json' assert {type: 'json'};
+const response = await fetch('https://gribbirg.github.io/AutoPartsStoreWebsiteFrontend/data/products.json');
+const data = await response.json();
 
 let cart = [];
 let category = getCategory();
