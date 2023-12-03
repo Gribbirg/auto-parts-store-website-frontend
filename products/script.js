@@ -1,7 +1,15 @@
 "use strict"
 
 function getCategory() {
-    return (new URLSearchParams(window.location.search)).get("category") ?? "tiers";
+    let category = (new URLSearchParams(window.location.search)).get("category");
+    if (!category) {
+        goToCategory("tiers");
+    }
+    return category;
+}
+
+function goToCategory(category) {
+    window.location.href = `?category=${category}`;
 }
 
 function setCategoryName(name) {
@@ -159,7 +167,8 @@ import data from '../data/products.json' assert {type: 'json'};
 
 let cart = [];
 let category = getCategory();
-addCategory(category);
+document.getElementById(`${category}_input`).checked = true;
+
 
 let content = findCategory(category)["products"];
 onSortDivClickListener(document.getElementById("cost_sort"));
@@ -288,7 +297,8 @@ function setCart(cart) {
     // setSumText(cart);
 }
 
-while (document.documentElement.getBoundingClientRect().bottom <= document.documentElement.clientHeight + 100 + document.querySelector("footer").offsetHeight) {
+while (content.length !== document.querySelectorAll(".product_div").length &&
+    document.documentElement.getBoundingClientRect().bottom <= document.documentElement.clientHeight + 100 + document.querySelector("footer").offsetHeight) {
     addProducts(content);
 }
 
@@ -303,3 +313,9 @@ window.addEventListener("touchmove", function () {
         addProducts(content)
     }
 });
+
+for (let input of document.querySelectorAll("#category_filter > div > input")) {
+    input.onclick = function () {
+        goToCategory(input.id.split("_")[0]);
+    }
+}

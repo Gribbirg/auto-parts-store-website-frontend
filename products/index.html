@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="style.css">
 
     <script type="module" src="script.js" defer></script>
-    <script src="../pages/header/add_script.js" async></script>
 </head>
 <body>
 <main>
+    <script src="../pages/header/add_script.js" async></script>
     <div id="sort_filter_section">
         <section id="sort_section">
             <h2 class="part_name">Сортировать</h2>
@@ -43,6 +43,26 @@
         <section id="filters_section">
             <h2 class="part_name">Фильтры</h2>
             <div id="filters_div" class="sort_filters_div">
+                <fieldset class="field" id="category_filter">
+                    <legend>Категория:</legend>
+                    <div>
+                        <input type="radio" name="category_input" id="chemistry_input">
+                        <label for="chemistry_input">Масло и автохимия</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="category_input" id="tiers_input">
+                        <label for="tiers_input">Шины, диски</label>
+                    </div>
+                    <div>
+
+                        <input type="radio" name="category_input" id="electronics_input">
+                        <label for="electronics_input">Автоэлектроника</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="category_input" id="other_input">
+                        <label for="other_input">Остальное</label>
+                    </div>
+                </fieldset>
                 <fieldset class="field" id="cost_filter">
                     <legend class="legend">Цена:</legend>
                     <div>
