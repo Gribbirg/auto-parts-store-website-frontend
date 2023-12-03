@@ -9,7 +9,7 @@
     display: flex;
     flex-flow: row;
     align-content: stretch;
-    align-items: stretch;
+    align-items: center;
 
     position: fixed;
     top: -2px;
@@ -207,6 +207,18 @@ ul.nav_list {
             border-bottom-right-radius: 45px;
             border-bottom-left-radius: 45px;
             border-top-right-radius: 0;
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    #header_head {
+        font-size: 15px;
+    }
+    #header {
+        height: 60px;
+        > img {
+            width: 80px;
         }
     }
 }
