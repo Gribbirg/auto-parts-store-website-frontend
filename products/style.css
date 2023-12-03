@@ -124,10 +124,10 @@ section {
 
 @media (max-width: 900px) {
     #products_section {
-        width: calc(100% - 100px);
+        width: calc(100vw - 80px);
     }
     .product_div {
-        width: 100%;
+        width: calc(100vw - 60px);
         height: fit-content;
     }
 
