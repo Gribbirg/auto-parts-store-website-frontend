@@ -122,3 +122,89 @@ ul.nav_list {
         border-top-right-radius: 45px;
     }
 }
+
+@media (max-width: 1024px) {
+    #up_nav {
+        flex-direction: row-reverse;
+        outline: none;
+        flex-grow: 1;
+
+        > label {
+            display: block;
+            margin-right: 20px;
+            right: 20px;
+            font-size: 50px;
+            transition: transform 400ms;
+        }
+
+        > label::before {
+            content: '☰';
+            color: var(--md-sys-color-on-primary-container);
+        }
+    }
+
+    #nav_menu_button:checked {
+        + label {
+            transform: rotate(90deg);
+
+        }
+
+        + label + ul.nav_list {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    ul.nav_list {
+        opacity: 0;
+        visibility: hidden;
+        display: flex;
+        flex-flow: column;
+
+        width: 100%;
+        height: fit-content;
+        position: absolute;
+        top: 80px;
+        right: 0;
+        left: 0;
+        transition: opacity 400ms, visibility 0s;
+
+        border-radius: 45px;
+
+        > li {
+            display: block;
+            opacity: 0.95;
+            height: fit-content;
+
+            & a {
+                height: 10vh;
+                box-shadow: 5px 5px 8px black;
+                border: var(--md-sys-color-primary) 1px solid;
+            }
+
+            & a:link {
+                background-color: var(--md-sys-color-primary-container);
+                color: var(--md-sys-color-on-primary-container);
+                border-color: var(--md-sys-color-primary);
+            }
+
+            & a:hover {
+                background-color: var(--md-sys-color-secondary-container);
+                color: var(--md-sys-color-on-secondary-container);
+                border-color: var(--md-sys-color-secondary);
+            }
+        }
+
+        :first-child > a {
+            border-top-right-radius: 45px;
+            border-top-left-radius: 45px;
+            border-bottom-left-radius: 0;
+        }
+
+        :last-child > a {
+            border-bottom-right-radius: 45px;
+            border-bottom-left-radius: 45px;
+            border-top-right-radius: 0;
+        }
+    }
+}

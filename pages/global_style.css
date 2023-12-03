@@ -15,14 +15,14 @@ section {
     padding: 0 20px;
     margin: 15px 10px;
     border-radius: 30px;
-    border: var(--md-sys-color-on-surface) 1px solid;
+    border: var(--md-sys-color-outline) 1px solid;
     box-shadow: 2px 2px 4px black;
     height: 100%;
     /*backdrop-filter: blur(100px);*/
     /*width: fit-content;*/
 
     > .part_name {
-        color: var(--md-sys-color-on-primary-container);
+        color: var(--md-sys-color-on-surface);
     }
 }
 
@@ -81,9 +81,9 @@ section {
 }
 
 .field {
-    border: var(--md-sys-color-secondary) 1px solid;
+    border: var(--md-sys-color-on-surface) 1px solid;
     border-radius: 10px;
-    background: var(--md-sys-color-secondary-container);
+    background: var(--md-sys-color-surface-variant);
     padding: 5px 10px;
     display: inline-flex;
     flex-flow: row wrap;
@@ -93,9 +93,9 @@ section {
     > legend {
         border: #002200 1px solid;
         border-radius: 10px;
-        background: var(--md-sys-color-primary);
+        background: var(--md-sys-color-secondary);
         padding: 0.1rem 0.5rem;
-        color: var(--md-sys-color-on-primary);
+        color: var(--md-sys-color-on-secondary);
         width: max-content;
         font-weight: 700;
     }
@@ -109,7 +109,7 @@ section {
         height: fit-content;
 
         & * {
-            color: var(--md-sys-color-on-secondary-container);
+            color: var(--md-sys-color-on-surface);
             font-family: "Roboto Thin", sans-serif;
         }
 
@@ -117,8 +117,8 @@ section {
 }
 
 fieldset.field {
-    border-color: var(--md-sys-color-primary);
-    background-color: var(--md-sys-color-secondary-container);
+    border-color: var(--md-sys-color-secondary);
+    background-color: var(--md-sys-color-surface);
 }
 
 .field:focus {
