@@ -13,6 +13,7 @@ section {
 
 #products_section {
     grid-area: products;
+    margin: 5px;
 }
 
 #products_div {

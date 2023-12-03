@@ -288,7 +288,13 @@ function setCart(cart) {
     // setSumText(cart);
 }
 
-window.addEventListener("scroll", function (event) {
+window.addEventListener("scroll", function () {
+    if (document.documentElement.getBoundingClientRect().bottom <= document.documentElement.clientHeight + 10) {
+        addProducts(content);
+    }
+});
+
+window.addEventListener("touchmove", function () {
     if (document.documentElement.getBoundingClientRect().bottom <= document.documentElement.clientHeight + 10) {
         addProducts(content);
     }
