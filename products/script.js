@@ -86,7 +86,7 @@ function findCategory(category) {
 }
 
 function addCategory(category) {
-    document.getElementById(`${category}_input`).checked = true;
+    document.getElementById(`${category}_ref`).classList.add("checked");
     let content = findCategory(category);
     setCategoryName(content.name);
     for (let product of content["products"]) {
@@ -316,9 +316,3 @@ window.addEventListener("touchmove", function () {
         addProducts(content)
     }
 });
-
-for (let input of document.querySelectorAll("#category_filter > div > input")) {
-    input.onclick = function () {
-        goToCategory(input.id.split("_")[0]);
-    }
-}
