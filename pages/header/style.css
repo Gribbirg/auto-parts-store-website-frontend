@@ -100,8 +100,8 @@ ul.nav_list {
         }
 
         & a:hover {
-            background: var(--md-sys-color-on-secondary-container);
-            color: var(--md-sys-color-on-secondary);
+            background: var(--md-sys-color-on-tertiary-container);
+            color: var(--md-sys-color-on-tertiary);
             transform: scale(105%);
             box-shadow: 1px 1px 2px 1px black;
         }
@@ -191,9 +191,9 @@ ul.nav_list {
             }
 
             & a:hover {
-                background-color: var(--md-sys-color-secondary-container);
-                color: var(--md-sys-color-on-secondary-container);
-                border-color: var(--md-sys-color-secondary);
+                background-color: var(--md-sys-color-tertiary-container);
+                color: var(--md-sys-color-on-tertiary-container);
+                border-color: var(--md-sys-color-tertiary);
             }
         }
 
