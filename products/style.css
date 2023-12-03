@@ -13,7 +13,6 @@ section {
 
 #products_section {
     grid-area: products;
-    margin: 5px;
 }
 
 #products_div {
@@ -124,8 +123,11 @@ section {
 }
 
 @media (max-width: 900px) {
+    #products_section {
+        width: calc(100% - 40px);
+    }
     .product_div {
-        width: calc(100% - 10px);
+        width: 100%;
         height: fit-content;
     }
 

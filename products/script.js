@@ -289,13 +289,13 @@ function setCart(cart) {
 }
 
 window.addEventListener("scroll", function () {
-    if (document.documentElement.getBoundingClientRect().bottom <= document.documentElement.clientHeight + 10) {
+    if (document.documentElement.getBoundingClientRect().bottom <= document.documentElement.clientHeight + 50) {
         addProducts(content);
     }
 });
 
 window.addEventListener("touchmove", function () {
-    if (document.documentElement.getBoundingClientRect().bottom <= document.documentElement.clientHeight + 10) {
-        addProducts(content);
+    if (document.documentElement.getBoundingClientRect().bottom <= document.documentElement.clientHeight + 50) {
+        addProducts(content)
     }
 });
