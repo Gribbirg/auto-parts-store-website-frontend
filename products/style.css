@@ -139,7 +139,7 @@ section {
     .product_div {
         grid-template-areas: "head head cost"
                         "pic desc desc"
-                        "pic button button";
+                        "button button button";
     }
 
     .product_img_div {
