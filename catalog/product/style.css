@@ -12,10 +12,11 @@ main {
 
 #main_data_div {
     display: grid;
-    grid: repeat(2, fit-content(100%)) / repeat(2, 500px);
+    grid: repeat(2, fit-content(100%)) / repeat(2, fit-content(100%));
     grid-template-areas: "img desc"
                          "img buy_div";
-    justify-content: space-between;
+    justify-content: end;
+    align-content: end;
 }
 
 #logo {
@@ -35,6 +36,7 @@ main {
 #cost {
     white-space: nowrap;
     text-align: right;
+    width: fit-content;
     margin: 10px;
     font-size: 3rem;
     color: var(--md-sys-color-on-secondary-container);
