@@ -43,5 +43,20 @@ function setProductData(product) {
     document.querySelector("#main_section > h2").textContent =  product.name;
     document.getElementById("logo").src = `/images/products/${product["img"]}`;
     document.getElementById("desc").textContent = product.description;
-    document.getElementById("cost").textContent = `${product["cost"].toLocaleString()} ₽`
+    document.getElementById("cost").textContent = `${product["cost"].toLocaleString()} ₽`;
+    document.getElementById("buy_div").innerHTML += `
+                 <div class="product_div_button">
+                    <button class="product_buy_button arrow_button" id="${product.id}+buy_button">
+                        Купить
+                        <span></span>
+                    </button>
+                    <button class="product_basket_button arrow_button cart_sub_button" id="${product.id}+cart_sub_button">-</button>
+                    <a href="/AutoPartsStoreWebsiteFrontend/cart"><button class="product_basket_button arrow_button cart_button" id="${product.id}+cart_button">
+                        В корзине 1 шт
+                        <span></span>
+                    </button></a>
+                    <button class="product_basket_button arrow_button cart_add_button" id="${product.id}+cart_add_button">+</button>
+                </div>`;
+    setProductsButtonsOnClick(type, category);
+    setButtonsState(product.id);
 }

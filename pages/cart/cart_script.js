@@ -69,6 +69,16 @@ function setProductsButtonsOnClick(type, category) {
     }
 }
 
+function setButtonsState(id) {
+    let cartEl = findInCart(cart, id);
+    if (cartEl !== undefined) {
+        setProductBuyButtonsState(id, true);
+        setProductCartButtonText(id, cartEl.count);
+    } else {
+        setProductBuyButtonsState(id, false);
+    }
+}
+
 function removeFromCart(cart, id) {
     let pos = cart.findIndex(function (item) {
         return item.id === id;

@@ -10,6 +10,8 @@
 
     <link rel="stylesheet" href="/AutoPartsStoreWebsiteFrontend/pages/global_style.css">
     <link rel="stylesheet" href="style.css">
+
+    <script src="/pages/cart/cart_script.js"></script>
 </head>
 <body>
 <script src="/pages/header/add_script.js" async></script>
@@ -21,18 +23,7 @@
             <p id="desc"></p>
             <div id="buy_div">
                 <p id="cost"></p>
-                <div class="product_div_button">
-                    <button class="product_buy_button arrow_button" id="${product.id}+buy_button">
-                        Купить
-                        <span></span>
-                    </button>
-                    <button class="product_basket_button arrow_button cart_sub_button" id="${product.id}+cart_sub_button">-</button>
-                    <a href="/AutoPartsStoreWebsiteFrontend/cart"><button class="product_basket_button arrow_button cart_button" id="${product.id}+cart_button">
-                        В корзине 1 шт
-                        <span></span>
-                    </button></a>
-                    <button class="product_basket_button arrow_button cart_add_button" id="${product.id}+cart_add_button">+</button>
-                </div>
+
             </div>
         </div>
     </section>

@@ -137,7 +137,7 @@ function setContent(content) {
                 setProductCartButtonText(content[i].id, cartEl.count);
             }
         }
-        setProductsButtonsOnClick();
+        setProductsButtonsOnClick(type, category);
         while (content.length !== document.querySelectorAll(".product_div").length &&
         document.documentElement.getBoundingClientRect().bottom <= document.documentElement.clientHeight + 100 + document.querySelector("footer").offsetHeight) {
             addProducts(content);
@@ -154,12 +154,8 @@ function addProducts(content) {
     let count = getCurrentProductsDisplayCount();
     for (let i = count; i < Math.min(count + 2, content.length); i++) {
         createProductDiv(content[i]);
-        setProductsButtonsOnClick();
-        let cartEl = findInCart(cart, content[i].id);
-        if (cartEl !== undefined) {
-            setProductBuyButtonsState(content[i].id, true);
-            setProductCartButtonText(content[i].id, cartEl.count);
-        }
+        setProductsButtonsOnClick(type, category);
+        setButtonsState(content[i].id);
     }
 }
 

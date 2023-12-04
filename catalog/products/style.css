@@ -1,3 +1,5 @@
+@import "/pages/cart/style.css";
+
 main {
     display: flex;
     flex-flow: row nowrap;
@@ -99,35 +101,6 @@ section {
     font-size: 2rem;
     grid-area: cost;
     color: var(--md-sys-color-on-secondary-container);
-}
-
-.product_div_button {
-    display: flex;
-    flex-flow: row nowrap;
-    grid-area: button;
-    justify-self: end;
-    align-self: end;
-    margin: 10px;
-
-    > a {
-        text-decoration: none;
-    }
-}
-
-.product_buy_button {
-    width: 150px;
-    height: 30px;
-
-    /*padding: 2px 50px;*/
-}
-
-.product_basket_button {
-    /*border-radius: 8px;*/
-    display: none;
-    margin-left: 5px;
-    margin-right: 5px;
-    width: 30px;
-    height: 30px;
 }
 
 .product_head {
@@ -256,10 +229,6 @@ section {
     > p {
         margin: 10px;
     }
-}
-
-.cart_button {
-    width: 150px;
 }
 
 .sort_type_input:checked + label {
