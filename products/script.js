@@ -62,24 +62,25 @@ function setCategoryName(name) {
 
 function createFilters(categoryData) {
     let div = document.getElementById("filters_div");
-    for (let filter of categoryData["filters"]) {
-        if (filter.type === "choice") {
-            div.innerHTML +=
-                `<fieldset class="field choice_filter" id="${filter.id}_choice_filter">
+    if (categoryData["filters"]) {
+        for (let filter of categoryData["filters"]) {
+            if (filter.type === "choice") {
+                div.innerHTML +=
+                    `<fieldset class="field choice_filter" id="${filter.id}_choice_filter">
                      <legend>${filter.name}:</legend>
                  </fieldset>`
 
-            let fieldset = document.getElementById(`${filter.id}_choice_filter`);
-            for (let i = 0; i < filter.options.length; i++) {
-                fieldset.innerHTML +=
-                    `<label for="${filter.id}_${i}_filter">
+                let fieldset = document.getElementById(`${filter.id}_choice_filter`);
+                for (let i = 0; i < filter.options.length; i++) {
+                    fieldset.innerHTML +=
+                        `<label for="${filter.id}_${i}_filter">
                         <input type="checkbox" name="${filter.id}_input" id="${filter.id}_${i}_filter" class="field">
                         ${filter.options[i]}
                     </label>`
-            }
-        } else if (filter.type === "num") {
-            div.innerHTML +=
-                `<fieldset class="field num_filter" id="${filter.id}_num_filter">
+                }
+            } else if (filter.type === "num") {
+                div.innerHTML +=
+                    `<fieldset class="field num_filter" id="${filter.id}_num_filter">
                     <legend class="legend">${filter.name}:</legend>
                     <div>
                         <label for="${filter.id}_from_filter">От:</label>
@@ -92,6 +93,7 @@ function createFilters(categoryData) {
                         <span>${filter.unit}</span>
                     </div>
                 </fieldset>`
+            }
         }
     }
 }

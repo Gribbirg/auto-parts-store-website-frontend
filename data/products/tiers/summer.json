@@ -1,3 +1,56 @@
 [
-
+  {
+    "id": "Kama_1110004",
+    "name": "Кама 1110004",
+    "description": "Шина летняя \"Breeze-132 185/60R14 82H\"",
+    "cost": 3516,
+    "img": "Kama_1110004.png",
+    "size": "185/60",
+    "diameter": 14
+  },
+  {
+    "id": "Bars_9363924",
+    "name": "Bars 9363924",
+    "description": "Шина летняя \"UZ200 195/65R15 91H\"",
+    "cost": 4814,
+    "img": "Bars_9363924.png",
+    "size": "195/50",
+    "diameter": 15
+  },
+  {
+    "id": "Matador_1581114",
+    "name": "Matador 1581114",
+    "description": "Шина летняя \"Hectorra 3 MP-47 205/55R16 91H\"\n",
+    "cost": 6040,
+    "img": "Matador_1581114.png",
+    "size": "205/55",
+    "diameter": 16
+  },
+  {
+    "id": "Viatti_3110007",
+    "name": "Viatti 3110007",
+    "description": "Шина летняя \"Strada Asimmetrico V-130 185/55R15 82H\"",
+    "cost": 4256,
+    "img": "Viatti_3110007.png",
+    "size": "185/55",
+    "diameter": 15
+  },
+  {
+    "id": "Cordiant_650852099",
+    "name": "Cordiant 650852099",
+    "description": "Шина летняя \"Comfort 2 175/70R13 86H\"",
+    "cost": 4354,
+    "img": "Cordiant_650852099.png",
+    "size": "175/75",
+    "diameter": 13
+  },
+  {
+    "id": "Formula_2139400",
+    "name": "Formula 2139400",
+    "description": "Шина летняя \"Formula Energy 195/50R15 82V\"",
+    "cost": 4906,
+    "img": "Formula_2139400.png",
+    "size": "195/50",
+    "diameter": 15
+  }
 ]

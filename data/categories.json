@@ -52,7 +52,27 @@
     "subcategories": [
       {
         "id": "summer",
-        "name": "Летние шины"
+        "name": "Летние шины",
+        "filters": [
+          {
+            "id": "diameter",
+            "name": "Диаметр",
+            "type": "num",
+            "unit": "дюймов"
+          },
+          {
+            "id": "size",
+            "name": "Размер",
+            "type": "choice",
+            "options": [
+              "175/75",
+              "185/55",
+              "185/60",
+              "195/50",
+              "205/55"
+            ]
+          }
+        ]
       },
       {
         "id": "winter",
