@@ -70,11 +70,11 @@ function createFilters(categoryData) {
                  </fieldset>`
 
             let fieldset = document.getElementById(`${filter.id}_choice_filter`);
-            for (let option of filter.options) {
+            for (let i = 0; i < filter.options.length; i++) {
                 fieldset.innerHTML +=
-                    `<label for="${filter.id}_${option}_filter">
-                        <input type="checkbox" id="${filter.id}_${option}_filter" name="${filter.id}_input" class="field">
-                        ${option}
+                    `<label for="${filter.id}_${i}_filter">
+                        <input type="checkbox" name="${filter.id}_input" id="${filter.id}_${i}_filter" class="field">
+                        ${filter.options[i]}
                     </label>`
             }
         } else if (filter.type === "num") {
@@ -337,8 +337,11 @@ function setCart(cart) {
     // setSumText(cart);
 }
 
-function setFilter() {
-
+function setChoiceFilter(content, parameter, values) {
+    if (values.length === 0) return content;
+    return content.filter(function (item) {
+        return values.includes(item[parameter]);
+    });
 }
 
 window.addEventListener("scroll", function () {
@@ -355,7 +358,7 @@ window.addEventListener("touchmove", function () {
 
 
 document.getElementById("confirm_filter_button").onclick = function () {
-    content = findCategory(category)["products"];
+    content = data;
 
     let costFrom = Number(document.getElementById("from_cost_filter").value);
     let costTo = Number(document.getElementById("to_cost_filter").value);
@@ -363,5 +366,17 @@ document.getElementById("confirm_filter_button").onclick = function () {
         content = getFilterList(content, costFrom, costTo);
     }
 
+    for (let fieldset of document.querySelectorAll("#filters_div > fieldset")) {
+        let id = fieldset.id.split("_");
+        if (id[1] === "choice") {
+            let values = [];
+            for (let input of document.querySelectorAll(`#${fieldset.id} > label > input`)) {
+                if (input.checked) {
+                    values.push(input.parentElement.textContent.replaceAll("\n", "").replaceAll("  ", ""));
+                }
+            }
+            content = setChoiceFilter(content, id[0], values);
+        }
+    }
     setContent(content);
 }
