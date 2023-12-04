@@ -6,6 +6,7 @@ let {type, category} = getCategory();
 const response = await fetch(`../data/products/${type}/${category}.json`);
 const data = await response.json();
 
+// const responseCategory = await fetch('https://gribbirg.github.io/AutoPartsStoreWebsiteFrontend/data/categories.json');
 const responseCategory = await fetch('../data/categories.json');
 const typeData = (await responseCategory.json()).find(function (item) {
     return item.id === type;
