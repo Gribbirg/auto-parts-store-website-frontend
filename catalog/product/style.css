@@ -1,4 +1,4 @@
-@import "/pages/cart/style.css";
+@import "../../pages/cart/style.css";
 
 main {
     display: flex;
