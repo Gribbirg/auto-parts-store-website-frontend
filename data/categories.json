@@ -1,69 +1,69 @@
 [
   {
-    id: "chemistry",
-    name: "Масло и автохимия",
-    subcategories: [
+    "id": "chemistry",
+    "name": "Масло и автохимия",
+    "subcategories": [
       {
-        id: "oil",
-        name: "Масло"
+        "id": "oil",
+        "name": "Масло"
       },
       {
-        id: "cooling",
-        name: "Жидкости для охлаждения"
+        "id": "cooling",
+        "name": "Жидкости для охлаждения"
       },
       {
-        id: "washer",
-        name: "Жидкости для омывателя"
+        "id": "washer",
+        "name": "Жидкости для омывателя"
       }
     ]
   },
   {
-    id: "tiers",
-    name: "Шины и диски",
-    subcategories: [
+    "id": "tiers",
+    "name": "Шины и диски",
+    "subcategories": [
       {
-        id: "summer",
-        name: "Летние шины"
+        "id": "summer",
+        "name": "Летние шины"
       },
       {
-        id: "winter",
-        name: "Зимние шины"
+        "id": "winter",
+        "name": "Зимние шины"
       },
       {
-        id: "disk",
-        name: "Диски"
+        "id": "disk",
+        "name": "Диски"
       }
     ]
   },
   {
-    id: "electronics",
-    name: "Автоэлектроника",
-    subcategories: [
+    "id": "electronics",
+    "name": "Автоэлектроника",
+    "subcategories": [
       {
-        id: "lamp",
-        name: "Лампы"
+        "id": "lamp",
+        "name": "Лампы"
       },
       {
-        id: "battery",
-        name: "Аккумуляторы"
+        "id": "battery",
+        "name": "Аккумуляторы"
       },
       {
-        id: "breaker",
-        name: "Предохранители"
+        "id": "breaker",
+        "name": "Предохранители"
       }
     ]
   },
   {
-    id: "other",
-    name: "Остальное",
-    subcategories: [
+    "id": "other",
+    "name": "Остальное",
+    "subcategories": [
       {
-        id: "tool",
-        name: "Инструменты"
+        "id": "tool",
+        "name": "Инструменты"
       },
       {
-        id: "accessory",
-        name: "Автоаксессуары"
+        "id": "accessory",
+        "name": "Автоаксессуары"
       }
     ]
   }

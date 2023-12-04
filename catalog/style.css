@@ -1,0 +1,11 @@
+main {
+    display: grid;
+    grid: repeat(2, fit-content(100%)) / repeat(2, 1fr);
+    column-gap: 20px;
+    row-gap: 20px;
+}
+
+section {
+    margin: 0;
+    width: fit-content;
+}
