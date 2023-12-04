@@ -4,7 +4,7 @@ import data from '../data/categories.json' assert {type: 'json'};
 
 function createCategory(category) {
     let section = document.createElement("section");
-    document.querySelector("main").appendChild(section);
+    document.getElementById("categories_div").appendChild(section);
 
     let head = document.createElement("h2");
     head.className = "part_name";

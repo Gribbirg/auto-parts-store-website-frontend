@@ -4,7 +4,7 @@ footer {
     border-top-right-radius: 30px;
     border-top-left-radius: 30px;
     padding: 10px 0;
-    margin: 20px -8px -10px;
+    margin: 20px -8px -8px;
     display: grid;
     grid: fit-content(100%) / repeat(3, 1fr);
     row-gap: 20px;
