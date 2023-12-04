@@ -262,11 +262,26 @@ section {
     width: 300px;
 }
 
-#category_filter {
+.choice_filter {
     display: flex;
     flex-flow: column nowrap;
     align-items: start;
-    > a {
+    padding-right: 5px;
+
+    > label {
+        /*display: none;*/
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: start;
+
+        > input {
+            width: fit-content;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+    }
+
+    > a, > label {
         color: var(--md-sys-color-on-surface);
         font-style: normal;
         text-decoration: none;
@@ -277,12 +292,12 @@ section {
         transition: all 400ms;
     }
 
-    > a.checked {
+    > a.checked, > input:checked + label {
         color: var(--md-sys-color-on-secondary-container);
         background: var(--md-sys-color-secondary-container);
     }
 
-    > a:hover {
+    > a:hover, > label:hover {
         color: var(--md-sys-color-on-tertiary-container);
         background: var(--md-sys-color-tertiary-container);
     }

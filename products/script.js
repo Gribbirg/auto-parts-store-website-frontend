@@ -63,9 +63,23 @@ function setCategoryName(name) {
 function createFilters(categoryData) {
     let div = document.getElementById("filters_div");
     for (let filter of categoryData["filters"]) {
-        if (filter.type === "num") {
+        if (filter.type === "choice") {
             div.innerHTML +=
-                `<fieldset class="field num_filter" id="${filter.id}_filter">
+                `<fieldset class="field choice_filter" id="${filter.id}_choice_filter">
+                     <legend>${filter.name}:</legend>
+                 </fieldset>`
+
+            let fieldset = document.getElementById(`${filter.id}_choice_filter`);
+            for (let option of filter.options) {
+                fieldset.innerHTML +=
+                    `<label for="${filter.id}_${option}_filter">
+                        <input type="checkbox" id="${filter.id}_${option}_filter" name="${filter.id}_input" class="field">
+                        ${option}
+                    </label>`
+            }
+        } else if (filter.type === "num") {
+            div.innerHTML +=
+                `<fieldset class="field num_filter" id="${filter.id}_num_filter">
                     <legend class="legend">${filter.name}:</legend>
                     <div>
                         <label for="${filter.id}_from_filter">От:</label>
@@ -233,18 +247,6 @@ function getProduct(category, id) {
     });
 }
 
-document.getElementById("confirm_filter_button").onclick = function () {
-    content = findCategory(category)["products"];
-
-    let costFrom = Number(document.getElementById("from_cost_filter").value);
-    let costTo = Number(document.getElementById("to_cost_filter").value);
-    if (costFrom && costTo) {
-        content = getFilterList(content, costFrom, costTo);
-    }
-
-    setContent(content);
-}
-
 for (let div of document.querySelectorAll(".sort_divs")) {
     div.addEventListener("click", function () {
         onSortDivClickListener(div);
@@ -319,28 +321,6 @@ function setProductsButtonsOnClick() {
     }
 }
 
-function setCartElementButtonsOnClick() {
-    for (let button of document.querySelectorAll(".cart_el_add_button")) {
-        button.onclick = function () {
-            addCount(cart, button.id.split("+")[0]);
-        }
-    }
-
-    for (let button of document.querySelectorAll(".cart_el_sub_button")) {
-        button.onclick = function () {
-            subCount(cart, button.id.split("+")[0]);
-        }
-    }
-    for (let button of document.querySelectorAll(".cart_el_del_button")) {
-        button.onclick = function () {
-            let id = button.id.split("+")[0];
-            removeFromCart(cart, id);
-            setProductBuyButtonsState(id, false);
-            setCart(cart);
-        }
-    }
-}
-
 function removeFromCart(cart, id) {
     let pos = cart.findIndex(function (item) {
         return item.id === id;
@@ -357,6 +337,10 @@ function setCart(cart) {
     // setSumText(cart);
 }
 
+function setFilter() {
+
+}
+
 window.addEventListener("scroll", function () {
     if (document.documentElement.getBoundingClientRect().bottom <= document.documentElement.clientHeight + 100 + document.querySelector("footer").offsetHeight) {
         addProducts(content);
@@ -368,3 +352,16 @@ window.addEventListener("touchmove", function () {
         addProducts(content)
     }
 });
+
+
+document.getElementById("confirm_filter_button").onclick = function () {
+    content = findCategory(category)["products"];
+
+    let costFrom = Number(document.getElementById("from_cost_filter").value);
+    let costTo = Number(document.getElementById("to_cost_filter").value);
+    if (costFrom && costTo) {
+        content = getFilterList(content, costFrom, costTo);
+    }
+
+    setContent(content);
+}
