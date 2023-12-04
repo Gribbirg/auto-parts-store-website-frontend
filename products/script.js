@@ -177,13 +177,6 @@ function addCategory(category) {
     }
 }
 
-function getFilterList(list, a, b) {
-    return list.filter(function (item) {
-        let cost = Number(item["cost"]);
-        return (cost >= a && cost <= b);
-    });
-}
-
 function offSortDivs(onDiv) {
     for (let div of document.querySelectorAll(".sort_divs")) {
         div.style.background = "var(--md-sys-color-primary-container)";
@@ -337,10 +330,18 @@ function setCart(cart) {
     // setSumText(cart);
 }
 
-function setChoiceFilter(content, parameter, values) {
+function getChoiceFilter(content, parameter, values) {
     if (values.length === 0) return content;
     return content.filter(function (item) {
         return values.includes(item[parameter]);
+    });
+}
+
+function getFilterList(list, parameter, a, b) {
+    if (!a || !b) return list;
+    return list.filter(function (item) {
+        let cost = Number(item[parameter]);
+        return (cost >= a && cost <= b);
     });
 }
 
@@ -363,7 +364,7 @@ document.getElementById("confirm_filter_button").onclick = function () {
     let costFrom = Number(document.getElementById("from_cost_filter").value);
     let costTo = Number(document.getElementById("to_cost_filter").value);
     if (costFrom && costTo) {
-        content = getFilterList(content, costFrom, costTo);
+        content = getFilterList(content, "cost", costFrom, costTo);
     }
 
     for (let fieldset of document.querySelectorAll("#filters_div > fieldset")) {
@@ -375,7 +376,14 @@ document.getElementById("confirm_filter_button").onclick = function () {
                     values.push(input.parentElement.textContent.replaceAll("\n", "").replaceAll("  ", ""));
                 }
             }
-            content = setChoiceFilter(content, id[0], values);
+            content = getChoiceFilter(content, id[0], values);
+        } else if (id[1] === "num") {
+            content = getFilterList(
+                content,
+                id[0],
+                Number(document.getElementById(`${id[0]}_from_filter`).value),
+                Number(document.getElementById(`${id[0]}_to_filter`).value)
+            );
         }
     }
     setContent(content);
