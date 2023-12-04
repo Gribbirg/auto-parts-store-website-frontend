@@ -1,0 +1,43 @@
+main {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+#main_section {
+    width: fit-content;
+}
+
+#main_data_div {
+    display: grid;
+    grid: repeat(2, fit-content(100%)) / repeat(2, 500px);
+    grid-template-areas: "img desc"
+                         "img buy_div";
+    justify-content: space-between;
+}
+
+#logo {
+    width: 200px;
+    grid-area: img;
+    margin: 20px;
+    border-radius: 15px;
+    border: var(--md-sys-color-primary) 2px solid;
+    background-color: var(--md-sys-color-primary-container);
+    padding: 25px;
+}
+
+#main_description {
+    grid-area: desc;
+}
+
+#cost {
+    white-space: nowrap;
+    text-align: right;
+    margin: 10px;
+    font-size: 3rem;
+    color: var(--md-sys-color-on-secondary-container);
+}
+
+#buy_div {
+    grid-area: buy_div;
+}

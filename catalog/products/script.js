@@ -8,7 +8,7 @@ const typeData = (await responseCategory.json()).find(function (item) {
     return item.id === type;
 });
 if (!typeData)
-    goToCategory("tiers", "summer");
+    window.location.href = "/AutoPartsStoreWebsiteFrontend/catalog/";
 
 if (!category || category === "null")
     goToCategory(type, typeData["subcategories"][0].id);
@@ -25,7 +25,6 @@ const data = await response.json();
 
 setCategoriesOfType(typeData);
 
-let cart = [];
 let content = data;
 addCategory(category);
 onSortDivClickListener(document.getElementById("cost_sort"));
@@ -36,14 +35,14 @@ function getCategory() {
     let search = new URLSearchParams(window.location.search)
     let type = search.get("type");
     if (!type || type === "null") {
-        goToCategory("tiers", "summer");
+        window.location.href = "/AutoPartsStoreWebsiteFrontend/catalog/";
     }
     let category = search.get("category");
     return {type, category};
 }
 
 function goToCategory(type, category) {
-    window.location.href = window.location.href.split("?")[0] + `?type=${type}&category=${category}`;
+    window.location.href = `?type=${type}&category=${category}`;
 }
 
 function setCategoriesOfType(typeData) {
@@ -101,7 +100,7 @@ function createFilters(categoryData) {
 function createProductDiv(product) {
     document.getElementById("products_div").innerHTML +=
         `<div class="product_div">
-            <a href="index.html"></a>
+            <a href="/AutoPartsStoreWebsiteFrontend/catalog/product/?type=${type}&category=${category}&product=${product.id}"></a>
             <h3 class="product_head">${product.name}</h3>
             <div class="product_img_div">
                 <img src=${"https://gribbirg.github.io/AutoPartsStoreWebsiteFrontend/images/products/" + product["img"]} alt=${product.name}/>
@@ -114,7 +113,7 @@ function createProductDiv(product) {
                     <span></span>
                 </button>
                 <button class="product_basket_button arrow_button cart_sub_button" id="${product.id}+cart_sub_button">-</button>
-                <a href="#cart_position"><button class="product_basket_button arrow_button cart_button" id="${product.id}+cart_button">
+                <a href="/AutoPartsStoreWebsiteFrontend/cart"><button class="product_basket_button arrow_button cart_button" id="${product.id}+cart_button">
                     В корзине 1 шт
                     <span></span>
                 </button></a>
@@ -162,12 +161,6 @@ function addProducts(content) {
             setProductCartButtonText(content[i].id, cartEl.count);
         }
     }
-}
-
-function findCategory(category) {
-    return data.find(function (item) {
-        return item.id === category;
-    });
 }
 
 function addCategory(category) {
@@ -235,102 +228,10 @@ function onSortDivClickListener(div) {
     setContent(content);
 }
 
-function getProduct(category, id) {
-    return data.find(function (item) {
-        return item.id === category;
-    })["products"].find(function (item) {
-        return item.id === id;
-    });
-}
-
 for (let div of document.querySelectorAll(".sort_divs")) {
     div.addEventListener("click", function () {
         onSortDivClickListener(div);
     })
-}
-
-function findInCart(cart, id) {
-    return cart.find(function (item) {
-        return item.id === id;
-    });
-}
-
-function setProductBuyButtonsState(id, state) {
-    if (document.getElementById(`${id}+buy_button`)) {
-        if (state) {
-            document.getElementById(`${id}+buy_button`).style.display = "none";
-            document.getElementById(`${id}+cart_button`).style.display = "initial";
-            document.getElementById(`${id}+cart_add_button`).style.display = "initial";
-            document.getElementById(`${id}+cart_sub_button`).style.display = "initial";
-        } else {
-            document.getElementById(`${id}+buy_button`).style.display = "initial";
-            document.getElementById(`${id}+cart_button`).style.display = "none";
-            document.getElementById(`${id}+cart_add_button`).style.display = "none";
-            document.getElementById(`${id}+cart_sub_button`).style.display = "none";
-        }
-    }
-}
-
-function setProductCartButtonText(id, count) {
-    document.getElementById(`${id}+cart_button`).innerHTML = `<a href="#cart_position"></a>В корзине ${count} шт<span></span>`;
-}
-
-function subCount(cart, id) {
-    let product = findInCart(cart, id);
-    product.count--;
-    if (product.count !== 0) {
-        setProductCartButtonText(id, product.count);
-    } else {
-        removeFromCart(cart, id);
-        setProductBuyButtonsState(id, false);
-    }
-    setCart(cart);
-}
-
-function addCount(cart, id) {
-    let product = findInCart(cart, id);
-    product.count++;
-    setCart(cart);
-    setProductCartButtonText(id, product.count);
-}
-
-function setProductsButtonsOnClick() {
-    for (let button of document.querySelectorAll(".product_buy_button")) {
-        button.onclick = function () {
-            let id = button.id.split("+")[0];
-            cart.push({id: id, category: category, count: 1});
-            setCart(cart);
-            setProductBuyButtonsState(id, true);
-            setProductCartButtonText(id, 1);
-        };
-    }
-    for (let button of document.querySelectorAll(".cart_add_button")) {
-        button.onclick = function () {
-            addCount(cart, button.id.split("+")[0]);
-        }
-    }
-
-    for (let button of document.querySelectorAll(".cart_sub_button")) {
-        button.onclick = function () {
-            subCount(cart, button.id.split("+")[0]);
-        }
-    }
-}
-
-function removeFromCart(cart, id) {
-    let pos = cart.findIndex(function (item) {
-        return item.id === id;
-    });
-    cart.splice(pos, 1);
-}
-
-function setCart(cart) {
-    // document.getElementById("cart_div").innerHTML = "";
-    // for (let element of cart) {
-    //     createCartElement(element, getProduct(element.category, element.id));
-    // }
-    // setCartElementButtonsOnClick();
-    // setSumText(cart);
 }
 
 function getChoiceFilter(content, parameter, values) {
