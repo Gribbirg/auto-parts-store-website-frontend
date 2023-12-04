@@ -2,6 +2,12 @@
 @import "colors/theme.css";
 @import "header/style.css";
 
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+    }
+}
+
 body {
     background: var(--md-sys-color-background);
     min-height: 100vh;

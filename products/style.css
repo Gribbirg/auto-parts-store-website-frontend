@@ -180,7 +180,7 @@ section {
     width: 150px;
 }
 
-#cost_filter {
+.num_filter {
     > div {
         display: flex;
         flex-flow: row nowrap;

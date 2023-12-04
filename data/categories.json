@@ -5,7 +5,36 @@
     "subcategories": [
       {
         "id": "oil",
-        "name": "Моторное масло"
+        "name": "Моторное масло",
+        "filters": [
+          {
+            "id": "compound",
+            "name": "Состав",
+            "type": "choice",
+            "options": [
+              "cинтетическое",
+              "полусинтетическое",
+              "минеральное"
+            ]
+          },
+          {
+            "id": "viscosity",
+            "name": "Вязкость",
+            "type": "choice",
+            "options": [
+              "5W-30",
+              "5W-40",
+              "10W-40",
+              "15W-40"
+            ]
+          },
+          {
+            "id": "volume",
+            "name": "Объём",
+            "type": "num",
+            "unit": "л."
+          }
+        ]
       },
       {
         "id": "cooling",

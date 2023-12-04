@@ -7,9 +7,17 @@ const responseCategory = await fetch('../data/categories.json');
 const typeData = (await responseCategory.json()).find(function (item) {
     return item.id === type;
 });
+if (!typeData)
+    goToCategory("tiers", "summer");
 
 if (!category || category === "null")
-    goToCategory(type, typeData["subcategories"][0].name);
+    goToCategory(type, typeData["subcategories"][0].id);
+
+const categoryData = typeData["subcategories"].find(function (item) {
+    return item.id === category;
+});
+if (!categoryData)
+    goToCategory(type, typeData["subcategories"][0].id);
 
 // const response = await fetch(`https://gribbirg.github.io/AutoPartsStoreWebsiteFrontend/data/products/${type}/${category}.json`);
 const response = await fetch(`../data/products/${type}/${category}.json`);
@@ -21,6 +29,8 @@ let cart = [];
 let content = data;
 addCategory(category);
 onSortDivClickListener(document.getElementById("cost_sort"));
+
+createFilters(categoryData);
 
 function getCategory() {
     let search = new URLSearchParams(window.location.search)
@@ -47,6 +57,28 @@ function setCategoryName(name) {
     if (name) {
         document.title = name;
         document.body.querySelector("#products_section .part_name").innerHTML = name;
+    }
+}
+
+function createFilters(categoryData) {
+    let div = document.getElementById("filters_div");
+    for (let filter of categoryData["filters"]) {
+        if (filter.type === "num") {
+            div.innerHTML +=
+                `<fieldset class="field num_filter" id="${filter.id}_filter">
+                    <legend class="legend">${filter.name}:</legend>
+                    <div>
+                        <label for="${filter.id}_from_filter">От:</label>
+                        <input type="number" id="${filter.id}_from_filter" class="field">
+                        <span>${filter.unit}</span>
+                    </div>
+                    <div>
+                        <label for="${filter.id}_to_filter">До:</label>
+                        <input type="number" id="${filter.id}_to_filter" class="field">
+                        <span>${filter.unit}</span>
+                    </div>
+                </fieldset>`
+        }
     }
 }
 
@@ -123,7 +155,9 @@ function findCategory(category) {
 
 function addCategory(category) {
     document.getElementById(`${category}_ref`).classList.add("checked");
-    setCategoryName(typeData["subcategories"].find(function (item) { return item.id === category; }).name);
+    setCategoryName(typeData["subcategories"].find(function (item) {
+        return item.id === category;
+    }).name);
     for (let product of content) {
         createProductDiv(product);
     }

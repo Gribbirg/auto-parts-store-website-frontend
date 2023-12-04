@@ -40,23 +40,25 @@
         </section>
         <section id="filters_section">
             <h2 class="part_name">Фильтры</h2>
-            <div id="filters_div" class="sort_filters_div">
-                <fieldset class="field" id="category_filter">
-                    <legend>Категория:</legend>
-                </fieldset>
-                <fieldset class="field" id="cost_filter">
-                    <legend class="legend">Цена:</legend>
-                    <div>
-                        <label for="from_cost_filter">От:</label>
-                        <input type="number" id="from_cost_filter" class="field">
-                        <span>₽</span>
-                    </div>
-                    <div>
-                        <label for="to_cost_filter">До:</label>
-                        <input type="number" id="to_cost_filter" class="field">
-                        <span>₽</span>
-                    </div>
-                </fieldset>
+            <div class="sort_filters_div">
+                <div id="filters_div" class="sort_filters_div">
+                    <fieldset class="field" id="category_filter">
+                        <legend>Категория:</legend>
+                    </fieldset>
+                    <fieldset class="field num_filter" id="cost_filter">
+                        <legend class="legend">Цена:</legend>
+                        <div>
+                            <label for="from_cost_filter">От:</label>
+                            <input type="number" id="from_cost_filter" class="field">
+                            <span>₽</span>
+                        </div>
+                        <div>
+                            <label for="to_cost_filter">До:</label>
+                            <input type="number" id="to_cost_filter" class="field">
+                            <span>₽</span>
+                        </div>
+                    </fieldset>
+                </div>
                 <button id="confirm_filter_button" class="arrow_button">
                     Применить
                     <span></span>
