@@ -40,6 +40,7 @@ function getCategory() {
 }
 
 function setProductData(product) {
+    document.title = product.name;
     document.querySelector("#main_section > h2").textContent =  product.name;
     document.getElementById("logo").src = `/images/products/${product["img"]}`;
     document.getElementById("desc").textContent = product.description;
