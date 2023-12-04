@@ -1,15 +1,44 @@
 "use strict"
 
+let {type, category} = getCategory();
+
+// const response = await fetch(`https://gribbirg.github.io/AutoPartsStoreWebsiteFrontend/data/products/${type}/${category}.json`);
+const response = await fetch(`../data/products/${type}/${category}.json`);
+const data = await response.json();
+
+const responseCategory = await fetch('../data/categories.json');
+const typeData = (await responseCategory.json()).find(function (item) {
+    return item.id === type;
+});
+setCategoriesOfType(typeData);
+
+let cart = [];
+let content = data;
+addCategory(category);
+onSortDivClickListener(document.getElementById("cost_sort"));
+
 function getCategory() {
-    let category = (new URLSearchParams(window.location.search)).get("category");
-    if (!category) {
-        goToCategory("tiers");
+    let search = new URLSearchParams(window.location.search)
+    let type = search.get("type");
+    if (!type) {
+        goToCategory("tiers", "summer");
     }
-    return category ?? "tiers";
+    let category = search.get("category");
+    if (!category) {
+        goToCategory(type, category);
+    }
+    return {type, category};
 }
 
-function goToCategory(category) {
-    window.location.href = `?category=${category}`;
+function goToCategory(type, category) {
+    window.location.href = `?type=${type}&category=${category}`;
+}
+
+function setCategoriesOfType(typeData) {
+    let fieldSet = document.getElementById("category_filter");
+    for (let category of typeData["subcategories"]) {
+        fieldSet.innerHTML += `<a href="?type=${type}&category=${category.id}" id="${category.id}_ref">${category.name}</a>`
+    }
 }
 
 function setCategoryName(name) {
@@ -92,9 +121,8 @@ function findCategory(category) {
 
 function addCategory(category) {
     document.getElementById(`${category}_ref`).classList.add("checked");
-    let content = findCategory(category);
-    setCategoryName(content.name);
-    for (let product of content["products"]) {
+    setCategoryName(typeData["subcategories"].find(function (item) { return item.id === category; }).name);
+    for (let product of content) {
         createProductDiv(product);
     }
 }
@@ -168,18 +196,6 @@ function getProduct(category, id) {
         return item.id === id;
     });
 }
-
-import data from '../data/products.json' assert {type: 'json'};
-// const response = await fetch('https://gribbirg.github.io/AutoPartsStoreWebsiteFrontend/data/products.json');
-// const data = await response.json();
-
-let cart = [];
-let category = getCategory();
-addCategory(category);
-
-
-let content = findCategory(category)["products"];
-onSortDivClickListener(document.getElementById("cost_sort"));
 
 document.getElementById("confirm_filter_button").onclick = function () {
     content = findCategory(category)["products"];
