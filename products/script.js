@@ -59,6 +59,10 @@ function setContent(content) {
             }
         }
         setProductsButtonsOnClick();
+        while (content.length !== document.querySelectorAll(".product_div").length &&
+        document.documentElement.getBoundingClientRect().bottom <= document.documentElement.clientHeight + 100 + document.querySelector("footer").offsetHeight) {
+            addProducts(content);
+        }
     } else {
         document.getElementById("products_div").innerHTML +=
             `
@@ -165,9 +169,9 @@ function getProduct(category, id) {
     });
 }
 
-// import data from '../data/products.json' assert {type: 'json'};
-const response = await fetch('https://gribbirg.github.io/AutoPartsStoreWebsiteFrontend/data/products.json');
-const data = await response.json();
+import data from '../data/products.json' assert {type: 'json'};
+// const response = await fetch('https://gribbirg.github.io/AutoPartsStoreWebsiteFrontend/data/products.json');
+// const data = await response.json();
 
 let cart = [];
 let category = getCategory();
@@ -299,11 +303,6 @@ function setCart(cart) {
     // }
     // setCartElementButtonsOnClick();
     // setSumText(cart);
-}
-
-while (content.length !== document.querySelectorAll(".product_div").length &&
-    document.documentElement.getBoundingClientRect().bottom <= document.documentElement.clientHeight + 100 + document.querySelector("footer").offsetHeight) {
-    addProducts(content);
 }
 
 window.addEventListener("scroll", function () {

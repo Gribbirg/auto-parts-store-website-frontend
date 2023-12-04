@@ -14,7 +14,7 @@ function createCategory(category) {
     let list = document.createElement("ul");
     section.appendChild(list);
 
-    for (let sub of category.subcategories) {
+    for (let sub of category["subcategories"]) {
         let line = document.createElement("li");
         list.appendChild(line);
 
