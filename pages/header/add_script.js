@@ -1,6 +1,6 @@
 document.body.innerHTML +=
     `<header id="header">
-        <img id="left_logo" src="/images/logo/logo_left.png" alt="Лучшая машина">
+        <img id="left_logo" src="/AutoPartsStoreWebsiteFrontend/images/logo/logo_left.png" alt="Лучшая машина">
             <h1 id="header_head">Магазин автозапчастей</h1>
 
             <nav id="up_nav">
