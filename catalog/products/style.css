@@ -42,6 +42,7 @@ section {
 }
 
 .product_div {
+    position: relative;
     width: 500px;
     height: 200px;
     background: var(--md-sys-color-surface);
@@ -55,6 +56,18 @@ section {
 
     & * {
         color: var(--md-sys-color-on-surface);
+    }
+
+    > a {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+
+    > div > button, > div > a {
+        z-index: 2;
     }
 
     transition: all 400ms;

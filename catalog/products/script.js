@@ -3,7 +3,7 @@
 let {type, category} = getCategory();
 
 // const responseCategory = await fetch('https://gribbirg.github.io/AutoPartsStoreWebsiteFrontend/data/categories.json');
-const responseCategory = await fetch('../data/categories.json');
+const responseCategory = await fetch('../../data/categories.json');
 const typeData = (await responseCategory.json()).find(function (item) {
     return item.id === type;
 });
@@ -20,7 +20,7 @@ if (!categoryData)
     goToCategory(type, typeData["subcategories"][0].id);
 
 // const response = await fetch(`https://gribbirg.github.io/AutoPartsStoreWebsiteFrontend/data/products/${type}/${category}.json`);
-const response = await fetch(`../data/products/${type}/${category}.json`);
+const response = await fetch(`../../data/products/${type}/${category}.json`);
 const data = await response.json();
 
 setCategoriesOfType(typeData);
@@ -101,6 +101,7 @@ function createFilters(categoryData) {
 function createProductDiv(product) {
     document.getElementById("products_div").innerHTML +=
         `<div class="product_div">
+            <a href="index.html"></a>
             <h3 class="product_head">${product.name}</h3>
             <div class="product_img_div">
                 <img src=${"https://gribbirg.github.io/AutoPartsStoreWebsiteFrontend/images/products/" + product["img"]} alt=${product.name}/>

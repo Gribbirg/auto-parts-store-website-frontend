@@ -19,7 +19,7 @@ function createCategory(category) {
         list.appendChild(line);
 
         let href = document.createElement("a");
-        href.href = `../products/?type=${category.id}&category=${sub.id}`
+        href.href = `products/?type=${category.id}&category=${sub.id}`
         href.textContent = sub.name;
         line.appendChild(href);
     }
