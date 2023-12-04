@@ -71,6 +71,7 @@ function addProducts(content) {
     let count = getCurrentProductsDisplayCount();
     for (let i = count; i < Math.min(count + 2, content.length); i++) {
         createProductDiv(content[i]);
+        setProductsButtonsOnClick();
         let cartEl = findInCart(cart, content[i].id);
         if (cartEl !== undefined) {
             setProductBuyButtonsState(content[i].id, true);
