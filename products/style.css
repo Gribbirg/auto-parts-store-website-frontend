@@ -22,6 +22,10 @@ section {
     row-gap: 20px;
     margin-bottom: 10px;
     justify-content: center;
+
+    > p {
+        color: var(--md-sys-color-on-surface);
+    }
 }
 
 @media (max-width: 1400px) {
@@ -259,6 +263,9 @@ section {
 }
 
 #category_filter {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: start;
     > a {
         color: var(--md-sys-color-on-surface);
         font-style: normal;

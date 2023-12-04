@@ -2,15 +2,19 @@
 
 let {type, category} = getCategory();
 
-// const response = await fetch(`https://gribbirg.github.io/AutoPartsStoreWebsiteFrontend/data/products/${type}/${category}.json`);
-const response = await fetch(`../data/products/${type}/${category}.json`);
-const data = await response.json();
-
 // const responseCategory = await fetch('https://gribbirg.github.io/AutoPartsStoreWebsiteFrontend/data/categories.json');
 const responseCategory = await fetch('../data/categories.json');
 const typeData = (await responseCategory.json()).find(function (item) {
     return item.id === type;
 });
+
+if (!category || category === "null")
+    goToCategory(type, typeData["subcategories"][0].name);
+
+// const response = await fetch(`https://gribbirg.github.io/AutoPartsStoreWebsiteFrontend/data/products/${type}/${category}.json`);
+const response = await fetch(`../data/products/${type}/${category}.json`);
+const data = await response.json();
+
 setCategoriesOfType(typeData);
 
 let cart = [];
@@ -21,18 +25,15 @@ onSortDivClickListener(document.getElementById("cost_sort"));
 function getCategory() {
     let search = new URLSearchParams(window.location.search)
     let type = search.get("type");
-    if (!type) {
+    if (!type || type === "null") {
         goToCategory("tiers", "summer");
     }
     let category = search.get("category");
-    if (!category) {
-        goToCategory(type, category);
-    }
     return {type, category};
 }
 
 function goToCategory(type, category) {
-    window.location.href = `?type=${type}&category=${category}`;
+    window.location.href = window.location.href.split("?")[0] + `?type=${type}&category=${category}`;
 }
 
 function setCategoriesOfType(typeData) {
