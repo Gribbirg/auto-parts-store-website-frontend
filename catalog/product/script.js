@@ -58,7 +58,9 @@ function setProductData(product) {
                     </button></a>
                     <button class="product_basket_button arrow_button cart_add_button" id="${product.id}+cart_add_button">+</button>
                 </div>`;
-    document.getElementById("similar_ref").href = `/AutoPartsStoreWebsiteFrontend/catalog/products/?type=${type}&category=${category}`
+    document.getElementById("similar_ref").href = `/AutoPartsStoreWebsiteFrontend/catalog/products/?type=${type}&category=${category}`;
+    let desc = product["description_full"];
+    document.getElementById("full_description").textContent = (desc)? desc : "Информация отсутствует";
     setProductsButtonsOnClick(type, category);
     setButtonsState(product.id);
 }

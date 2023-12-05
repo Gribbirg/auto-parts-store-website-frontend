@@ -7,12 +7,13 @@ main {
 }
 
 #main_section {
-    width: fit-content;
+    width: 750px;
 }
 
 #data_div {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
+    justify-content: space-between;
 }
 
 #main_data_div {
@@ -69,4 +70,12 @@ main {
     background: var(--md-sys-color-tertiary-container);
     border: var(--md-sys-color-tertiary) 1px solid;
     color: var(--md-sys-color-on-tertiary-container);
+}
+
+#description_section {
+    width: 750px;
+
+    > p {
+        white-space: pre-wrap;
+    }
 }
