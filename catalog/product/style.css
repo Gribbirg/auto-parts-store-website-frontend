@@ -27,13 +27,14 @@ section {
 }
 
 #logo {
-    width: 200px;
+    width: 225px;
     grid-area: img;
     margin: 20px;
     border-radius: 15px;
     border: var(--md-sys-color-primary) 2px solid;
     background-color: var(--md-sys-color-primary-container);
     padding: 25px;
+    box-shadow: 1px 1px 2px 1px black;
 }
 
 #main_description {

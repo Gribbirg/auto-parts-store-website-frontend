@@ -6,10 +6,29 @@ document.body.innerHTML +=
             <nav id="up_nav">
                 <input type="checkbox" id="nav_menu_button"><label for="nav_menu_button"></label>
                     <ul class="nav_list">
-                        <li><a href="/AutoPartsStoreWebsiteFrontend/main/"><p>Главная</p></a></li>
-                        <li><a href="/AutoPartsStoreWebsiteFrontend/catalog/"><p>Каталог</p></a></li>
-                        <li><a href="/AutoPartsStoreWebsiteFrontend/cart/"><p>Корзина</p></a></li>
-                        <li><a href="/AutoPartsStoreWebsiteFrontend/cart/products/"><p>FAQ</p></a></li>
+                        <li><a id="main_href" class="href" href="/AutoPartsStoreWebsiteFrontend/main/"><p>Главная</p></a></li>
+                        <li><a id="catalog_href" class="href" href="/AutoPartsStoreWebsiteFrontend/catalog/"><p>Каталог</p></a></li>
+                        <li><a id="cart_href" class="href" href="/AutoPartsStoreWebsiteFrontend/cart/"><p>Корзина</p></a></li>
                     </ul>
             </nav>
     </header>`
+
+activeNavHref(window.location);
+
+function activeNavHref(location) {
+    let spl = location.toString().split("/");
+    let currentPosEl = spl.findIndex(function (item) {
+        return item === "AutoPartsStoreWebsiteFrontend";
+    });
+    if (spl.length === currentPosEl) window.location.href = "/AutoPartsStoreWebsiteFrontend/main/"
+
+    switch (spl[currentPosEl + 1]) {
+        case "main":
+        case "catalog":
+        case "cart":
+            document.getElementById(`${spl[currentPosEl + 1]}_href`).className = "active";
+            break;
+        default:
+            window.location.href = "/AutoPartsStoreWebsiteFrontend/main/"
+    }
+}
