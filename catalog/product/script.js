@@ -58,6 +58,7 @@ function setProductData(product) {
                     </button></a>
                     <button class="product_basket_button arrow_button cart_add_button" id="${product.id}+cart_add_button">+</button>
                 </div>`;
+    document.getElementById("similar_ref").href = `/AutoPartsStoreWebsiteFrontend/catalog/products/?type=${type}&category=${category}`
     setProductsButtonsOnClick(type, category);
     setButtonsState(product.id);
 }

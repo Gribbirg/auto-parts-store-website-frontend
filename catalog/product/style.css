@@ -10,13 +10,16 @@ main {
     width: fit-content;
 }
 
+#data_div {
+    display: flex;
+    flex-flow: row wrap;
+}
+
 #main_data_div {
-    display: grid;
-    grid: repeat(2, fit-content(100%)) / repeat(2, fit-content(100%));
-    grid-template-areas: "img desc"
-                         "img buy_div";
-    justify-content: end;
-    align-content: end;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    align-items: end;
 }
 
 #logo {
@@ -38,10 +41,32 @@ main {
     text-align: right;
     width: fit-content;
     margin: 10px;
-    font-size: 3rem;
+    font-size: 5rem;
     color: var(--md-sys-color-on-secondary-container);
 }
 
 #buy_div {
     grid-area: buy_div;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: end;
+}
+
+#similar_ref {
+    grid-area: similar;
+    margin: 10px;
+    text-decoration: none;
+    background: var(--md-sys-color-secondary-container);
+    padding: 5px 10px;
+    border-radius: 15px;
+    border: var(--md-sys-color-secondary) 1px solid;
+    color: var(--md-sys-color-on-secondary-container);
+    width: 150px;
+    text-align: center;
+}
+
+#similar_ref:hover {
+    background: var(--md-sys-color-tertiary-container);
+    border: var(--md-sys-color-tertiary) 1px solid;
+    color: var(--md-sys-color-on-tertiary-container);
 }
