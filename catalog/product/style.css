@@ -79,3 +79,52 @@ main {
         white-space: pre-wrap;
     }
 }
+
+#characteristics_section {
+    width: 750px;
+    display: flex;
+    flex-flow: column wrap;
+    position: relative;
+
+    > h2 {
+        align-self: start;
+    }
+
+    > table {
+        align-self: center;
+        padding: 0;
+        overflow: hidden;
+        margin-bottom: 10px;
+
+        & tr {
+            outline: var(--md-sys-color-primary) 1px solid;
+            /*border-radius: 10px;*/
+
+            > td {
+                padding: 5px 10px;
+                max-width: 100px;
+                height: fit-content;
+                white-space: pre-wrap;
+                word-break: break-all;
+            }
+
+            > :first-child {
+                text-align: right;
+            }
+
+            > :last-child {
+                text-align: left;
+            }
+        }
+
+        > :first-child > tr {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        > :last-child > tr {
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+    }
+}

@@ -38,9 +38,9 @@ section {
         color: var(--md-sys-color-on-surface);
     }
 
-    > p {
-        color: var(--md-sys-color-on-surface-variant)
-    }
+    /*> p {*/
+    /*    color: var(--md-sys-color-on-surface-variant)*/
+    /*}*/
 }
 
 .part_name {

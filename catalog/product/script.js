@@ -60,7 +60,19 @@ function setProductData(product) {
                 </div>`;
     document.getElementById("similar_ref").href = `/AutoPartsStoreWebsiteFrontend/catalog/products/?type=${type}&category=${category}`;
     let desc = product["description_full"];
-    document.getElementById("full_description").textContent = (desc)? desc : "Информация отсутствует";
+    document.getElementById("full_description").textContent = (desc)? desc : "Информация не найдена.";
+
+    let table = document.getElementById("characteristics_table");
+    for (let filter of categoryData["filters"]) {
+        table.innerHTML += `
+<tr>
+    <td>${filter.name}</td>       
+    <td>${product[filter.id]} ${(filter["unit"])? filter["unit"] : ""}</td>       
+</tr>
+        `
+    }
+    if (table.innerHTML === "") table.outerHTML = `<p>Информация не найдена.</p>`
+
     setProductsButtonsOnClick(type, category);
     setButtonsState(product.id);
 }
