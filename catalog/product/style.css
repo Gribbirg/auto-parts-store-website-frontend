@@ -6,8 +6,11 @@ main {
     align-items: center;
 }
 
-#main_section {
+section {
     width: 750px;
+}
+
+#main_section {
 }
 
 #data_div {
@@ -73,7 +76,6 @@ main {
 }
 
 #description_section {
-    width: 750px;
 
     > p {
         white-space: pre-wrap;
@@ -81,7 +83,6 @@ main {
 }
 
 #characteristics_section {
-    width: 750px;
     display: flex;
     flex-flow: column wrap;
     position: relative;
@@ -126,5 +127,36 @@ main {
             border-bottom-left-radius: 10px;
             border-bottom-right-radius: 10px;
         }
+    }
+}
+
+@media (max-width: 850px) {
+    section {
+        width: calc(100% - 40px);
+    }
+}
+
+@media (max-width: 600px) {
+    #data_div {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #main_data_div {
+        > *, > * > * {
+            align-self: center;
+            text-align: center;
+        }
+    }
+}
+
+@media (max-width: 350px) {
+    #cost {
+        font-size: 3rem;
+    }
+    #logo {
+        width: calc(100% - 50px);
     }
 }
