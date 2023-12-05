@@ -140,7 +140,7 @@ a.active:link {
     color: var(--md-sys-color-on-secondary);
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 900px) {
     #up_nav {
         flex-direction: row-reverse;
         outline: none;
@@ -196,15 +196,7 @@ a.active:link {
             & a {
                 height: 10vh;
                 box-shadow: 5px 5px 8px black;
-                border: var(--md-sys-color-primary) 1px solid;
-                background-color: var(--md-sys-color-primary-container);
-                color: var(--md-sys-color-on-primary-container);
-            }
 
-            & a:link {
-                background-color: var(--md-sys-color-primary-container);
-                color: var(--md-sys-color-on-primary-container);
-                border-color: var(--md-sys-color-primary);
             }
 
             & a:hover {
@@ -226,7 +218,26 @@ a.active:link {
             border-top-right-radius: 0;
         }
     }
+
+    a.href {
+        border: var(--md-sys-color-primary) 1px solid;
+        background-color: var(--md-sys-color-primary-container);
+        color: var(--md-sys-color-on-primary-container);
+    }
+
+    a.href:link {
+        background-color: var(--md-sys-color-primary-container);
+        color: var(--md-sys-color-on-primary-container);
+        border-color: var(--md-sys-color-primary);
+    }
+
     a.active {
+        border: var(--md-sys-color-secondary) 1px solid;
+        background-color: var(--md-sys-color-secondary-container);
+        color: var(--md-sys-color-on-secondary-container);
+    }
+
+    a.active:link {
         background-color: var(--md-sys-color-secondary-container);
         color: var(--md-sys-color-on-secondary-container);
         border-color: var(--md-sys-color-secondary);
