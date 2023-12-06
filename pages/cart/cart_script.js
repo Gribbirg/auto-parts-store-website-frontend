@@ -1,4 +1,4 @@
-let cart = []
+let cart = getCart();
 
 
 function findInCart(cart, id) {
@@ -87,10 +87,9 @@ function removeFromCart(cart, id) {
 }
 
 function setCart(cart) {
-    // document.getElementById("cart_div").innerHTML = "";
-    // for (let element of cart) {
-    //     createCartElement(element, getProduct(element.category, element.id));
-    // }
-    // setCartElementButtonsOnClick();
-    // setSumText(cart);
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+function getCart() {
+    return JSON.parse(localStorage.getItem("cart") ?? "[]");
 }

@@ -56,7 +56,7 @@ section {
                         "pic desc desc"
                         "pic button button";
 
-    & * {
+    > * {
         color: var(--md-sys-color-on-surface);
     }
 

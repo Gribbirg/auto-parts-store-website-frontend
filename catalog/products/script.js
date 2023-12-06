@@ -31,6 +31,10 @@ onSortDivClickListener(document.getElementById("cost_sort"));
 
 createFilters(categoryData);
 
+window.addEventListener('navigate', function () {
+    cart = getCart();
+});
+
 function getCategory() {
     let search = new URLSearchParams(window.location.search)
     let type = search.get("type");

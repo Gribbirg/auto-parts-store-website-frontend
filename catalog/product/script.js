@@ -24,7 +24,7 @@ const product = (await response.json()).find(function (item) {
 if (!product)
     window.location.href = "/AutoPartsStoreWebsiteFrontend/catalog/";
 
-let cart = [];
+// let cart = [];
 
 setProductData(product);
 
