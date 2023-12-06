@@ -2,6 +2,7 @@
 @import "colors/theme.css";
 @import "header/style.css";
 @import "footer/style.css";
+@import "notification/style.css";
 
 @media (prefers-color-scheme: dark) {
     :root {

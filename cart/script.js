@@ -24,11 +24,16 @@ document.getElementById("captcha_input").addEventListener("change", function (ev
     event.stopPropagation();
 });
 
-document.getElementById("sub").onclick = function () {
-    cart = [];
-    setCart(cart);
-    initProducts().then();
-    // window.location.reload();
+document.getElementById("order_form").onsubmit = function () {
+    if (cart.length === 0) {
+        alert("Корзина пуста!");
+    } else {
+        showNotification(`<p>Заказ отправлен!</p><img height="100px" src="../../images/logo/logo_big.png" alt="Логотип">`);
+        cart = [];
+        setCart(cart);
+        initProducts().then();
+        this.reset();
+    }
 }
 
 async function initProducts() {

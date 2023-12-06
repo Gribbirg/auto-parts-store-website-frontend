@@ -14,6 +14,7 @@
 
     <script type="module" defer src="script.js"></script>
     <script src="../pages/cart/cart_script.js"></script>
+    <script src="../pages/notification/script.js"></script>
 </head>
 <body>
 <script src="../pages/header/add_script.js"></script>
@@ -28,7 +29,7 @@
         <p id="order_position" class="positions"></p>
         <h2 class="part_name">Заказать</h2>
         <div>
-            <form method="post" id="order_form">
+            <form method="dialog" id="order_form">
                 <div><label for="name">Ваше имя:</label><br><input type="text" name="name" id="name" class="field"
                                                                    required placeholder="">
                 </div>
