@@ -363,11 +363,48 @@ main {
     }
 }
 
-.complete {
-    background: var(--md-sys-color-tertiary-container);
-    border: var(--md-sys-color-tertiary) 1px solid;
+@media (max-width: 1300px) {
+    #order_form {
+        grid: repeat(8, fit-content(100%)) / 1fr;
+    }
 
-    > h4 {
-        color: var(--md-sys-color-on-tertiary-container);
+    #order_form > :last-child {
+        justify-content: center;
+        justify-self: center;
+        align-self: center;
+    }
+}
+
+@media (max-width: 1000px) {
+    main {
+        grid: fit-content(100%) fit-content(100%) / 1fr;
+    }
+
+    #cart_section {
+        width: initial;
+    }
+}
+
+@media (max-width: 450px) {
+    .cart_element_div {
+        grid: repeat(4, fit-content(100%)) / 1fr 40%;
+        grid-template-areas: "name del" "desc desc" "cost cost" "buttons count";
+    }
+
+    #cart_section {
+        grid: repeat(4, fit-content(100%)) / 1fr 1fr;
+        grid-template-areas: "head head"
+                         "del del"
+                         "cart cart"
+                         "sum sum";
+    }
+
+
+
+    #clean_button {
+        grid-column: span 2;
+        justify-self: end;
+        align-self: end;
+        margin-bottom: 10px;
     }
 }
