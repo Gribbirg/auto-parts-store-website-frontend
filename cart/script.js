@@ -23,7 +23,7 @@ async function getProduct(cartProduct) {
 
 function createCartElement(product, cartProduct) {
     document.getElementById("cart_div").innerHTML += `
-        <div class="cart_element_div">
+        <div class="cart_element_div" id="${product.id}+div">
             <h3><a href="../catalog/product/?type=${cartProduct.type}&category=${cartProduct.category}&product=${product.id}">${product.name}</a></h3>
             <p class="product_desc"><a href="../catalog/product/?type=${cartProduct.type}&category=${cartProduct.category}&product=${product.id}">${product.description}</a></p>
             <p class="product_cost">${(product["cost"] * cartProduct["count"]).toLocaleString() + " ₽"}</p>    
@@ -35,8 +35,9 @@ function createCartElement(product, cartProduct) {
 function setRemoveButtonsListeners() {
     document.querySelectorAll(".remove_button").forEach(function (button) {
         button.onclick = function () {
-            removeFromCart(cart, button.id.split("+")[0]);
-            initProducts().then();
+            let id = button.id.split("+")[0];
+            removeFromCart(cart, id);
+            document.getElementById(`${id}+div`).remove();
         }
     });
 }
