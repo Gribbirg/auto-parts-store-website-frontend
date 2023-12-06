@@ -42,9 +42,9 @@
 }
 
 ul {
+    z-index: 2;
     > li {
         color: var(--md-sys-color-secondary);
-        z-index: 2;
 
         > a {
             color: var(--md-sys-color-secondary);
