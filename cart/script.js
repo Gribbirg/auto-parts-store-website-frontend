@@ -2,7 +2,10 @@
 
 let content = [];
 
-initProducts().then();
+window.addEventListener("pageshow", function () {
+    cart = getCart();
+    initProducts().then();
+});
 
 async function initProducts() {
     document.getElementById("cart_div").innerHTML = "";
@@ -12,6 +15,8 @@ async function initProducts() {
         createCartElement(product, cartProduct);
     }
     setButtonsListeners();
+    checkForNullCart();
+    setSumValue().then();
 }
 
 async function getProduct(cartProduct) {
@@ -19,6 +24,17 @@ async function getProduct(cartProduct) {
     return (await response.json()).find(function (item) {
         return item.id === cartProduct.id
     });
+}
+
+async function setSumValue() {
+    let sum = 0;
+    for (let cartProduct of cart) {
+        let product = await getProduct(cartProduct);
+        sum += product["cost"] * cartProduct["count"];
+    }
+    document.getElementById("sum_text").textContent = `Всего: ${sum.toLocaleString()} ₽`;
+    document.getElementById("sum_text").style.display = (sum === 0)? "none" : "block";
+
 }
 
 function createCartElement(product, cartProduct) {
@@ -48,6 +64,8 @@ function setButtonsListeners() {
             let id = button.id.split("+")[0];
             removeFromCart(cart, id);
             document.getElementById(`${id}+div`).remove();
+            checkForNullCart();
+            setSumValue().then();
         }
     });
     for (let button of document.querySelectorAll(".cart_add_button")) {
@@ -57,6 +75,7 @@ function setButtonsListeners() {
             product.count++;
             setCart(cart);
             setTextState(product);
+            setSumValue().then();
         }
     }
 
@@ -71,7 +90,15 @@ function setButtonsListeners() {
             } else {
                 removeFromCart(cart, id);
                 document.getElementById(`${id}+div`).remove();
+                checkForNullCart();
             }
+            setSumValue().then();
         }
+    }
+}
+
+function checkForNullCart() {
+    if (cart.length === 0) {
+        document.getElementById("cart_div").innerHTML = `<p>В корзине пусто!</p><a href="/AutoPartsStoreWebsiteFrontend/catalog/" class="arrow_button" id="to_catalog_href">Перейти в каталог<span></span></a>`
     }
 }

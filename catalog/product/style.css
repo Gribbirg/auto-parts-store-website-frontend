@@ -42,9 +42,8 @@ section {
 }
 
 #cost {
-    white-space: nowrap;
+    word-break: break-all;
     text-align: right;
-    width: fit-content;
     margin: 10px;
     font-size: 5rem;
     color: var(--md-sys-color-on-secondary-container);
@@ -60,14 +59,10 @@ section {
 #similar_ref {
     grid-area: similar;
     margin: 10px;
-    text-decoration: none;
     background: var(--md-sys-color-secondary-container);
-    padding: 5px 10px;
-    border-radius: 15px;
     border: var(--md-sys-color-secondary) 1px solid;
     color: var(--md-sys-color-on-secondary-container);
     width: 200px;
-    text-align: center;
 }
 
 #similar_ref:hover {

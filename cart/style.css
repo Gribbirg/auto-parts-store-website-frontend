@@ -1,5 +1,19 @@
 #cart_section {
-    width: fit-content;
+    width: 400px;
+}
+
+#cart_div {
+    grid-area: cart;
+    justify-self: stretch;
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+
+    > p {
+        align-self: center;
+    }
 }
 
 .cart_element_div {
@@ -8,10 +22,10 @@
     border-radius: 10px;
     margin: 10px 0;
     display: grid;
-    grid: repeat(3, fit-content(100%)) / 1fr fit-content(100%);
+    grid: repeat(3, fit-content(100%)) / 1fr 40%;
     grid-template-areas: "name del" "desc cost" "buttons count";
+    column-gap: 20px;
     transition: all 400ms;
-    width: 400px;
 
     & a {
         text-decoration: none;
@@ -32,6 +46,14 @@
     > .product_count {
         grid-area: count;
         justify-self: end;
+    }
+
+    > .product_cost {
+        display: block;
+        grid-area: cost;
+        justify-self: end;
+        text-align: end;
+        word-break: break-all;
     }
 
     > .remove_button {
@@ -65,4 +87,13 @@
 .cart_element_div:hover {
     transform: scale(1.01);
     border-color: var(--md-sys-color-tertiary);
+    box-shadow: 1px 1px 3px 2px black;
+}
+
+#to_catalog_href {
+    width: 200px;
+}
+
+#sum_text {
+    text-align: end;
 }

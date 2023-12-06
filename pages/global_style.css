@@ -103,6 +103,13 @@ section {
     }
 }
 
+a.arrow_button {
+    display: block;
+    text-decoration: none;
+    padding: 5px 10px;
+    text-align: center;
+}
+
 .field {
     border: var(--md-sys-color-on-surface) 1px solid;
     border-radius: 10px;
@@ -221,7 +228,6 @@ p.positions {
 }
 
 .product_cost {
-    white-space: nowrap;
     margin: 10px;
     font-size: 2rem;
     grid-area: cost;
