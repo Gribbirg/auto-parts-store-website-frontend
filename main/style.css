@@ -1,0 +1,928 @@
+main {
+    display: grid;
+    grid: repeat(4, fit-content(100%)) / fit-content(25%) 1fr 1fr;
+    grid-auto-flow: row dense;
+    width: 100%;
+    row-gap: 30px;
+    justify-content: space-around;
+    justify-items: stretch;
+    align-items: center;
+    grid-template-areas: "div1 about_us_text desc" "div1 about_dvs about_dvs" "div1 about_us_info about_us_info" "div2 div2 div2" "div3 div3 div3" "galery galery galery";
+}
+
+#DVS {
+    grid-area: about_dvs;
+}
+
+#blur_card_section {
+    grid-area: div1;
+}
+
+#anim_line_section {
+    grid-area: div2;
+}
+
+#glassmorphism_cards_section {
+    grid-area: div3;
+}
+
+#descriptions {
+    grid-area: desc;
+}
+
+
+#shop_info {
+    grid-area: about_us_info;
+}
+
+#pictures {
+    grid-area: galery;
+}
+
+section {
+}
+
+
+article {
+    background: var(--md-sys-color-primary-container);
+    padding: 0 20px 10px;
+    border-radius: 30px;
+    border: var(--md-sys-color-primary) 1px solid;
+    box-shadow: 2px 2px 6px black;
+    float: left;
+    width: 8em;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+
+    & * {
+        color: var(--md-sys-color-on-primary-container);
+    }
+}
+
+#blur_card_div {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center;
+    counter-reset: blur_card_count;
+    pointer-events: none;
+    height: calc(100% - 50px);
+
+    > div {
+        position: relative;
+        width: 300px;
+        height: 20rem;
+        border-radius: 20px;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 10px;
+        box-shadow: 1px 1px 7px 1px black;
+        overflow: hidden;
+        counter-increment: blur_card_count;
+        pointer-events: auto;
+        transition: all 400ms;
+        margin: 10px 0;
+
+        > p {
+            width: 80%;
+            font-family: "Roboto Thin", sans-serif;
+            font-weight: 400;
+            text-align: center;
+        }
+
+        > button {
+            padding: 10px;
+            width: 150px;
+        }
+
+        > button:hover {
+            background: var(--md-sys-color-tertiary-container);
+            color: var(--md-sys-color-on-tertiary-container);
+            border-color: var(--md-sys-color-tertiary);
+        }
+    }
+
+    > div:hover {
+        transform: scale(1.05);
+        z-index: 2;
+        box-shadow: 2px 2px 10px 2px black;
+    }
+
+    > div::before {
+        content: counter(blur_card_count);
+        display: block;
+        position: absolute;
+        padding: 3rem 3rem 3rem;
+        top: -2rem;
+        font-size: 3rem;
+        width: 100%;
+        height: 3rem;
+        text-align: center;
+        border-bottom-left-radius: 50%;
+        border-bottom-right-radius: 50%;
+        font-family: "Roboto Thin", sans-serif;
+        font-weight: 900;
+    }
+
+    > :nth-child(1) {
+        background: var(--md-sys-color-primary-container);
+        border: var(--md-sys-color-primary) 1px solid;
+
+        > button {
+            background: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary);
+            border: var(--md-sys-color-on-primary) 1px solid;
+        }
+
+        > p {
+            color: var(--md-sys-color-on-primary-container);
+        }
+    }
+
+    > :nth-child(1)::before {
+        background: var(--md-sys-color-primary);
+        color: var(--md-sys-color-on-primary);
+    }
+
+    > :nth-child(2) {
+        background: var(--md-sys-color-secondary-container);
+        border: var(--md-sys-color-secondary) 1px solid;
+
+        > button {
+            background: var(--md-sys-color-secondary);
+            color: var(--md-sys-color-on-secondary);
+            border: var(--md-sys-color-on-secondary) 1px solid;
+        }
+
+        > p {
+            color: var(--md-sys-color-on-secondary-container);
+        }
+    }
+
+    > :nth-child(2)::before {
+        background: var(--md-sys-color-secondary);
+        color: var(--md-sys-color-on-secondary);
+    }
+
+    > :nth-child(3) {
+        background: var(--md-sys-color-error-container);
+        border: var(--md-sys-color-error) 1px solid;
+
+        > button {
+            background: var(--md-sys-color-error);
+            color: var(--md-sys-color-on-error);
+            border: var(--md-sys-color-on-error) 1px solid;
+        }
+
+        > p {
+            color: var(--md-sys-color-on-error-container);
+        }
+    }
+
+    > :nth-child(3)::before {
+        background: var(--md-sys-color-error);
+        color: var(--md-sys-color-on-error);
+    }
+}
+
+#blur_card_div:hover > div:not(:hover) {
+    filter: blur(10px) brightness(80%);
+}
+
+#anim_line_div {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: start;
+    pointer-events: none;
+    height: calc(100% - 60px);
+    /*padding-bottom: 100px;*/
+    /*padding-bottom: 50px;*/
+
+    > div {
+        position: relative;
+        width: 322px;
+        height: 20rem;
+        border-radius: 20px;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        padding: 2px;
+        box-shadow: 1px 1px 7px 1px black;
+        overflow: hidden;
+        counter-increment: blur_card_count;
+        pointer-events: auto;
+        margin: 20px;
+        transition: transform 400ms, filter 400ms;
+
+        > div {
+            position: relative;
+            width: 300px;
+            height: 20rem;
+            border-radius: 20px;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            overflow: hidden;
+            pointer-events: auto;
+            transition: all 400ms;
+            margin: 0;
+            z-index: 3;
+            /*visibility: hidden;*/
+
+            > p {
+                width: 80%;
+                color: #002200;
+                font-family: "Roboto Thin", sans-serif;
+                font-weight: 400;
+                text-align: center;
+            }
+
+            > button {
+                padding: 10px;
+                width: 150px;
+            }
+
+            > button:hover {
+                background: var(--md-sys-color-tertiary-container);
+                color: var(--md-sys-color-on-tertiary-container);
+                border-color: var(--md-sys-color-tertiary);
+            }
+
+            > h3 {
+                width: 70%;
+                color: #002200;
+                font-family: "Roboto Thin", sans-serif;
+                font-weight: 700;
+                text-align: center;
+            }
+        }
+
+        > div::before {
+            content: counter(blur_card_count);
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 1rem;
+            font-size: 3rem;
+            text-align: center;
+            font-family: "Roboto Thin", sans-serif;
+            font-weight: 900;
+            opacity: 0;
+            transition: opacity 400ms;
+        }
+    }
+
+    > div::before, > div::after {
+        content: '';
+        display: block;
+        height: 100%;
+        width: 46%;
+        position: absolute;
+        bottom: 50%;
+        left: 4%;
+        background: linear-gradient(90deg, var(--md-ref-palette-primary20), var(--md-ref-palette-primary40));
+        transform-origin: bottom right;
+        opacity: 0;
+        animation-play-state: paused;
+        transition: opacity 400ms;
+    }
+
+    > div:hover {
+        z-index: 2;
+        box-shadow: 2px 2px 10px 2px black;
+        filter: brightness(100%);
+        transition: all 400ms;
+
+        > div::before {
+            opacity: 1;
+        }
+    }
+
+    > div::before {
+        animation: circle_rotation 10s linear infinite;
+    }
+
+    > div::after {
+        animation: circle_rotation 10s linear infinite -5s;
+    }
+
+    > div:hover::before,
+    > div:hover::after {
+        animation-play-state: running;
+        opacity: 1;
+    }
+
+    > div:not(:hover) {
+        filter: brightness(75%);
+    }
+
+    > :nth-child(1) {
+        background: linear-gradient(90deg, #003800 50%, #002200 50%);
+
+        > div {
+            background: linear-gradient(90deg, #003800 50%, #002200 50%);
+
+            > button {
+                background: #026e00;
+                color: white;
+                border: #002200 1px solid;
+            }
+
+            > p, > h3 {
+                color: #ffffff;
+            }
+        }
+
+        > div::before {
+            color: #026e00;
+        }
+    }
+
+    > :nth-child(1)::before,
+    > :nth-child(1)::after {
+        background: linear-gradient(90deg, #002200, #77ff61);
+    }
+
+    > :nth-child(2) {
+        background: linear-gradient(90deg, #002e36 50%, #001f25 50%);
+
+        > div {
+            background: linear-gradient(90deg, #002e36 50%, #001f25 50%);
+
+            > button {
+                background: #006877;
+                color: white;
+                border: #001f25 1px solid;
+            }
+
+            > p, > h3 {
+                color: #ffffff;
+            }
+        }
+
+        > div::before {
+            color: #006877;
+        }
+    }
+
+    > :nth-child(2)::before,
+    > :nth-child(2)::after {
+        background: linear-gradient(90deg, #001f25, #a5eeff);
+    }
+
+    > :nth-child(3) {
+        background: linear-gradient(90deg, #3d2400 50%, #291800 50%);
+
+        > div {
+            background: linear-gradient(90deg, #3d2400 50%, #291800 50%);
+
+            > button {
+                background: #815500;
+                color: white;
+                border: #291800 1px solid;
+            }
+
+            > p, > h3 {
+                color: #ffffff;
+            }
+        }
+
+        > div::before {
+            color: #815500;
+        }
+    }
+
+    > :nth-child(3)::before,
+    > :nth-child(3)::after {
+        background: linear-gradient(90deg, #291800, #ffddb2);
+    }
+}
+
+@keyframes circle_rotation {
+    from {
+        transform: rotate(0);
+    }
+    25% {
+        transform: rotate(90deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    75% {
+        transform: rotate(270deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#anim_line_div:hover > div:not(:hover) {
+    filter: brightness(25%);
+}
+
+#photo_div {
+    display: flex;
+    width: 100%;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    align-content: flex-start;
+
+    & img {
+        margin: 10px 10px;
+        width: 300px;
+        flex-grow: 1;
+
+    }
+}
+
+.shadow_inside {
+    overflow: hidden;
+
+    > img {
+        margin: 0;
+        z-index: 0;
+    }
+
+    > h3, > p, > button {
+        z-index: 1;
+    }
+
+    > h3 {
+        transition: all 400ms ease;
+        bottom: -50%;
+    }
+
+    > p {
+        transition: all 400ms ease;
+        bottom: -70%;
+    }
+
+    > button {
+        bottom: -85%;
+        transition: all 400ms ease;
+    }
+}
+
+.shadow_inside:hover {
+    > h3 {
+        bottom: 50%;
+    }
+
+    > p {
+        bottom: 30%;
+    }
+
+    > button {
+        bottom: 15%;
+    }
+}
+
+.shadow_inside::before {
+    transition: all 400ms ease;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    content: '';
+    display: block;
+    z-index: 1;
+}
+
+.shadow_inside:hover::before {
+    box-shadow: 0 -400px 400px #77ff61 inset;
+}
+
+#exhaust_div {
+
+    > img {
+        margin: 0;
+        position: relative;
+        z-index: 1;
+        transition: transform 400ms;
+    }
+
+    > h3 {
+        bottom: 60%;
+    }
+
+    > p {
+        bottom: 30%;
+    }
+
+    > button {
+        transition: color 400ms ease;
+        bottom: 15%;
+
+        > span {
+            transition: all 400ms, visibility 0ms 400ms;
+        }
+    }
+}
+
+#exhaust_div:hover {
+    > img {
+        transform: translateY(-90%);
+    }
+}
+
+.map_div {
+    position: relative;
+    width: 400px;
+    margin: 10px 10px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    transition: all 400ms ease;
+
+    > img {
+        width: 100%;
+        margin: 0;
+        border-radius: 10px;
+    }
+
+    > button {
+        padding: 10px;
+        width: 150px;
+    }
+
+    > h3, > p, > button {
+        position: absolute;
+        left: 10%;
+    }
+
+    > h3 {
+        width: 80%;
+        color: #002200;
+        font-family: "Roboto Thin", sans-serif;
+        font-weight: 700;
+    }
+
+    > p {
+        width: 80%;
+        color: #002200;
+        font-family: "Roboto Thin", sans-serif;
+        font-weight: 400;
+    }
+}
+
+.map_div:hover {
+    background: #77ff61;
+}
+
+#glassmorphism_cards_div {
+    position: relative;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+
+    > div {
+        height: 28rem;
+        position: relative;
+        padding: 0;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-around;
+        margin: 50px 0;
+
+        > div {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: space-between;
+            align-items: center;
+            width: 250px;
+            height: 14rem;
+            padding: 5px 10px 30px;
+            margin: auto;
+            border-radius: 1rem;
+            background: rgba(128, 128, 128, 0.7);
+            box-shadow: 1px 1px 10px 2px black;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            z-index: 1;
+
+            > h3 {
+                width: 80%;
+                color: var(--md-sys-color-on-background);
+                font-family: "Roboto Thin", sans-serif;
+                font-weight: 700;
+                text-align: center;
+            }
+
+            > p {
+                width: 80%;
+                font-family: "Roboto Thin", sans-serif;
+                font-weight: 400;
+                text-align: center;
+            }
+
+            > button {
+                padding: 10px;
+                width: 150px;
+            }
+        }
+
+        > span::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            transition: all 0.5s;
+            z-index: 1;
+
+        }
+
+        > span::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            transition: all 0.5s;
+            z-index: 1;
+        }
+    }
+
+
+    > div::before {
+        content: '';
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(315deg, var(--md-sys-color-primary), var(--md-sys-color-secondary));
+        display: block;
+        position: absolute;
+        left: 25%;
+        transform: skewX(20deg);
+        border-radius: 20px;
+        transition: all 400ms ease;
+
+    }
+
+    > div::after {
+        content: '';
+        width: 50%;
+        height: 100%;
+        display: block;
+        filter: blur(30px);
+        position: absolute;
+        left: 25%;
+        transform: skewX(20deg);
+        border-radius: 20px;
+        transition: all 400ms ease;
+    }
+
+    > div:nth-child(1)::before, > div:nth-child(1)::after {
+        background: linear-gradient(315deg, var(--md-sys-color-primary), var(--md-sys-color-secondary));
+    }
+
+    > div:nth-child(2)::before, > div:nth-child(2)::after {
+        background: linear-gradient(315deg, var(--md-sys-color-secondary), var(--md-sys-color-tertiary));
+    }
+
+    > div:nth-child(3)::before, > div:nth-child(3)::after {
+        background: linear-gradient(315deg, var(--md-sys-color-tertiary), var(--md-sys-color-primary));
+    }
+
+    > div:hover::before, > div:hover::after {
+        transform: skewX(0);
+    }
+
+    > div:hover > span::before {
+        bottom: 10px;
+        right: 12.5%;
+        width: 100px;
+        height: 100px;
+        opacity: 1;
+        animation: square_move_card 3s ease-in-out infinite alternate-reverse;
+    }
+
+    > div:hover > span::after {
+        top: -50px;
+        left: 12.5%;
+        width: 100px;
+        height: 100px;
+        opacity: 1;
+        animation: square_move_card 3s ease-in-out infinite alternate;
+    }
+}
+
+@keyframes square_move_card {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(60px);
+    }
+}
+
+#pictures {
+    height: fit-content;
+    padding-bottom: 20px;;
+}
+
+#pic_div {
+    width: calc(100vw - 100px);
+    height: fit-content;
+    display: grid;
+    grid: repeat(3, calc((100vw - 160px) / 6)) / repeat(4, calc((100vw - 160px) / 4));
+    grid-auto-flow: row dense;
+    justify-content: space-around;
+    justify-items: center;
+    align-items: center;
+    column-gap: 20px;
+    row-gap: 20px;
+
+    & img, & div {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    > div > button {
+        position: absolute;
+        left: -30px;
+        bottom: 10px;
+        width: fit-content;
+        height: fit-content;
+        /*border: 1px black solid;*/
+        border: 0;
+        border-radius: 10px;
+        cursor: pointer;
+        color: #000000;
+    }
+
+    > div:hover > button {
+        box-shadow: 1px 1px 2px 1px grey;
+    }
+
+    > div:hover::before {
+        box-shadow: 0 -250px 250px #77ff61 inset;
+    }
+
+    > div::after {
+        display: block;
+        content: "dasdffsdafdsda";
+        width: calc(60% - 20px);
+        height: fit-content;
+        position: absolute;
+        bottom: -100px;
+        right: 10px;
+        transition: all 400ms;
+        z-index: 2;
+        color: #002200;
+        font-family: "Roboto Thin", sans-serif;
+        font-weight: 400;
+        text-align: right;
+    }
+
+    > div:hover::after {
+        bottom: 10px;
+    }
+
+    > div:hover > button {
+        left: 10px;
+    }
+
+    > :nth-child(1) {
+        grid-row: span 2;
+    }
+
+    > :nth-child(3) {
+        grid-column: span 2;
+    }
+
+    > :nth-child(5) {
+        grid-row: span 2;
+    }
+
+    > :nth-child(7) {
+        grid-column: span 2;
+    }
+
+    > :nth-child(1)::after {
+        content: "Это всё наше";
+    }
+
+    > :nth-child(2)::after {
+        content: "И это тоже всё наше";
+    }
+
+    > :nth-child(3)::after {
+        content: "Это можно купить у нас";
+    }
+
+    > :nth-child(4)::after {
+        content: "Всё корме корзинки тут продаётся";
+    }
+
+    > :nth-child(5)::after {
+        content: "Красивое и может стать твоим";
+    }
+
+    > :nth-child(6)::after {
+        content: "Мы готовы сказать спасибо за покупку, но только всего этого";
+    }
+
+    > :nth-child(7)::after {
+        content: "Купи для себя и нас";
+    }
+
+    > :nth-child(8)::after {
+        content: "Это не наше";
+    }
+}
+
+#video_div {
+    > video {
+        width: fit-content;
+        height: 35vw;
+    }
+}
+
+@media (max-width: 1024px) {
+    main {
+        grid: repeat(7, fit-content(100%)) / fit-content(25%) 1fr;
+        grid-template-areas: "div1 about_us_text" "div1 desc" "div1 about_dvs" "div2 div2" "div3 div3" "about_us_info about_us_info"  "galery galery";
+    }
+
+    #shop_info {
+        > div > div {
+            & iframe {
+                width: 75vw;
+                height: 30vw;
+            }
+        }
+    }
+
+    #pic_div {
+        grid: repeat(6, calc((100vw - 160px) / 6)) / repeat(2, calc((100vw - 160px) / 2));
+        grid-auto-flow: row dense;
+
+        > :nth-child(3) {
+            grid-row: span 2;
+            grid-column: span 2;
+        }
+
+        > :nth-child(7) {
+            grid-row: span 2;
+            grid-column: span 2;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    main {
+        grid: repeat(7, fit-content(100%)) / fit-content(25%) 1fr;
+        grid-template-areas: "about_us_text" "desc" "about_dvs" "div1" "div2" "div3" "about_us_info"  "galery";
+    }
+
+    #pic_div {
+        grid: repeat(8, calc((100vw - 160px) / 2)) / calc((100vw - 160px));
+        grid-auto-flow: row;
+
+        > :nth-child(1) {
+            grid-row: span 1;
+        }
+
+        > :nth-child(3) {
+            grid-column: span 1;
+        }
+
+        > :nth-child(5) {
+            grid-row: span 1;
+        }
+
+        > :nth-child(7) {
+            grid-column: span 1;
+        }
+    }
+
+    #shop_info {
+        > div > div {
+            & iframe {
+                width: 75vw;
+                height: 30vw;
+            }
+        }
+    }
+}
