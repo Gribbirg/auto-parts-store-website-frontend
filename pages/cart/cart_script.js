@@ -24,7 +24,7 @@ function setProductBuyButtonsState(id, state) {
 }
 
 function setProductCartButtonText(id, count) {
-    document.getElementById(`${id}+cart_button`).innerHTML = `<a href="#cart_position"></a>В корзине ${count} шт<span></span>`;
+    document.getElementById(`${id}+cart_button`).innerHTML = `<a href="/AutoPartsStoreWebsiteFrontend/cart/"></a>В корзине ${count} шт<span></span>`;
 }
 
 function subCount(cart, id) {

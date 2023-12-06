@@ -1,8 +1,12 @@
+#cart_section {
+    width: fit-content;
+}
+
 .cart_element_div {
     padding: 5px 10px;
     border: var(--md-sys-color-primary) 1px solid;
     border-radius: 10px;
-    margin: 5px 0;
+    margin: 10px 0;
     display: grid;
     grid: repeat(3, fit-content(100%)) / 1fr fit-content(100%);
     grid-template-areas: "name del" "desc cost" "buttons count";
@@ -44,6 +48,17 @@
         color: var(--md-sys-color-on-error-container);
         background-color: var(--md-sys-color-error-container);
         border-color: var(--md-sys-color-error);
+    }
+
+    >  .product_div_button {
+        justify-self: end;
+        align-self: center;
+
+        > button {
+            width: 30px;
+            height: 30px;
+            font-size: 1.1rem;
+        }
     }
 }
 
