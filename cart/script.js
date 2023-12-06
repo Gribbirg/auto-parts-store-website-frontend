@@ -1,11 +1,19 @@
 "use strict"
 
 let content = [];
+document.getElementById("clean_button").disabled = true;
 
 window.addEventListener("pageshow", function () {
     cart = getCart();
     initProducts().then();
 });
+
+document.getElementById("clean_button").onclick = function () {
+    cart = [];
+    setCart(cart);
+    checkForNullCart();
+    setSumValue().then();
+}
 
 async function initProducts() {
     document.getElementById("cart_div").innerHTML = "";
@@ -99,6 +107,9 @@ function setButtonsListeners() {
 
 function checkForNullCart() {
     if (cart.length === 0) {
-        document.getElementById("cart_div").innerHTML = `<p>В корзине пусто!</p><a href="/AutoPartsStoreWebsiteFrontend/catalog/" class="arrow_button" id="to_catalog_href">Перейти в каталог<span></span></a>`
+        document.getElementById("cart_div").innerHTML = `<p>В корзине пусто!</p><a href="/AutoPartsStoreWebsiteFrontend/catalog/" class="arrow_button" id="to_catalog_href">Перейти в каталог<span></span></a>`;
+        document.getElementById("clean_button").disabled = true;
+    } else {
+        document.getElementById("clean_button").disabled = false;
     }
 }

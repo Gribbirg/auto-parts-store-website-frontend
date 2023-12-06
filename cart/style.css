@@ -114,6 +114,7 @@ main {
 #sum_text {
     text-align: end;
     grid-area: sum;
+    display: none;
 }
 
 #clean_button {
@@ -127,7 +128,7 @@ main {
     }
 }
 
-#clean_button:hover {
+#clean_button:hover:not(:disabled) {
     color: var(--md-sys-color-on-error-container);
     background-color: var(--md-sys-color-error-container);
     border-color: var(--md-sys-color-error);
