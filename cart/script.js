@@ -4,6 +4,9 @@ let content = [];
 document.getElementById("clean_button").disabled = true;
 document.getElementById("sub").disabled = true;
 
+let captcha = CreateCaptcha();
+captcha.check();
+
 window.addEventListener("pageshow", function () {
     cart = getCart();
     initProducts().then();
@@ -13,18 +16,20 @@ document.getElementById("clean_button").onclick = function () {
     cart = [];
     setCart(cart);
     checkForNullCart();
-    setSumValue().then();
+    setSumValue();
 }
 
-window.addEventListener("DOMContentLoaded", function () {
-    let captcha = CreateCaptcha();
+document.getElementById("captcha_input").addEventListener("change", function (event) {
     captcha.check();
-
-    document.getElementById("captcha_input").addEventListener("change", function (event) {
-        captcha.check();
-        event.stopPropagation();
-    });
+    event.stopPropagation();
 });
+
+document.getElementById("sub").onclick = function () {
+    cart = [];
+    setCart(cart);
+    initProducts().then();
+    // window.location.reload();
+}
 
 async function initProducts() {
     document.getElementById("cart_div").innerHTML = "";
@@ -36,10 +41,10 @@ async function initProducts() {
         createCartElement(product, cartProduct);
     }
     document.getElementById("sum_text").textContent = `Всего: ${sum.toLocaleString()} ₽`;
-    document.getElementById("sum_text").style.display = (sum === 0)? "none" : "block";
+    document.getElementById("sum_text").style.display = (sum === 0) ? "none" : "block";
     setButtonsListeners();
     checkForNullCart();
-    setSumValue().then();
+    setSumValue();
 }
 
 async function getProduct(cartProduct) {
@@ -49,14 +54,20 @@ async function getProduct(cartProduct) {
     });
 }
 
-async function setSumValue() {
+function findProduct(id) {
+    return content.find(function (item) {
+        return item.id === id;
+    });
+}
+
+function setSumValue() {
     let sum = 0;
     for (let cartProduct of cart) {
-        let product = await getProduct(cartProduct);
+        let product = findProduct(cartProduct.id);
         sum += product["cost"] * cartProduct["count"];
     }
     document.getElementById("sum_text").textContent = `Всего: ${sum.toLocaleString()} ₽`;
-    document.getElementById("sum_text").style.display = (sum === 0)? "none" : "block";
+    document.getElementById("sum_text").style.display = (sum === 0) ? "none" : "block";
 
 }
 
@@ -77,7 +88,9 @@ function createCartElement(product, cartProduct) {
 
 function setTextState(product) {
     document.getElementById(`${product.id}+product_count`).textContent = `за ${product["count"]} шт.`;
-    let productCost = content.find(function (item) { return item.id === product.id })["cost"];
+    let productCost = content.find(function (item) {
+        return item.id === product.id
+    })["cost"];
     document.getElementById(`${product.id}+product_cost`).textContent = `${(productCost * product["count"]).toLocaleString()} ₽`;
 }
 
@@ -88,7 +101,7 @@ function setButtonsListeners() {
             removeFromCart(cart, id);
             document.getElementById(`${id}+div`).remove();
             checkForNullCart();
-            setSumValue().then();
+            setSumValue();
         }
     });
     for (let button of document.querySelectorAll(".cart_add_button")) {
@@ -98,7 +111,7 @@ function setButtonsListeners() {
             product.count++;
             setCart(cart);
             setTextState(product);
-            setSumValue().then();
+            setSumValue();
         }
     }
 
@@ -115,7 +128,7 @@ function setButtonsListeners() {
                 document.getElementById(`${id}+div`).remove();
                 checkForNullCart();
             }
-            setSumValue().then();
+            setSumValue();
         }
     }
 }
@@ -208,7 +221,7 @@ function CreateCaptcha() {
             this.setValue("Тестирование пройдено!");
             this.hint.innerHTML = "Тестирование пройдено!";
             this.input.blur();
-            document.getElementById("sub").disabled = false;
+            setTimeout(() => document.getElementById("sub").disabled = false, 100);
         },
         loose: function () {
             this.state = -1;
