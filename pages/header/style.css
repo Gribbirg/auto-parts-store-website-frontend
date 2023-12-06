@@ -157,6 +157,7 @@ a.active:link {
         > label::before {
             content: '☰';
             color: var(--md-sys-color-on-primary-container);
+            cursor: pointer;
         }
     }
 

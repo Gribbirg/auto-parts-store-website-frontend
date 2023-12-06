@@ -1,9 +1,10 @@
 .product_div_button {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     grid-area: button;
     justify-self: end;
     align-self: end;
+    justify-content: center;
     margin: 10px;
 
     > a {
