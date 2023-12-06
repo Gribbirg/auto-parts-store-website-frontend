@@ -31,8 +31,10 @@ onSortDivClickListener(document.getElementById("cost_sort"));
 
 createFilters(categoryData);
 
-window.addEventListener('navigate', function () {
-    cart = getCart();
+window.addEventListener("pageshow", function () {
+    content.forEach(function (item) {
+        setButtonsState(item.id);
+    })
 });
 
 function getCategory() {
@@ -135,11 +137,7 @@ function setContent(content) {
     if (content.length !== 0) {
         for (let i = 0; i < Math.min(6, content.length); i++) {
             createProductDiv(content[i]);
-            let cartEl = findInCart(cart, content[i].id);
-            if (cartEl !== undefined) {
-                setProductBuyButtonsState(content[i].id, true);
-                setProductCartButtonText(content[i].id, cartEl.count);
-            }
+            setButtonsState(content[i].id);
         }
         setProductsButtonsOnClick(type, category);
         while (content.length !== document.querySelectorAll(".product_div").length &&

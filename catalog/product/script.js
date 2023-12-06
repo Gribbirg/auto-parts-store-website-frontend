@@ -24,9 +24,11 @@ const product = (await response.json()).find(function (item) {
 if (!product)
     window.location.href = "/AutoPartsStoreWebsiteFrontend/catalog/";
 
-// let cart = [];
-
 setProductData(product);
+
+window.addEventListener("pageshow", function () {
+    setButtonsState(product.id);
+});
 
 function getCategory() {
     let search = new URLSearchParams(window.location.search)
@@ -41,7 +43,7 @@ function getCategory() {
 
 function setProductData(product) {
     document.title = product.name;
-    document.querySelector("#main_section > h2").textContent =  product.name;
+    document.querySelector("#main_section > h2").textContent = product.name;
     document.getElementById("logo").src = `/AutoPartsStoreWebsiteFrontend/images/products/${product["img"]}`;
     document.getElementById("desc").textContent = product.description;
     document.getElementById("cost").textContent = `${product["cost"].toLocaleString()} ₽`;
@@ -60,14 +62,14 @@ function setProductData(product) {
                 </div>`;
     document.getElementById("similar_ref").href = `/AutoPartsStoreWebsiteFrontend/catalog/products/?type=${type}&category=${category}`;
     let desc = product["description_full"];
-    document.getElementById("full_description").textContent = (desc)? desc : "Информация не найдена.";
+    document.getElementById("full_description").textContent = (desc) ? desc : "Информация не найдена.";
 
     let table = document.getElementById("characteristics_table");
     for (let filter of categoryData["filters"]) {
         table.innerHTML += `
 <tr>
     <td>${filter.name}</td>       
-    <td>${product[filter.id]} ${(filter["unit"])? filter["unit"] : ""}</td>       
+    <td>${product[filter.id]} ${(filter["unit"]) ? filter["unit"] : ""}</td>       
 </tr>
         `
     }
