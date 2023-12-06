@@ -1,5 +1,21 @@
+main {
+    display: grid;
+    grid: 1fr / fit-content(100%) 1fr;
+}
+
 #cart_section {
     width: 400px;
+    height: fit-content;
+    display: grid;
+    grid: repeat(3, fit-content(100%)) / 1fr 1fr;
+    grid-template-areas: "head del"
+                         "cart cart"
+                         "sum sum";
+    /*justify-content: stretch;*/
+
+    > h2 {
+        grid-area: head;
+    }
 }
 
 #cart_div {
@@ -26,6 +42,7 @@
     grid-template-areas: "name del" "desc cost" "buttons count";
     column-gap: 20px;
     transition: all 400ms;
+    width: 100%;
 
     & a {
         text-decoration: none;
@@ -96,4 +113,170 @@
 
 #sum_text {
     text-align: end;
+    grid-area: sum;
+}
+
+#clean_button {
+    width: 150px;
+    height: 35px;
+    align-self: center;
+    justify-self: end;
+
+    > span::after {
+        color: var(--md-sys-color-on-error-container);
+    }
+}
+
+#clean_button:hover {
+    color: var(--md-sys-color-on-error-container);
+    background-color: var(--md-sys-color-error-container);
+    border-color: var(--md-sys-color-error);
+}
+
+#order_section {
+    height: fit-content;
+}
+
+#order_form {
+    display: grid;
+    grid: repeat(10, fit-content(100%)) / 1fr 1fr;
+    grid-auto-flow: row dense;
+    border-radius: 20px;
+    backdrop-filter: blur(2px);
+    width: calc(100% - 20px);
+    justify-content: stretch;
+    justify-items: start;
+    margin: 20px 0;
+    padding: 10px;
+    align-items: center;
+    z-index: 2;
+
+
+    & * {
+        margin: 0.5em;
+        /*color: #001f25;*/
+        font-family: "Roboto Thin", sans-serif;
+    }
+
+    & fieldset, & select {
+        display: inline;
+        /*border: #002200 1px solid;*/
+        border-radius: 10px;
+        height: min-content;
+        width: 90%;
+    }
+
+    & select {
+        width: 90%;
+    }
+
+    > div {
+        width: 100%;
+
+        > label {
+            cursor: text;
+            margin-bottom: 0;
+            display: inline-block;
+            width: 95%;
+            height: fit-content;
+            font-weight: 700;
+            /*text-align: center;*/
+        }
+    }
+
+    & textarea {
+        width: calc(95% - 5px);
+        padding: 0;
+        height: 0;
+        transition: all 400ms;
+    }
+
+    & fieldset {
+        margin: 0.5em;
+
+        > div {
+            display: inline-flex;
+            flex-flow: row nowrap;
+            padding: 0;
+            margin: 0;
+            width: 13rem;
+            height: fit-content;
+
+            & * {
+                font-family: "Roboto Thin", sans-serif;
+            }
+        }
+    }
+
+    & input {
+        margin-top: 0;
+        padding: 5px;
+        transition: all 400ms;
+    }
+
+    & input[type=text], & input[type=email], & input[type=tel] {
+        padding: 0;
+        height: 0;
+    }
+
+    & input[type=text]:focus,
+    & input[type=email]:focus,
+    & input[type=tel]:focus,
+    & textarea:focus {
+        transform: scale(1.01);
+    }
+
+    & input[type=text]:focus,
+    & input[type=email]:focus,
+    & input[type=tel]:focus,
+    & textarea:focus,
+    & input[type=text]:not(:placeholder-shown),
+    & input[type=email]:not(:placeholder-shown),
+    & input[type=tel]:not(:placeholder-shown),
+    & textarea:not(:placeholder-shown) {
+        padding: 5px;
+        height: auto;
+    }
+
+    & textarea:focus,
+    & textarea:not(:placeholder-shown) {
+        padding: 5px;
+        height: 5rem;
+    }
+
+
+    & input[type=datetime-local] {
+        width: 90%;
+    }
+
+    & select {
+        padding: 5px;
+
+        & * {
+            margin: 0;
+            text-align: center;
+        }
+    }
+
+    > :last-child {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-around;
+        grid-column: span 2;
+
+        > button {
+            padding: 10px;
+            font-size: 1.5em;
+            width: 200px;
+            text-align: center;
+
+            > span {
+                margin: 0;
+            }
+        }
+    }
+}
+
+#file, #time-local {
+    width: 90%;
 }

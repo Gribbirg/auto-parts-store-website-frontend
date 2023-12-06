@@ -20,8 +20,55 @@
 <main>
     <section id="cart_section">
         <h2 class="part_name">Корзина</h2>
+        <button class="arrow_button" id="clean_button">Отчистить<span></span></button>
         <div id="cart_div"></div>
         <p id="sum_text" class="product_cost">Всего: </p>
+    </section>
+    <section id="order_section">
+        <p id="order_position" class="positions"></p>
+        <h2 class="part_name">Заказать</h2>
+        <div>
+            <form method="post" id="order_form">
+                <div><label for="name">Ваше имя:</label><br><input type="text" name="name" id="name" class="field"
+                                                                   required placeholder="">
+                </div>
+                <div class="text_div"><label for="tel">Телефон:</label><input type="tel" name="tel" id="tel"
+                                                                              class="field" required
+                                                                              pattern="[+][7][0-9]{10}"
+                                                                              placeholder="+7XXXXXXXXXX">
+                </div>
+                <div class="text_div"><label for="email">Электронная почта:</label><input type="email" name="email"
+                                                                                          id="email"
+                                                                                          class="field" required
+                                                                                          placeholder="">
+                </div>
+                <fieldset class="field">
+                    <legend>Пол</legend>
+                    <div><input type="radio" name="sex" id="man" checked><label for="man">Мужчина</label></div>
+                    <div><input type="radio" name="sex" id="woman"><label for="woman">Женщина</label></div>
+                </fieldset>
+                <div>
+                    <label for="com_type">Как с вами лучше связаться?</label><br>
+                    <select name="com_type" id="com_type" multiple required size="4" class="field">
+                        <option value="phone">По телефону</option>
+                        <option value="email">По электронной почте</option>
+                        <option value="whatsapp">По WhatsApp</option>
+                        <option value="telegram">По Telegram</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="time-local">Когда с вами лучше связаться?</label><br>
+                    <input type="datetime-local"
+                           name="time-local"
+                           id="time-local" required
+                           class="field"
+                           placeholder="">
+                </div>
+                <div>
+                    <button type="submit" name="sub" id="sub" class="arrow_button">Отправить<span></span></button>
+                </div>
+            </form>
+        </div>
     </section>
 </main>
 <script src="../pages/footer/add_script.js"></script>
