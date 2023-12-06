@@ -14,13 +14,13 @@ document.body.innerHTML += `
         Наши социальные сети:
         <div>
             <div>
-                <a href="#" class="fa fa-vk"></a>
+                <a href="https://vk.com/mirea_official" target="_blank" class="fa fa-vk"></a>
             </div>
             <div>
-                <a href="#" class="fa fa-youtube"></a>
+                <a href="https://www.youtube.com/@rtu_mirea" target="_blank" class="fa fa-youtube"></a>
             </div>
             <div>
-                <a href="#" class="fa fa-telegram"></a>
+                <a href="https://t.me/rtumirea_official" target="_blank" class="fa fa-telegram"></a>
             </div>
         </div>
     </address>
