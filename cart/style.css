@@ -142,7 +142,7 @@ main {
 
 #order_form {
     display: grid;
-    grid: repeat(10, fit-content(100%)) / 1fr 1fr;
+    grid: repeat(4, fit-content(100%)) / 1fr 1fr;
     grid-auto-flow: row dense;
     border-radius: 20px;
     backdrop-filter: blur(2px);
@@ -291,8 +291,9 @@ main {
     > :last-child {
         display: flex;
         flex-flow: row nowrap;
-        justify-content: space-around;
-        grid-column: span 2;
+        justify-content: end;
+        justify-self: end;
+        align-self: end;
 
         > button {
             padding: 10px;
@@ -309,4 +310,64 @@ main {
 
 #file, #time-local {
     width: 90%;
+}
+
+#captcha {
+    display: block;
+    background: var(--md-sys-color-primary-container);
+    border: var(--md-sys-color-primary) 1px solid;
+    box-shadow: 1px 1px 3px black;
+    border-radius: 20px;
+    opacity: 1;
+    pointer-events: initial;
+    filter: blur();
+    /*position: absolute;*/
+    /*z-index: 3;*/
+    transition: opacity 400ms;
+
+    > p, > label, > h4 {
+        text-align: center;
+    }
+
+    > h4 {
+        color: var(--md-sys-color-on-primary-container);
+    }
+
+    > p {
+        text-align: center;
+        font-family: "Roboto Thin", sans-serif;
+        font-weight: 300;
+    }
+
+    > div {
+        width: calc(100% - 40px);
+        border-radius: 20px;
+        padding: 10px;
+        background: var(--md-sys-color-surface-variant);
+        display: inline-flex;
+        flex-flow: column nowrap;
+        box-shadow: 1px 1px 4px black;
+
+        > label {
+            user-select: none;
+            margin: 10px;
+            text-align: center;
+        }
+
+        > input {
+            text-align: center;
+            width: calc(100% - 30px);
+            background-color: var(--md-sys-color-surface);
+        }
+
+    }
+}
+
+.complete {
+    background: var(--md-sys-color-tertiary-container);
+    border: var(--md-sys-color-tertiary) 1px solid;
+
+    > h4 {
+        color: var(--md-sys-color-on-tertiary-container);
+    }
 }

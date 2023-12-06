@@ -2,6 +2,7 @@
 
 let content = [];
 document.getElementById("clean_button").disabled = true;
+document.getElementById("sub").disabled = true;
 
 window.addEventListener("pageshow", function () {
     cart = getCart();
@@ -14,6 +15,16 @@ document.getElementById("clean_button").onclick = function () {
     checkForNullCart();
     setSumValue().then();
 }
+
+window.addEventListener("DOMContentLoaded", function () {
+    let captcha = CreateCaptcha();
+    captcha.check();
+
+    document.getElementById("captcha_input").addEventListener("change", function (event) {
+        captcha.check();
+        event.stopPropagation();
+    });
+});
 
 async function initProducts() {
     document.getElementById("cart_div").innerHTML = "";
@@ -115,5 +126,101 @@ function checkForNullCart() {
         document.getElementById("clean_button").disabled = true;
     } else {
         document.getElementById("clean_button").disabled = false;
+    }
+}
+
+function isEmpty(object) {
+    return Object.keys(object).length === 0;
+}
+
+function getRandomString(maxLen) {
+    let result = '';
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    let counter = 0;
+    while (counter < maxLen) {
+        result += characters.charAt(Math.floor(Math.random() * characters.length));
+        counter += 1;
+    }
+    return result;
+}
+
+function GetRandomSumObject() {
+    let first = Math.floor(Math.random() * 100);
+    let second = Math.floor(Math.random() * 100);
+    return {
+        text: first.toString() + " + " + second.toString() + " = ",
+        answer: first + second
+    }
+}
+
+function CreateCaptcha() {
+    return {
+        state: 0,
+        [Symbol.for("captcha_text")]: getRandomString(5),
+        [Symbol.for("captcha_sum")]: new GetRandomSumObject(),
+        form: document.getElementById("captcha"),
+        hint: document.querySelector("#captcha > p"),
+        input: document.getElementById("captcha_input"),
+        check: function () {
+            if (this.state === 0) {
+                this.state++;
+                this.setValue(this[Symbol.for("captcha_text")]);
+                this.hint.innerHTML = "Введите текст ниже:";
+                return;
+            }
+
+            let valueObj = {}
+            if (this.input.value.length !== 0)
+                valueObj.value = this.input.value;
+
+            if (isEmpty(valueObj)) {
+                alert("Введите значение!");
+                return;
+            }
+
+            if (this.state === 1) {
+                if (valueObj.value === this[Symbol.for("captcha_text")]) {
+                    this.close();
+                } else {
+                    this.state++;
+                    this.setValue(this[Symbol.for("captcha_sum")].text);
+                    this.hint.innerHTML = "Вычислите выражение:";
+                }
+            } else if (this.state === 2) {
+                if (Number(valueObj.value) === this[Symbol.for("captcha_sum")].answer) {
+                    this.close();
+                } else {
+                    this.loose();
+                }
+            }
+        },
+        setValue: function (labelText) {
+            document.querySelector("& label[for=\"captcha_input\"]").innerHTML = labelText;
+            this.input.value = "";
+        },
+        close: function () {
+            this.state = -1;
+            this.form.style.background = "var(--md-sys-color-tertiary-container)";
+            this.form.style.border = "var(--md-sys-color-tertiary) 1px solid";
+            this.form.firstElementChild.style.color = "var(--md-sys-color-on-tertiary-container)";
+            this.form.style.pointerEvents = "none";
+            this.form.style.filter = "brightness(60%)";
+            this.setValue("Тестирование пройдено!");
+            this.hint.innerHTML = "Тестирование пройдено!";
+            this.input.blur();
+            document.getElementById("sub").disabled = false;
+        },
+        loose: function () {
+            this.state = -1;
+            this.setValue("Вы робот!");
+            this.form.style.background = "var(--md-sys-color-error-container)";
+            this.form.style.border = "var(--md-sys-color-error) 1px solid";
+            this.form.firstElementChild.style.color = "var(--md-sys-color-on-error-container)";
+            this.input.blur();
+            this.hint.innerHTML = "Вы робот!";
+            this.form.style.pointerEvents = "none";
+            this.form.style.filter = "brightness(60%)";
+            alert("Вы робот! Вам тут не рады...");
+        }
     }
 }

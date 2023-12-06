@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <script defer src="script.js"></script>
+    <script type="module" defer src="script.js"></script>
     <script src="../pages/cart/cart_script.js"></script>
 </head>
 <body>
@@ -63,6 +63,14 @@
                            id="time-local" required
                            class="field"
                            placeholder="">
+                </div>
+                <div id="captcha" class="enter_form">
+                    <h4>Для отправки пройдите тестирование</h4>
+                    <p>Введите текст ниже:</p>
+                    <div>
+                        <label for="captcha_input"></label>
+                        <input type="text" id="captcha_input" name="captcha_input" class="field">
+                    </div>
                 </div>
                 <div>
                     <button type="submit" name="sub" id="sub" class="arrow_button">Отправить<span></span></button>
