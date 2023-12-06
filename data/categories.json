@@ -2,6 +2,7 @@
   {
     "id": "chemistry",
     "name": "Масло и автохимия",
+    "logo": "Lukoil_3148675.png",
     "subcategories": [
       {
         "id": "oil",
@@ -49,6 +50,7 @@
   {
     "id": "tiers",
     "name": "Шины и диски",
+    "logo": "Michelin_462289.png",
     "subcategories": [
       {
         "id": "summer",
@@ -87,6 +89,7 @@
   {
     "id": "electronics",
     "name": "Автоэлектроника",
+    "logo": "Osram_64193.png",
     "subcategories": [
       {
         "id": "lamp",
@@ -105,6 +108,7 @@
   {
     "id": "other",
     "name": "Остальное",
+    "logo": "Airline_ACF-20A.png",
     "subcategories": [
       {
         "id": "tool",

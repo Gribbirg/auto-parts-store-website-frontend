@@ -15,6 +15,20 @@
 
     > section {
         margin: 0;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+
+        > img {
+            width: 50%;
+            align-self: center;
+            justify-self: center;
+        }
+
+        > ul {
+            align-self: center;
+            justify-self: center;
+        }
     }
 }
 

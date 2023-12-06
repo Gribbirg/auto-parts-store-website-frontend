@@ -11,6 +11,10 @@ function createCategory(category) {
     head.textContent = category.name;
     section.appendChild(head);
 
+    let img = document.createElement("img");
+    img.src = `../images/products/${category["logo"]}`;
+    section.appendChild(img);
+
     let list = document.createElement("ul");
     section.appendChild(list);
 
