@@ -95,7 +95,7 @@ function getCart() {
     try {
         return JSON.parse(localStorage.getItem("cart") ?? "[]");
     } catch (e) {
-        console.log("Cart data", `Reload because of ${e.text}`);
+        console.log("Cart data", `reload because of ${e.text}`);
         setCart([]);
         return getCart();
     }
