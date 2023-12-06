@@ -17,11 +17,15 @@ document.getElementById("clean_button").onclick = function () {
 
 async function initProducts() {
     document.getElementById("cart_div").innerHTML = "";
+    let sum = 0;
     for (let cartProduct of cart) {
         let product = await getProduct(cartProduct);
+        sum += product["cost"] * cartProduct["count"];
         content.push(product);
         createCartElement(product, cartProduct);
     }
+    document.getElementById("sum_text").textContent = `Всего: ${sum.toLocaleString()} ₽`;
+    document.getElementById("sum_text").style.display = (sum === 0)? "none" : "block";
     setButtonsListeners();
     checkForNullCart();
     setSumValue().then();

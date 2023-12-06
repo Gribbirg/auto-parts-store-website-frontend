@@ -259,6 +259,33 @@ main {
             margin: 0;
             text-align: center;
         }
+
+        > option {
+            padding: 2px 5px;
+            transition: all 400ms;
+        }
+
+        > :first-child {
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+
+        > :last-child {
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+
+        > option:hover {
+            background: var(--md-sys-color-tertiary-container);
+            color: var(--md-sys-color-on-tertiary-container);
+            outline: var(--md-sys-color-tertiary) 1px solid;
+        }
+
+        > option:checked {
+            background: var(--md-sys-color-secondary-container);
+            color: var(--md-sys-color-on-secondary-container);
+            outline: var(--md-sys-color-secondary) 1px solid;
+        }
     }
 
     > :last-child {
