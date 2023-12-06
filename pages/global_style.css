@@ -31,7 +31,7 @@ main {
 
 section {
     background-color: var(--md-sys-color-surface);
-    padding: 0 20px;
+    padding: 0 20px 10px;
     margin: 15px 10px;
     border-radius: 30px;
     border: var(--md-sys-color-outline) 1px solid;
@@ -218,4 +218,12 @@ fieldset.field {
 p.positions {
     position: relative;
     bottom: 100px;
+}
+
+.product_cost {
+    white-space: nowrap;
+    margin: 10px;
+    font-size: 2rem;
+    grid-area: cost;
+    color: var(--md-sys-color-on-secondary-container);
 }

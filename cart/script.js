@@ -2,14 +2,16 @@
 
 let content = [];
 
-initProducts();
+initProducts().then();
 
 async function initProducts() {
+    document.getElementById("cart_div").innerHTML = "";
     for (let cartProduct of cart) {
         let product = await getProduct(cartProduct);
         content.push(product);
         createCartElement(product, cartProduct);
     }
+    setRemoveButtonsListeners();
 }
 
 async function getProduct(cartProduct) {
@@ -21,9 +23,20 @@ async function getProduct(cartProduct) {
 
 function createCartElement(product, cartProduct) {
     document.getElementById("cart_div").innerHTML += `
-<div>
-    <h3>${product.name}</h3>
-    <p>${product.description}</p>
-    <p>${product["cost"] * cartProduct["count"]}</p>    
-</div>`;
+        <div class="cart_element_div">
+            <h3><a href="../catalog/product/?type=${cartProduct.type}&category=${cartProduct.category}&product=${product.id}">${product.name}</a></h3>
+            <p class="product_desc"><a href="../catalog/product/?type=${cartProduct.type}&category=${cartProduct.category}&product=${product.id}">${product.description}</a></p>
+            <p class="product_cost">${(product["cost"] * cartProduct["count"]).toLocaleString() + " ₽"}</p>    
+            <p class="product_count">за ${cartProduct["count"]} шт.</p>
+            <button class="arrow_button remove_button" id="${product.id}+remove_button">🗑</button>
+        </div>`;
+}
+
+function setRemoveButtonsListeners() {
+    document.querySelectorAll(".remove_button").forEach(function (button) {
+        button.onclick = function () {
+            removeFromCart(cart, button.id.split("+")[0]);
+            initProducts().then();
+        }
+    });
 }

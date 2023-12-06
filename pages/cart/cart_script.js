@@ -84,6 +84,7 @@ function removeFromCart(cart, id) {
         return item.id === id;
     });
     cart.splice(pos, 1);
+    setCart(cart);
 }
 
 function setCart(cart) {

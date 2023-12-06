@@ -95,14 +95,6 @@ section {
     }
 }
 
-.product_cost {
-    white-space: nowrap;
-    margin: 10px;
-    font-size: 2rem;
-    grid-area: cost;
-    color: var(--md-sys-color-on-secondary-container);
-}
-
 .product_head {
     grid-area: head;
     color: var(--md-sys-color-on-primary-container);
