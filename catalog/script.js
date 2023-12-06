@@ -15,6 +15,10 @@ function createCategory(category) {
     img.src = `../images/products/${category["logo"]}`;
     section.appendChild(img);
 
+    let ref = document.createElement("a");
+    ref.href = `/AutoPartsStoreWebsiteFrontend/catalog/products/?type=${category.id}`;
+    section.appendChild(ref);
+
     let list = document.createElement("ul");
     section.appendChild(list);
 
