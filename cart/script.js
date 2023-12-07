@@ -36,6 +36,9 @@ document.getElementById("order_form").onsubmit = function () {
     }
 }
 
+document.getElementById("cart_div").onclick = confirmRef;
+document.getElementById("header").onclick = confirmRef;
+
 async function initProducts() {
     document.getElementById("cart_div").innerHTML = "";
     let sum = 0;
@@ -295,4 +298,17 @@ function CreateCaptcha() {
             alert("Вы робот! Вам тут не рады...");
         }
     }
+}
+
+function checkForEnter () {
+    for (let input of document.querySelectorAll("input[type=text], input[type=tel], input[type=email], input[type=datetime-local]")) {
+        if (input.value && input.value !== "") {
+            return true;
+        }
+    }
+    return false;
+}
+
+function confirmRef(event) {
+    return !event.target.closest("a") || !checkForEnter() || confirm("Вы уверены, что хотите покинуть страницу? Введенный текст пропадёт.")
 }
