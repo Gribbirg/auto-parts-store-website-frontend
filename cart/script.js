@@ -50,6 +50,60 @@ async function initProducts() {
     setButtonsListeners();
     checkForNullCart();
     setSumValue();
+    setSelectListeners();
+}
+
+function setSelectListeners() {
+    document.querySelectorAll(".cart_element_div").forEach(function (item) {
+        item.onclick = function (event) {
+            if (event.target.tagName === "A" || event.target.tagName === "BUTTON") return;
+
+            item.onmousedown = function () {
+                return false;
+            };
+
+            if (item.classList.contains("selected_cart_div")) {
+                item.classList.remove("selected_cart_div");
+            } else {
+                if (!event.ctrlKey && !event.metaKey) {
+                    document.querySelectorAll(".cart_element_div").forEach(function (item) {
+                        item.classList.remove("selected_cart_div");
+                    });
+                }
+                item.classList.add("selected_cart_div");
+            }
+            setDelButtonState();
+        }
+    });
+}
+
+function setDelButtonState() {
+    let button = document.getElementById("clean_button");
+    for (let div of document.querySelectorAll(".cart_element_div")) {
+        if (div.classList.contains("selected_cart_div")) {
+
+            button.innerHTML = "Удалить выбранное<span></span>";
+            button.onclick = function () {
+                for (let item of document.querySelectorAll(".cart_element_div")) {
+                    if (item.classList.contains("selected_cart_div")) {
+                        removeFromCart(cart, item.id.split("+")[0]);
+                        item.remove();
+                    }
+                }
+                checkForNullCart();
+                setSumValue();
+                setDelButtonState();
+            }
+            return;
+        }
+    }
+    button.innerHTML = "Отчистить<span></span>";
+    button.onclick = function () {
+        cart = [];
+        setCart(cart);
+        checkForNullCart();
+        setSumValue();
+    }
 }
 
 async function getProduct(cartProduct) {

@@ -45,6 +45,7 @@ main {
     column-gap: 20px;
     transition: all 400ms;
     width: calc(100% - 40px);
+    cursor: pointer;
 
     & a {
         text-decoration: none;
@@ -109,6 +110,11 @@ main {
     box-shadow: 1px 1px 3px 2px black;
 }
 
+.selected_cart_div {
+    border-color: var(--md-sys-color-secondary);
+    background: var(--md-sys-color-secondary-container);
+}
+
 #to_catalog_href {
     width: 200px;
 }
@@ -120,7 +126,7 @@ main {
 }
 
 #clean_button {
-    width: 150px;
+    width: 200px;
     height: 35px;
     align-self: center;
     justify-self: end;
