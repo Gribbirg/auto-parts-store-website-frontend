@@ -19,6 +19,7 @@
         flex-flow: column nowrap;
         justify-content: space-between;
         position: relative;
+        transition: all 400ms;
 
         > img {
             width: 50%;
@@ -38,6 +39,11 @@
             top: 0;
             bottom: 0;
         }
+    }
+
+    > section:hover {
+        border-color: var(--md-sys-color-tertiary);
+        transform: scale(1.01);
     }
 }
 
