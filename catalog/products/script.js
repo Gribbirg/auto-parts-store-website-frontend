@@ -109,7 +109,7 @@ function createProductDiv(product) {
             <a href="/AutoPartsStoreWebsiteFrontend/catalog/product/?type=${type}&category=${category}&product=${product.id}"></a>
             <h3 class="product_head">${product.name}</h3>
             <div class="product_img_div">
-                <img src=${"https://gribbirg.github.io/AutoPartsStoreWebsiteFrontend/images/products/" + product["img"]} alt=${product.name}/>
+                <img src=${"/AutoPartsStoreWebsiteFrontend/images/products/" + product["img"]} alt=${product.name}/>
             </div>
             <p class="product_desc">${product.description}</p>
             <p class="product_cost">${product["cost"].toLocaleString() + " ₽"}</p>

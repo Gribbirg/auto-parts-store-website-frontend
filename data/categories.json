@@ -78,7 +78,33 @@
       },
       {
         "id": "winter",
-        "name": "Зимние шины"
+        "name": "Зимние шины",
+        "filters": [
+          {
+            "id": "diameter",
+            "name": "Диаметр",
+            "type": "num",
+            "unit": "дюймов"
+          },
+          {
+            "id": "size",
+            "name": "Размер",
+            "type": "choice",
+            "options": [
+              "185/65",
+              "205/65"
+            ]
+          },
+          {
+            "id": "thorns",
+            "name": "Наличие шипов",
+            "type": "choice",
+            "options": [
+              "Да",
+              "Нет"
+            ]
+          }
+        ]
       },
       {
         "id": "disk",

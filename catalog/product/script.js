@@ -30,6 +30,10 @@ window.addEventListener("pageshow", function () {
     setButtonsState(product.id);
 });
 
+for (let img of document.querySelectorAll("#gallery_list > img")) {
+    img.onclick = selectImage;
+}
+
 function getCategory() {
     let search = new URLSearchParams(window.location.search)
     let type = search.get("type");
@@ -45,6 +49,7 @@ function setProductData(product) {
     document.title = product.name;
     document.querySelector("#main_section > h2").textContent = product.name;
     document.getElementById("logo").src = `/AutoPartsStoreWebsiteFrontend/images/products/${product["img"]}`;
+    document.getElementById("logo").alt = product["name"];
     document.getElementById("desc").textContent = product.description;
     document.getElementById("cost").textContent = `${product["cost"].toLocaleString()} ₽`;
     document.getElementById("buy_div").innerHTML += `
@@ -73,8 +78,22 @@ function setProductData(product) {
 </tr>
         `
     }
-    if (table.innerHTML === "") table.outerHTML = `<p>Информация не найдена.</p>`
+    if (table.innerHTML === "") table.outerHTML = `<p>Информация не найдена.</p>`;
+
+    document.getElementById("gallery_list").innerHTML += `<img src="/AutoPartsStoreWebsiteFrontend/images/products/${product["img"]}" class="selected_img_gallery" alt="${product.name}">`;
+
+    for (let img of product["gallery"] ?? []) {
+        document.getElementById("gallery_list").innerHTML += `<img src="/AutoPartsStoreWebsiteFrontend/images/products/${img}" alt="${product.name}">`;
+    }
 
     setProductsButtonsOnClick(type, category);
     setButtonsState(product.id);
+}
+
+function selectImage() {
+    for (let img of document.querySelectorAll("#gallery_list > img")) {
+        img.className = "";
+    }
+    this.className = "selected_img_gallery";
+    document.getElementById("logo").src = this.src;
 }

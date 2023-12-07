@@ -1,3 +1,26 @@
 [
-
+  {
+    "id": "Cordiant_686208534",
+    "name": "Cordiant 686208534",
+    "description": "Шина зимняя шип. \"Snow Cross 2 205/55R16 94T\"",
+    "cost": 6961,
+    "img": "Cordiant_686208534.png",
+    "size": "205/65",
+    "diameter": 16,
+    "thorns": "Да"
+  },
+  {
+    "id": "Pirelli_2687200",
+    "name": "Pirelli_2687200",
+    "description": "Автошина R15 185/65 Pirelli Cinturato Winter 92T XL зима 2687200",
+    "cost": 4930,
+    "img": "Pirelli_2687200.png",
+    "gallery": [
+      "Pirelli_2687200_1.png",
+      "Pirelli_2687200_2.png"
+    ],
+    "size": "185/65",
+    "diameter": 15,
+    "thorns": "Нет"
+  }
 ]
