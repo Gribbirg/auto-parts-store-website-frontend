@@ -3,7 +3,7 @@ document.body.innerHTML += `
     <footer>
     <address>
         Контакты разработчика:
-        <p><a href="tel:+79779456492">7 (977) 945-64-92</a></p>
+        <p><a href="tel:+79779456492">+7 (977) 945-64-92</a></p>
         <p>
             <a href="mailto:gribkovalexander@gmail.com?subject=Твои характеристики&body=Ты лучший!!! И я куплю тебе Москвич 3!!!">
             gribkovalexander@gmail.com</a>
