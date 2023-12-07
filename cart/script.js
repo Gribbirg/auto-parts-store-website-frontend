@@ -28,7 +28,7 @@ document.getElementById("order_form").onsubmit = function () {
     if (cart.length === 0) {
         alert("Корзина пуста!");
     } else {
-        showNotification(`<p>Заказ отправлен!</p><img height="100px" src="../../images/logo/logo_big.png" alt="Логотип">`);
+        showNotification(`<p>Заказ отправлен!</p><img height="100px" src="../images/logo/logo_big.png" alt="Логотип">`);
         cart = [];
         setCart(cart);
         initProducts().then();
@@ -125,7 +125,7 @@ function findProduct(id) {
 function setSumValue() {
     let sum = 0;
     for (let cartProduct of cart) {
-        let product = findProduct(cartProduct.id);
+        let product = findProduct(cartProduct["id"]);
         sum += product["cost"] * cartProduct["count"];
     }
     document.getElementById("sum_text").textContent = `Всего: ${sum.toLocaleString()} ₽`;
