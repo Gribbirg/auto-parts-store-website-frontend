@@ -70,7 +70,7 @@ function setProductData(product) {
     document.getElementById("full_description").textContent = (desc) ? desc : "Информация не найдена.";
 
     let table = document.getElementById("characteristics_table");
-    for (let filter of categoryData["filters"]) {
+    for (let filter of categoryData["filters"] ?? []) {
         table.innerHTML += `
 <tr>
     <td>${filter.name}</td>       

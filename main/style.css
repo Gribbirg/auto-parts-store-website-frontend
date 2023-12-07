@@ -93,12 +93,12 @@ article {
             text-align: center;
         }
 
-        > button {
+        > a {
             padding: 10px;
             width: 150px;
         }
 
-        > button:hover {
+        > a:hover {
             background: var(--md-sys-color-tertiary-container);
             color: var(--md-sys-color-on-tertiary-container);
             border-color: var(--md-sys-color-tertiary);
@@ -131,7 +131,7 @@ article {
         background: var(--md-sys-color-primary-container);
         border: var(--md-sys-color-primary) 1px solid;
 
-        > button {
+        > a {
             background: var(--md-sys-color-primary);
             color: var(--md-sys-color-on-primary);
             border: var(--md-sys-color-on-primary) 1px solid;
@@ -151,7 +151,7 @@ article {
         background: var(--md-sys-color-secondary-container);
         border: var(--md-sys-color-secondary) 1px solid;
 
-        > button {
+        > a {
             background: var(--md-sys-color-secondary);
             color: var(--md-sys-color-on-secondary);
             border: var(--md-sys-color-on-secondary) 1px solid;
@@ -171,7 +171,7 @@ article {
         background: var(--md-sys-color-error-container);
         border: var(--md-sys-color-error) 1px solid;
 
-        > button {
+        > a {
             background: var(--md-sys-color-error);
             color: var(--md-sys-color-on-error);
             border: var(--md-sys-color-on-error) 1px solid;
@@ -244,12 +244,12 @@ article {
                 text-align: center;
             }
 
-            > button {
+            > a {
                 padding: 10px;
                 width: 150px;
             }
 
-            > button:hover {
+            > a:hover {
                 background: var(--md-sys-color-tertiary-container);
                 color: var(--md-sys-color-on-tertiary-container);
                 border-color: var(--md-sys-color-tertiary);
@@ -329,7 +329,7 @@ article {
         > div {
             background: linear-gradient(90deg, #003800 50%, #002200 50%);
 
-            > button {
+            > a {
                 background: #026e00;
                 color: white;
                 border: #002200 1px solid;
@@ -356,7 +356,7 @@ article {
         > div {
             background: linear-gradient(90deg, #002e36 50%, #001f25 50%);
 
-            > button {
+            > a {
                 background: #006877;
                 color: white;
                 border: #001f25 1px solid;
@@ -383,7 +383,7 @@ article {
         > div {
             background: linear-gradient(90deg, #3d2400 50%, #291800 50%);
 
-            > button {
+            > a {
                 background: #815500;
                 color: white;
                 border: #291800 1px solid;
@@ -625,7 +625,7 @@ article {
                 text-align: center;
             }
 
-            > button {
+            > a {
                 padding: 10px;
                 width: 150px;
             }
@@ -771,12 +771,8 @@ article {
         color: #000000;
     }
 
-    > div:hover > button {
-        box-shadow: 1px 1px 2px 1px grey;
-    }
-
     > div:hover::before {
-        box-shadow: 0 -250px 250px #77ff61 inset;
+        box-shadow: 0 -250px 250px var(--md-sys-color-tertiary-container) inset;
     }
 
     > div::after {
@@ -789,7 +785,7 @@ article {
         right: 10px;
         transition: all 400ms;
         z-index: 2;
-        color: #002200;
+        color: var(--md-sys-color-on-tertiary-container);
         font-family: "Roboto Thin", sans-serif;
         font-weight: 400;
         text-align: right;
@@ -856,6 +852,15 @@ article {
     > video {
         width: fit-content;
         height: 35vw;
+    }
+}
+
+#shop_info {
+    > div > div {
+        & iframe {
+            width: calc(100% - 10px);
+            height: 300px;
+        }
     }
 }
 
