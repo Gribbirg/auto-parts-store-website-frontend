@@ -65,9 +65,9 @@ section {
         text-decoration: none;
     }
 
-    > div > button, > div > a {
-        z-index: 2;
-    }
+    /*> div > button, > div > a {*/
+    /*    z-index: 2;*/
+    /*}*/
 
     transition: all 400ms;
 }

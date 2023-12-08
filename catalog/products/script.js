@@ -250,6 +250,23 @@ function getFilterList(list, parameter, a, b) {
     });
 }
 
+function getCoords(element) {
+    let box = element.getBoundingClientRect();
+    return {
+        top: box.top + scrollY,
+        left: box.left + scrollX
+    };
+}
+
+
+function duplicate(element) {
+    let clone = element.cloneNode(true);
+    clone.id = "";
+    // clone.onclick = duplicate;
+    document.body.appendChild(clone);
+    return clone;
+}
+
 window.addEventListener("scroll", function () {
     if (document.documentElement.getBoundingClientRect().bottom <= document.documentElement.clientHeight + 100 + document.querySelector("footer").offsetHeight) {
         addProducts(content);
@@ -292,4 +309,54 @@ document.getElementById("confirm_filter_button").onclick = function () {
         }
     }
     setContent(content);
+}
+
+document.getElementById("products_div").addEventListener("mousedown", function (event) {
+    console.log(1)
+    let div = event.target.closest(".product_div");
+
+    if (!div || event.target.closest("a") || event.target.closest("button")) return;
+
+    this.style.pointerEvents = "none";
+
+    document.body.style.overflow = "hidden";
+
+    let coords = getCoords(div);
+    let shiftX = event.pageX - coords.left;
+    let shiftY = event.pageY - coords.top;
+
+    let clone = duplicate(div);
+    clone.style.position = "absolute";
+    clone.style.zIndex = "100";
+    clone.style.opacity = "0.8";
+    clone.style.pointerEvents = "none";
+    clone.style.transition = "none";
+    moveTo(event);
+
+    function moveTo(event) {
+        clone.style.left = event.pageX - shiftX + 'px';
+        clone.style.top = event.pageY - shiftY + 'px';
+    }
+
+    document.addEventListener("mousemove", moveTo);
+
+    function endDrag() {
+        document.removeEventListener("mousemove", moveTo);
+        document.removeEventListener("mouseup", endDrag);
+        clone.remove();
+        document.getElementById("products_div").style.pointerEvents = "initial";
+        document.body.style.overflow = "initial";
+    }
+
+    document.addEventListener("mouseup", endDrag);
+});
+
+document.getElementById("products_div").onmousedown = document.getElementById("products_div").onselectstart = function (event) {
+    return false;
+}
+
+document.getElementById("products_div").ondragstart = function (event) {
+    let div = event.target.closest(".product_div");
+    if (!div || event.target.closest("a") || event.target.closest("button")) return;
+    return false;
 }
