@@ -96,7 +96,10 @@ section {
 
 .product_head {
     grid-area: head;
-    color: var(--md-sys-color-on-primary-container);
+    > a {
+        color: var(--md-sys-color-on-primary-container);
+        text-decoration: none;
+    }
 }
 
 .product_desc {
@@ -127,14 +130,20 @@ section {
         width: 100px;
         height: 100px;
 
-        > img {
+        > a > img {
             max-width: 100px;
             max-height: 100px;
         }
     }
 
     .product_head {
-        text-align: center;
+        width: 100%;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        > a {
+            text-align: center;
+        }
     }
 }
 
@@ -279,7 +288,7 @@ section {
 
 #to_cart_div {
     display: none;
-    position: absolute;
+    position: fixed;
     bottom: 15px;
     right: 15px;
     background: var(--md-sys-color-secondary);
@@ -287,6 +296,7 @@ section {
     box-shadow: 0 0 100px var(--md-sys-color-secondary);
     padding: 0 10px;
     transition: all 400ms;
+    z-index: 8;
 
     > h3 {
         font-size: 2rem;

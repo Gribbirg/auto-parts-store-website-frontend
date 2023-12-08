@@ -106,9 +106,8 @@ function createFilters(categoryData) {
 function createProductDiv(product) {
     document.getElementById("products_div").innerHTML +=
         `<div class="product_div" id="${product.id}+product_div">
-            <a href="/AutoPartsStoreWebsiteFrontend/catalog/product/?type=${type}&category=${category}&product=${product.id}">
-                <h3 class="product_head">${product.name}</h3>
-            </a>
+            <h3 class="product_head"><a href="/AutoPartsStoreWebsiteFrontend/catalog/product/?type=${type}&category=${category}&product=${product.id}">${product.name}</a></h3>
+            
             <div class="product_img_div">
                 <a href="/AutoPartsStoreWebsiteFrontend/catalog/product/?type=${type}&category=${category}&product=${product.id}">
                     <img src=${"/AutoPartsStoreWebsiteFrontend/images/products/" + product["img"]} alt=${product.name}/>
@@ -254,7 +253,8 @@ function getCoords(element) {
     let box = element.getBoundingClientRect();
     return {
         top: box.top + scrollY,
-        left: box.left + scrollX
+        left: box.left + scrollX,
+        topFromElement: box.top
     };
 }
 
@@ -268,7 +268,7 @@ function duplicate(element) {
 }
 
 function activeToCart(state = true) {
-    document.getElementById("to_cart_div").style.display = (state)? "block" : "none";
+    document.getElementById("to_cart_div").style.display = (state) ? "block" : "none";
     // document.getElementById("to_cart_div").style.opacity = "1";
 }
 
@@ -323,7 +323,7 @@ document.getElementById("products_div").addEventListener("mousedown", function (
 
     this.style.pointerEvents = "none";
 
-    document.body.style.overflow = "hidden";
+    // document.body.style.overflow = "hidden";
     activeToCart(true);
 
     let coords = getCoords(div);
@@ -339,8 +339,19 @@ document.getElementById("products_div").addEventListener("mousedown", function (
     moveTo(event);
 
     function moveTo(event) {
-        clone.style.left = event.pageX - shiftX + 'px';
-        clone.style.top = event.pageY - shiftY + 'px';
+        if (event.pageX <= shiftX)
+            clone.style.left = '0px';
+        else if (event.pageX >= document.body.clientWidth - (clone.offsetWidth - shiftX))
+            clone.style.left = document.body.clientWidth - clone.offsetWidth + 'px';
+        else
+            clone.style.left = event.pageX - shiftX + 'px';
+
+        if (event.pageY <= shiftY + scrollY)
+            clone.style.top = scrollY + 'px';
+        else if (event.pageY >= document.body.clientHeight - (clone.offsetHeight - shiftY))
+            clone.style.top = document.body.clientHeight - clone.offsetHeight + 'px';
+        else
+            clone.style.top = event.pageY - shiftY + 'px';
     }
 
     document.addEventListener("mousemove", moveTo);
