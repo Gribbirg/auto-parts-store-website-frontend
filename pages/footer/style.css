@@ -125,6 +125,12 @@ footer {
     box-shadow: 2px 2px 5px 2px grey;
 }
 
+#footer_anim_car {
+    position: absolute;
+    bottom: 0;
+    height: 15px;
+}
+
 @media (max-width: 900px) {
     footer {
         grid: repeat(3, fit-content(100%)) / 1fr;

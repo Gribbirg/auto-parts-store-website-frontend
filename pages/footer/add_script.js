@@ -30,5 +30,38 @@ document.body.innerHTML += `
         <p>Студент: Грибков Александр Сергеевич</p>
         <p>Группа: ИКБО-16-22</p>
     </div>
+    <img src="/AutoPartsStoreWebsiteFrontend/images/animation/car.png" alt="Машинка" id="footer_anim_car">
     </footer>
 `
+
+import { animate } from "/AutoPartsStoreWebsiteFrontend/pages/animate.js"
+
+carAnimation();
+setInterval(carAnimation, 30000);
+
+function carAnimation() {
+    animate({
+        duration: 30000,
+        timing(timeFraction) {
+            return timeFraction;
+        },
+        draw(progress) {
+            if (progress < 0.5) {
+                carFromLeftToRight(progress * 2);
+            } else {
+                carFromRightToLeft((progress - 0.5) * 2)
+            }
+        }
+    })
+}
+
+
+function carFromLeftToRight(progress) {
+    let car = document.getElementById("footer_anim_car")
+    car.style.left = progress * (document.querySelector("footer").clientWidth - car.offsetWidth) + "px";
+}
+
+function carFromRightToLeft(progress) {
+    let car = document.getElementById("footer_anim_car")
+    car.style.left = (1 - progress) * (document.querySelector("footer").clientWidth - car.offsetWidth) + "px";
+}
