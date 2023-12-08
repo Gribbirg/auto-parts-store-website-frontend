@@ -109,11 +109,53 @@ footer {
         justify-content: start;
         align-content: start;
         align-items: center;
+        height: 100%;
 
-        > label {
-            font-style: initial;
-            display: flex;
-            flex-flow: row nowrap;
+        > div {
+            margin-top: 15px;
+            box-shadow: 1px 1px 5px black;
+            border-radius: 15px;
+
+            > div {
+                font-style: initial;
+                display: flex;
+                flex-flow: row nowrap;
+
+                > label {
+                    width: 150px;
+                    padding: 5px;
+                    margin: 0;
+                    border: var(--md-sys-color-on-surface-variant) 1px solid;
+                    cursor: pointer;
+                }
+
+                > label:hover {
+                    border-color: var(--md-sys-color-tertiary);
+                    color: var(--md-sys-color-on-tertiary-container);
+                    background-color: var(--md-sys-color-tertiary-container);
+                }
+
+                > input {
+                    position: absolute;
+                    visibility: hidden;
+                }
+
+                > input:checked + label {
+                    border-color: var(--md-sys-color-secondary);
+                    color: var(--md-sys-color-on-secondary-container);
+                    background-color: var(--md-sys-color-secondary-container);
+                }
+            }
+
+            > :first-child > label {
+                border-top-left-radius: 15px;
+                border-top-right-radius: 15px;
+            }
+
+            > :last-child > label {
+                border-bottom-left-radius: 15px;
+                border-bottom-right-radius: 15px;
+            }
         }
     }
 
