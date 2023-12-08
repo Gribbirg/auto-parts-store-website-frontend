@@ -375,7 +375,7 @@ document.getElementById("products_div").addEventListener("mousedown", function (
     document.addEventListener("mouseup", endDrag);
 });
 
-document.getElementById("products_div").onmousedown = document.getElementById("products_div").onselectstart = function (event) {
+document.getElementById("products_div").onmousedown = document.getElementById("products_div").onselectstart = function () {
     return false;
 }
 
