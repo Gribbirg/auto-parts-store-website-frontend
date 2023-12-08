@@ -19,9 +19,9 @@ function animate({timing, draw, duration}) {
 
 document.getElementById("left_logo").onclick = function () {
     animate({
-        duration: 1000,
+        duration: 5000,
         timing(timeFraction) {
-            return timeFraction;
+            return Math.pow(2, 10 * (timeFraction - 1)) * Math.cos(20 * Math.PI * 1.5 / 3 * timeFraction);
         },
         draw(progress) {
             document.getElementById("left_logo").style.transform = `rotate(${progress}turn)`;
@@ -36,14 +36,10 @@ function carAnimation() {
     animate({
         duration: 30000,
         timing(timeFraction) {
-            return timeFraction;
+            return -Math.cos(timeFraction * 2 * Math.PI) / 2 + 0.5;
         },
         draw(progress) {
-            if (progress < 0.5) {
-                carFromLeftToRight(progress * 2);
-            } else {
-                carFromRightToLeft((progress - 0.5) * 2)
-            }
+            carFromLeftToRight(progress);
         }
     })
 }
@@ -52,9 +48,4 @@ function carAnimation() {
 function carFromLeftToRight(progress) {
     let car = document.getElementById("footer_anim_car")
     car.style.left = progress * (document.querySelector("footer").clientWidth - car.offsetWidth) + "px";
-}
-
-function carFromRightToLeft(progress) {
-    let car = document.getElementById("footer_anim_car")
-    car.style.left = (1 - progress) * (document.querySelector("footer").clientWidth - car.offsetWidth) + "px";
 }
