@@ -31,16 +31,10 @@ section {
     border: var(--md-sys-color-outline) 1px solid;
     box-shadow: 2px 2px 4px black;
     height: 100%;
-    /*backdrop-filter: blur(100px);*/
-    /*width: fit-content;*/
 
     > .part_name {
         color: var(--md-sys-color-on-surface);
     }
-
-    /*> p {*/
-    /*    color: var(--md-sys-color-on-surface-variant)*/
-    /*}*/
 }
 
 .part_name {

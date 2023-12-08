@@ -612,7 +612,7 @@ article {
 
             > h3 {
                 width: 80%;
-                color: var(--md-sys-color-on-background);
+                color: var(--md-sys-color-on-background-dark);
                 font-family: "Roboto Thin", sans-serif;
                 font-weight: 700;
                 text-align: center;
@@ -623,6 +623,7 @@ article {
                 font-family: "Roboto Thin", sans-serif;
                 font-weight: 400;
                 text-align: center;
+                color: white;
             }
 
             > a {
