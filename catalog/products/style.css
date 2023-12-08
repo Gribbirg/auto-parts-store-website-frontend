@@ -56,16 +56,13 @@ section {
                         "pic desc desc"
                         "pic button button";
 
-    > h3 {
+    > a > h3 {
         color: var(--md-sys-color-on-surface);
+
     }
 
     > a {
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
+        text-decoration: none;
     }
 
     > div > button, > div > a {
@@ -91,7 +88,7 @@ section {
     align-items: center;
     justify-content: center;
 
-    > img {
+    > a > img {
         max-height: 180px;
         max-width: 180px;
     }

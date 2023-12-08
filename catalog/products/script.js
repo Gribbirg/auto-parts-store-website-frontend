@@ -106,10 +106,13 @@ function createFilters(categoryData) {
 function createProductDiv(product) {
     document.getElementById("products_div").innerHTML +=
         `<div class="product_div">
-            <a href="/AutoPartsStoreWebsiteFrontend/catalog/product/?type=${type}&category=${category}&product=${product.id}"></a>
-            <h3 class="product_head">${product.name}</h3>
+            <a href="/AutoPartsStoreWebsiteFrontend/catalog/product/?type=${type}&category=${category}&product=${product.id}">
+                <h3 class="product_head">${product.name}</h3>
+            </a>
             <div class="product_img_div">
-                <img src=${"/AutoPartsStoreWebsiteFrontend/images/products/" + product["img"]} alt=${product.name}/>
+                <a href="/AutoPartsStoreWebsiteFrontend/catalog/product/?type=${type}&category=${category}&product=${product.id}">
+                    <img src=${"/AutoPartsStoreWebsiteFrontend/images/products/" + product["img"]} alt=${product.name}/>
+                </a>
             </div>
             <p class="product_desc">${product.description}</p>
             <p class="product_cost">${product["cost"].toLocaleString() + " ₽"}</p>
