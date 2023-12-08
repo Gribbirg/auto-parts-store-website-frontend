@@ -336,6 +336,7 @@ document.getElementById("products_div").addEventListener("mousedown", function (
     clone.style.opacity = "0.8";
     clone.style.pointerEvents = "none";
     clone.style.transition = "none";
+    document.body.style.cursor = "grabbing";
     moveTo(event);
 
     function moveTo(event) {
@@ -367,6 +368,7 @@ document.getElementById("products_div").addEventListener("mousedown", function (
         clone.remove();
         document.getElementById("products_div").style.pointerEvents = "initial";
         document.body.style.overflow = "initial";
+        document.body.style.cursor = "initial";
         activeToCart(false);
     }
 
