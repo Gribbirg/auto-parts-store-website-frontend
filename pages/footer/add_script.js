@@ -1,3 +1,5 @@
+"use strict"
+
 document.body.innerHTML += `
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <footer>
@@ -25,6 +27,12 @@ document.body.innerHTML += `
         </div>
     </address>
     <div>
+        Выберите цветовую тему:
+        <label><input type="radio" name="theme_input" id="theme+theme_input">Как на устройстве</label>
+        <label><input type="radio" name="theme_input" id="theme.light+theme_input">Светлая тема</label>
+        <label><input type="radio" name="theme_input" id="theme.dark+theme_input">Темная тема</label>
+    </div>
+    <div>
         Курсовая работа
         <p><abbr title="Российский технологический университет МИРЭА">РТУ МИРЭА</abbr></p>
         <p>Студент: Грибков Александр Сергеевич</p>
@@ -33,3 +41,4 @@ document.body.innerHTML += `
     <img src="/AutoPartsStoreWebsiteFrontend/images/animation/car.png" alt="Машинка" id="footer_anim_car">
     </footer>
 `
+

@@ -6,11 +6,12 @@ footer {
     padding: 10px 0;
     margin: 20px -8px -8px;
     display: grid;
-    grid: fit-content(100%) / repeat(3, 1fr);
+    grid: fit-content(100%) / repeat(4, 1fr);
     row-gap: 20px;
     column-gap: 20px;
     justify-content: space-between;
-    align-items: center;
+    align-items: start;
+    align-content: start;
     position: relative;
     /*left: -15px;*/
 
@@ -99,7 +100,24 @@ footer {
             }
         }
     }
-    :nth-child(3) {
+
+    > :nth-child(3) {
+        text-align: center;
+        font-style: italic;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: start;
+        align-content: start;
+        align-items: center;
+
+        > label {
+            font-style: initial;
+            display: flex;
+            flex-flow: row nowrap;
+        }
+    }
+
+    > :nth-child(4) {
         text-align: center;
         font-style: italic;
 
@@ -133,6 +151,6 @@ footer {
 
 @media (max-width: 900px) {
     footer {
-        grid: repeat(3, fit-content(100%)) / 1fr;
+        grid: repeat(4, fit-content(100%)) / 1fr;
     }
 }
