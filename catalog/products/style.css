@@ -276,3 +276,31 @@ section {
         background: var(--md-sys-color-tertiary-container);
     }
 }
+
+#to_cart_div {
+    display: none;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background: var(--md-sys-color-secondary);
+    border-radius: 50px;
+    box-shadow: 0 0 100px var(--md-sys-color-secondary);
+    padding: 0 10px;
+    transition: all 400ms;
+
+    > h3 {
+        font-size: 2rem;
+        color: var(--md-sys-color-on-secondary);
+    }
+}
+
+#to_cart_div:hover {
+    background: var(--md-sys-color-tertiary);
+    box-shadow: 0 0 100px var(--md-sys-color-tertiary);
+    transform: scale(1.1);
+    bottom: 30px;
+    right: 30px;
+    > h3 {
+        color: var(--md-sys-color-on-tertiary);
+    }
+}

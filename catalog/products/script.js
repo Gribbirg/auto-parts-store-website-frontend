@@ -105,7 +105,7 @@ function createFilters(categoryData) {
 
 function createProductDiv(product) {
     document.getElementById("products_div").innerHTML +=
-        `<div class="product_div">
+        `<div class="product_div" id="${product.id}+product_div">
             <a href="/AutoPartsStoreWebsiteFrontend/catalog/product/?type=${type}&category=${category}&product=${product.id}">
                 <h3 class="product_head">${product.name}</h3>
             </a>
@@ -267,6 +267,11 @@ function duplicate(element) {
     return clone;
 }
 
+function activeToCart(state = true) {
+    document.getElementById("to_cart_div").style.display = (state)? "block" : "none";
+    // document.getElementById("to_cart_div").style.opacity = "1";
+}
+
 window.addEventListener("scroll", function () {
     if (document.documentElement.getBoundingClientRect().bottom <= document.documentElement.clientHeight + 100 + document.querySelector("footer").offsetHeight) {
         addProducts(content);
@@ -312,7 +317,6 @@ document.getElementById("confirm_filter_button").onclick = function () {
 }
 
 document.getElementById("products_div").addEventListener("mousedown", function (event) {
-    console.log(1)
     let div = event.target.closest(".product_div");
 
     if (!div || event.target.closest("a") || event.target.closest("button")) return;
@@ -320,6 +324,7 @@ document.getElementById("products_div").addEventListener("mousedown", function (
     this.style.pointerEvents = "none";
 
     document.body.style.overflow = "hidden";
+    activeToCart(true);
 
     let coords = getCoords(div);
     let shiftX = event.pageX - coords.left;
@@ -340,12 +345,18 @@ document.getElementById("products_div").addEventListener("mousedown", function (
 
     document.addEventListener("mousemove", moveTo);
 
-    function endDrag() {
+    function endDrag(event) {
+
+        if (event.target.closest("#to_cart_div")) {
+            addCountOrAddToCart(cart, div.id.split("+")[0], type, category);
+        }
+
         document.removeEventListener("mousemove", moveTo);
         document.removeEventListener("mouseup", endDrag);
         clone.remove();
         document.getElementById("products_div").style.pointerEvents = "initial";
         document.body.style.overflow = "initial";
+        activeToCart(false);
     }
 
     document.addEventListener("mouseup", endDrag);

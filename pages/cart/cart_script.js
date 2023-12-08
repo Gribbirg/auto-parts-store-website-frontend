@@ -1,5 +1,5 @@
 let cart = getCart();
-
+// setCart([])
 
 function findInCart(cart, id) {
     return cart.find(function (item) {
@@ -46,14 +46,22 @@ function addCount(cart, id) {
     setProductCartButtonText(id, product.count);
 }
 
+function addToCart(cart, id, type, category) {
+    cart.push({id: id, type: type, category: category, count: 1});
+    setCart(cart);
+    setProductBuyButtonsState(id, true);
+    setProductCartButtonText(id, 1);
+}
+
+function addCountOrAddToCart(cart, id, type, category) {
+    if (findInCart(cart, id)) addCount(cart, id);
+    else addToCart(cart, id, type, category);
+}
+
 function setProductsButtonsOnClick(type, category) {
     for (let button of document.querySelectorAll(".product_buy_button")) {
         button.onclick = function () {
-            let id = button.id.split("+")[0];
-            cart.push({id: id, type: type, category: category, count: 1});
-            setCart(cart);
-            setProductBuyButtonsState(id, true);
-            setProductCartButtonText(id, 1);
+            addToCart(cart, button.id.split("+")[0], type, category);
         };
     }
     for (let button of document.querySelectorAll(".cart_add_button")) {
