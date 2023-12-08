@@ -1,7 +1,5 @@
 "use strict"
 
-import { animate } from "/AutoPartsStoreWebsiteFrontend/pages/animate.js"
-
 document.body.innerHTML +=
     `<header id="header">
         <img id="left_logo" src="/AutoPartsStoreWebsiteFrontend/images/animation/wheel.png" alt="Колесо">
@@ -18,18 +16,6 @@ document.body.innerHTML +=
     </header>`
 
 activeNavHref(window.location);
-
-document.getElementById("left_logo").onclick = function () {
-    animate({
-        duration: 1000,
-        timing(timeFraction) {
-            return timeFraction;
-        },
-        draw(progress) {
-            document.getElementById("left_logo").style.transform = `rotate(${progress}turn)`;
-        }
-    })
-}
 
 function activeNavHref(location) {
     let spl = location.toString().split("/");
