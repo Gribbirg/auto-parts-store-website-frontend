@@ -29,7 +29,7 @@ document.body.innerHTML += `
     <div>
         Выберите цветовую тему:
         <div>
-            <div><input type="radio" name="theme_input" id="theme+theme_input" checked><label for="theme+theme_input">Как на устройстве</label></div>
+            <div><input type="radio" name="theme_input" id="theme+theme_input"><label for="theme+theme_input">Как на устройстве</label></div>
             <div><input type="radio" name="theme_input" id="theme.light+theme_input"><label for="theme.light+theme_input">Светлая тема</label></div>
             <div><input type="radio" name="theme_input" id="theme.dark+theme_input"><label for="theme.dark+theme_input">Темная тема</label></div>
         </div>
@@ -44,18 +44,19 @@ document.body.innerHTML += `
     </footer>
 `
 
-let theme = localStorage.getItem("theme");
-if (!theme || theme === "") theme = "theme"
-else document.getElementById(`${theme}+theme_input`).checked = true;
+let theme = localStorage.getItem("theme") ?? "theme";
 setTheme(theme);
 
-document.querySelectorAll(`input[name="theme_input"]`).forEach(function (input) {
-    input.onchange = function () {
-        if (input.checked) {
-            theme = input.id.split("+")[0];
-            setTheme(theme);
-        }
-    }
+window.addEventListener("DOMContentLoaded", function () {
+    document.getElementById(`${theme}+theme_input`).checked = true;
+    document.querySelectorAll(`input[name="theme_input"]`).forEach(function (input) {
+        input.addEventListener("change", function () {
+            if (input.checked) {
+                theme = input.id.split("+")[0];
+                setTheme(theme);
+            }
+        })
+    });
 });
 
 
