@@ -54,6 +54,7 @@ main {
 
     > h3 {
         grid-area: name;
+
         > a {
             color: var(--md-sys-color-on-surface);
         }
@@ -61,6 +62,10 @@ main {
 
     > .product_desc {
         grid-area: desc;
+
+        > a {
+            color: var(--md-sys-color-on-surface-variant);
+        }
     }
 
     > .product_count {
@@ -92,7 +97,7 @@ main {
         border-color: var(--md-sys-color-error);
     }
 
-    >  .product_div_button {
+    > .product_div_button {
         justify-self: end;
         align-self: center;
 
