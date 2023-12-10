@@ -1,14 +1,21 @@
 "use strict"
 
 let content = [];
-document.getElementById("clean_button").disabled = true;
-document.getElementById("sub").disabled = true;
-
 let captcha = CreateCaptcha();
 captcha.check();
 
+// document.getElementById("clean_button").disabled = true;
+// document.getElementById("sub").disabled = true;
+// cart = getCart();
+// // createCartDivs(cart);
+// initProducts().then();
+
+
 window.addEventListener("pageshow", function () {
+    document.getElementById("clean_button").disabled = true;
+    document.getElementById("sub").disabled = true;
     cart = getCart();
+    createCartDivs(cart);
     initProducts().then();
 });
 
@@ -38,6 +45,13 @@ document.getElementById("order_form").onsubmit = function () {
 
 document.getElementById("cart_div").onclick = confirmRef;
 document.getElementById("header").onclick = confirmRef;
+
+function showContent() {
+    for (let i = 0; i < content.length; i++) {
+        createCartElement(content[i], cart[i]);
+        console.log(content[i].id)
+    }
+}
 
 async function initProducts() {
     document.getElementById("cart_div").innerHTML = "";
@@ -133,9 +147,17 @@ function setSumValue() {
 
 }
 
+function createCartDivs(cart) {
+    for (let product of cart) {
+        console.log(product.id)
+        document.getElementById("cart_div").innerHTML +=
+        `<a>Бла бля бля</a>`
+    }
+}
+
 function createCartElement(product, cartProduct) {
-    document.getElementById("cart_div").innerHTML += `
-        <div class="cart_element_div" id="${product.id}+div">
+    document.getElementById("cart_div").innerHTML +=
+        `<div class="cart_element_div" id="${product.id}+div">
             <h3><a href="../catalog/product/?type=${cartProduct.type}&category=${cartProduct.category}&product=${product.id}">${product.name}</a></h3>
             <p class="product_desc"><a href="../catalog/product/?type=${cartProduct.type}&category=${cartProduct.category}&product=${product.id}">${product.description}</a></p>
             <p class="product_cost" id="${product.id}+product_cost">${(product["cost"] * cartProduct["count"]).toLocaleString()} ₽</p>    
