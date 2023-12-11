@@ -234,7 +234,6 @@ article {
             transition: all 400ms;
             margin: 0;
             z-index: 3;
-            /*visibility: hidden;*/
 
             > p {
                 width: 80%;
@@ -606,7 +605,6 @@ article {
             border-radius: 1rem;
             background: rgba(128, 128, 128, 0.7);
             box-shadow: 1px 1px 10px 2px black;
-            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
             z-index: 1;
 
