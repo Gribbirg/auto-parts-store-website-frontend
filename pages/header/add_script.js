@@ -2,7 +2,7 @@
 
 document.body.innerHTML +=
     `<header id="header">
-        <img id="left_logo" src="/AutoPartsStoreWebsiteFrontend/images/animation/wheel.png" width="60px" alt="Колесо">
+        <img id="left_logo" src="/AutoPartsStoreWebsiteFrontend/images/animation/wheel.png" height="60px" alt="Колесо">
             <h1 id="header_head">Магазин автозапчастей</h1>
 
             <nav id="up_nav">
