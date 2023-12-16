@@ -27,6 +27,7 @@ if (!product)
 setProductData(product);
 
 window.addEventListener("pageshow", function () {
+    cart = getCart();
     setButtonsState(product.id);
 });
 

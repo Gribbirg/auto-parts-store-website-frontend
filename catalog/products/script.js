@@ -32,6 +32,7 @@ onSortDivClickListener(document.getElementById("cost_sort"));
 createFilters(categoryData);
 
 window.addEventListener("pageshow", function () {
+    cart = getCart();
     content.forEach(function (item) {
         setButtonsState(item.id);
     })
