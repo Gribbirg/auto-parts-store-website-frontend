@@ -40,7 +40,7 @@ document.body.innerHTML += `
         <p>Студент: Грибков Александр Сергеевич</p>
         <p>Группа: ИКБО-16-22</p>
     </div>
-    <img src="/AutoPartsStoreWebsiteFrontend/images/animation/car.png" alt="Машинка" id="footer_anim_car">
+    <img src="/auto-parts-store-website-frontend/images/animation/car.png" alt="Машинка" id="footer_anim_car">
     </footer>
 `
 
@@ -61,6 +61,6 @@ window.addEventListener("DOMContentLoaded", function () {
 
 
 function setTheme(theme) {
-    document.getElementById("theme_link").href = `/AutoPartsStoreWebsiteFrontend/pages/colors/${theme}.css`;
+    document.getElementById("theme_link").href = `/auto-parts-store-website-frontend/pages/colors/${theme}.css`;
     localStorage.setItem("theme", theme);
 }

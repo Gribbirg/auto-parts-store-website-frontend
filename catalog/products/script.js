@@ -2,13 +2,13 @@
 
 let {type, category} = getCategory();
 
-// const responseCategory = await fetch('https://gribbirg.github.io/AutoPartsStoreWebsiteFrontend/data/categories.json');
+// const responseCategory = await fetch('https://gribbirg.github.io/auto-parts-store-website-frontend/data/categories.json');
 const responseCategory = await fetch('../../data/categories.json');
 const typeData = (await responseCategory.json()).find(function (item) {
     return item.id === type;
 });
 if (!typeData)
-    window.location.href = "/AutoPartsStoreWebsiteFrontend/catalog/";
+    window.location.href = "/auto-parts-store-website-frontend/catalog/";
 
 if (!category || category === "null")
     goToCategory(type, typeData["subcategories"][0].id);
@@ -19,7 +19,7 @@ const categoryData = typeData["subcategories"].find(function (item) {
 if (!categoryData)
     goToCategory(type, typeData["subcategories"][0].id);
 
-// const response = await fetch(`https://gribbirg.github.io/AutoPartsStoreWebsiteFrontend/data/products/${type}/${category}.json`);
+// const response = await fetch(`https://gribbirg.github.io/auto-parts-store-website-frontend/data/products/${type}/${category}.json`);
 const response = await fetch(`../../data/products/${type}/${category}.json`);
 const data = await response.json();
 
@@ -42,7 +42,7 @@ function getCategory() {
     let search = new URLSearchParams(window.location.search)
     let type = search.get("type");
     if (!type || type === "null") {
-        window.location.href = "/AutoPartsStoreWebsiteFrontend/catalog/";
+        window.location.href = "/auto-parts-store-website-frontend/catalog/";
     }
     let category = search.get("category");
     return {type, category};
@@ -107,11 +107,11 @@ function createFilters(categoryData) {
 function createProductDiv(product) {
     document.getElementById("products_div").innerHTML +=
         `<div class="product_div" id="${product.id}+product_div">
-            <h3 class="product_head"><a href="/AutoPartsStoreWebsiteFrontend/catalog/product/?type=${type}&category=${category}&product=${product.id}">${product.name}</a></h3>
+            <h3 class="product_head"><a href="/auto-parts-store-website-frontend/catalog/product/?type=${type}&category=${category}&product=${product.id}">${product.name}</a></h3>
             
             <div class="product_img_div">
-                <a href="/AutoPartsStoreWebsiteFrontend/catalog/product/?type=${type}&category=${category}&product=${product.id}">
-                    <img src=${"/AutoPartsStoreWebsiteFrontend/images/products/" + product["img"]} alt=${product.name}/>
+                <a href="/auto-parts-store-website-frontend/catalog/product/?type=${type}&category=${category}&product=${product.id}">
+                    <img src=${"/auto-parts-store-website-frontend/images/products/" + product["img"]} alt=${product.name}/>
                 </a>
             </div>
             <p class="product_desc">${product.description}</p>
@@ -122,7 +122,7 @@ function createProductDiv(product) {
                     <span></span>
                 </button>
                 <button class="product_basket_button arrow_button cart_sub_button" id="${product.id}+cart_sub_button">-</button>
-                <a href="/AutoPartsStoreWebsiteFrontend/cart"><button class="product_basket_button arrow_button cart_button" id="${product.id}+cart_button">
+                <a href="/auto-parts-store-website-frontend/cart"><button class="product_basket_button arrow_button cart_button" id="${product.id}+cart_button">
                     В корзине 1 шт
                     <span></span>
                 </button></a>
